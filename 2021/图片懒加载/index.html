@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Luffy">
   <meta name="keywords" content="">
-  <title>test - Luffy</title>
+  <title>图片懒加载 - Luffy</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -199,7 +199,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="test">
+            <span class="h2" id="subtitle" title="图片懒加载">
               
             </span>
 
@@ -209,8 +209,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-01 09:24" pubdate>
-        2021年2月1日 上午
+      <time datetime="2021-06-17 13:49" pubdate>
+        2021年6月17日 下午
       </time>
     </span>
   
@@ -221,7 +221,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2 字
+      535 字
     </span>
   
 
@@ -231,7 +231,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      7
        分钟
     </span>
   
@@ -261,10 +261,34 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">test</h1>
+            <h1 style="display: none">图片懒加载</h1>
             
             <div class="markdown-body">
-              <p>测试</p>
+              <p>监听滚动事件和IntersectionObserver()实现图片懒加载</p>
+<a id="more"></a>
+
+<h1 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">&quot;1.jpg&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">&quot;2.jpg&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">&quot;3.jpg&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">&quot;4.jpg&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">&quot;5.jpg&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">&quot;6.jpg&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+<h2 id="一、-监听滚动事件，判断图片与视口的高度差来重置图片的src"><a href="#一、-监听滚动事件，判断图片与视口的高度差来重置图片的src" class="headerlink" title="一、 监听滚动事件，判断图片与视口的高度差来重置图片的src"></a>一、 监听滚动事件，判断图片与视口的高度差来重置图片的src</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> imgs = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">&#x27;img&#x27;</span>);<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">lazyLoad</span>(<span class="hljs-params"></span>)</span>&#123;<br>	imgs.forEach( <span class="hljs-function">(<span class="hljs-params">img</span>) =&gt;</span> &#123;<br>			<span class="hljs-comment">// 获取每个图片的距离文档顶部的位置</span><br>			<span class="hljs-keyword">const</span> imageTop = img.getBoundingClientRect().top;<br>			<span class="hljs-comment">// 图片位置高于视口高度时,重置src属性</span><br>			<span class="hljs-keyword">if</span>(imageTop &lt; <span class="hljs-built_in">window</span>.innerHeight)&#123;<br>				<span class="hljs-comment">// 将图片的data-src属性赋值给src属性</span><br>				<span class="hljs-keyword">const</span> data_src = img.getAttribute(<span class="hljs-string">&#x27;data-src&#x27;</span>);<br>				img.setAttribute(<span class="hljs-string">&#x27;src&#x27;</span>, data_src) <br>			&#125;<br>	&#125;)	<br>&#125;<br><br><span class="hljs-comment">// 防抖</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">debounce</span>(<span class="hljs-params">fn, delay = <span class="hljs-number">500</span></span>) </span>&#123;<br>  <span class="hljs-keyword">let</span> timer = <span class="hljs-literal">null</span>;<br>  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">...args</span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (timer) <span class="hljs-built_in">clearTimeout</span>(timer);<br>    timer = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>      fn.call(<span class="hljs-built_in">this</span>, args);<br>    &#125;, delay);<br>  &#125;;<br>&#125;<br><br><span class="hljs-comment">//屏幕添加滚动事件监听</span><br><span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&#x27;scroll&#x27;</span>, debounce(lazyLoad, <span class="hljs-number">600</span>))<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>缺点: </p>
+</blockquote>
+<ol>
+<li>屏幕滚动的时候会不断触发滚动事件</li>
+<li>图片加载完成之后，当触发滚动事件，还会不断更新src的值</li>
+</ol>
+<h2 id="二、-IntersectionObserver-方法监听或取消监听图片"><a href="#二、-IntersectionObserver-方法监听或取消监听图片" class="headerlink" title="二、 IntersectionObserver()方法监听或取消监听图片"></a>二、 IntersectionObserver()方法监听或取消监听图片</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> imgs = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">&#x27;img&#x27;</span>);<br><br><span class="hljs-comment">// 3. 回调函数的参数是一个数组,数组内容为监听内容的集合;</span><br><span class="hljs-keyword">const</span> callback = <span class="hljs-function">(<span class="hljs-params"> entries </span>) =&gt;</span> &#123;<br>	<span class="hljs-built_in">console</span>.log( entries );<br>	entries.forEach( <span class="hljs-function"><span class="hljs-params">entry</span> =&gt;</span> &#123;<br>		<span class="hljs-comment">// 当元素的isIntersecting为true时表示监听到图片内容</span><br>		<span class="hljs-keyword">if</span> (entry.isIntersecting) &#123;<br>			<span class="hljs-keyword">const</span> img = entry.target;<br>			<span class="hljs-keyword">const</span> data_src = img.getAttribute(<span class="hljs-string">&#x27;data-src&#x27;</span>);<br>			img.setAttribute(<span class="hljs-string">&#x27;src&#x27;</span>, data_src);<br>			<span class="hljs-comment">// 图片加载后就取消监听,避免时候视口滚动重复加载</span><br>			observer.unobserve(img);<br>			<span class="hljs-comment">// 核实图片加载时机和次数</span><br>			<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;666&#x27;</span>);<br>		&#125;<br>	&#125;)<br>&#125;<br><br><span class="hljs-comment">// 1. 创建IntersectionObserver实例,提供一种异步观察目标元素与其祖先或顶级视窗交叉状态的方法,参数是一个回调函数</span><br><span class="hljs-keyword">const</span> observer = <span class="hljs-keyword">new</span> IntersectionObserver( callback );<br><br><span class="hljs-comment">// 2. 遍历图像数组,监听每个图像</span><br>imgs.forEach( <span class="hljs-function"><span class="hljs-params">img</span> =&gt;</span> &#123;<br>	observer.observe(img)<br>&#125;)<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>缺点:</p>
+</blockquote>
+<ol>
+<li>兼容性 不支持ie</li>
+</ol>
+<blockquote>
+<p>优点:</p>
+</blockquote>
+<ol>
+<li>每个懒加载图片只加载一次</li>
+</ol>
 
             </div>
             <hr>
@@ -275,9 +299,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/blog/tags/tag1/">tag1</a>
+                      <a class="hover-with-bg" href="/blog/tags/%E4%BC%98%E5%8C%96/">优化</a>
                     
-                      <a class="hover-with-bg" href="/blog/tags/tag2/">tag2</a>
+                      <a class="hover-with-bg" href="/blog/tags/Javascript/">Javascript</a>
                     
                   </div>
                 
@@ -285,7 +309,7 @@
 
                <p class="note note-warning">
               <strong>本文作者: </strong><a href="/blog/">孟 虎</a> <br>
-              <strong>本文链接: </strong><a href="https://menghu1994.github.io/blog/2021/test/">https://menghu1994.github.io/blog/2021/test/</a> <br>
+              <strong>本文链接: </strong><a href="https://menghu1994.github.io/blog/2021/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/">https://menghu1994.github.io/blog/2021/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/</a> <br>
               <strong>版权声明: </strong>本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
                  </p>
                  
@@ -295,15 +319,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/2021/hexoFluid/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">hexo搭建个人主页</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/blog/2021/hexoFluid/">
+                        <span class="hidden-mobile">hexo搭建个人主页</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
