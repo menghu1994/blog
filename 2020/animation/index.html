@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Luffy">
   <meta name="keywords" content="">
-  <title>关于 - Luffy</title>
+  <title>CSS Animation - Luffy</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -33,6 +33,8 @@
     
   
 
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
   
 
 
@@ -66,7 +68,7 @@
 
 
 <body>
-  <header style="height: 40vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -193,14 +195,51 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/blog/img/default.png') no-repeat center center;
+         style="background: url('https://angieng47.files.wordpress.com/2012/09/screen-shot-2012-09-27-at-6-11-20-pm.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="✍ Hello gays">
+            <span class="h2" id="subtitle" title="CSS Animation">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-10-23 11:27" pubdate>
+        2020年10月23日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      174 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      预计阅读
+      6
+       分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -213,87 +252,128 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-            <div class="about-avatar">
-              <img src="/blog/img/head.png" srcset="/blog/img/loading.gif"
-                   class="img-fluid" alt="avatar">
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">CSS Animation</h1>
+            
+            <div class="markdown-body">
+              <p>transition;animation</p>
+<a id="more"></a>
+<p>transition:</p>
+<ul>
+<li><p>ease            //缓慢开始</p>
+</li>
+<li><p>linear        //匀速</p>
+</li>
+<li><p>ease-in        //缓慢开始</p>
+</li>
+<li><p>ease-out        //缓慢结束</p>
+</li>
+<li><p>ease-in-out    //缓慢开始，缓慢结束</p>
+</li>
+<li><p>webkit-perspective        //距离屏幕距离</p>
+</li>
+<li><p>webkit-perspective-origin: 50% 50%;</p>
+</li>
+<li><p>webkit-transform-style:-webkit-preserve-3d    //三维场景</p>
+<p>transform-origin        //旋转中心</p>
+</li>
+<li><p>x轴 left center right</p>
+</li>
+<li><p>y轴 top center bottom</p>
+</li>
+<li><p>z轴 length px</p>
+</li>
+</ul>
+<p>transform:rotateY(20deg)</p>
+<h2 id="Animation"><a href="#Animation" class="headerlink" title="Animation"></a>Animation</h2><ul>
+<li>animation:动画名称 持续时间 运动曲线 延时时间 播放次数 方向</li>
+</ul>
+<ul>
+<li>@keyframe</li>
+<li>animation-name                  </li>
+<li>animation-duration                //完成所需时间</li>
+<li>animation-timing-function        //速度曲线 ease..</li>
+<li>animation-delay                    //延时时间</li>
+<li>animation-iteration-count        //播放次数 infinite</li>
+<li>animation-direction                //下次是否逆向播放 normal/alternate</li>
+<li>animation-play-state             //动画运行或暂停 paused/running</li>
+<li>animation-fill-mode                //动画外的状态 none/forwards/backwards/both</li>
+</ul>
+
             </div>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
                 
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/css/">css</a>
+                    
+                  </div>
+                
+              </div>
 
-<div class="text-center">
-  <div class="about-info">
-    <div class="about-name">孟 虎</div>
-    <div class="about-intro">博客日志 | 技术文档</div>
-    <div class="about-icons">
-      
-        
-        
-        
-        <a target="_blank" rel="noopener" href="https://github.com/menghu1994" class="
-           hint--bottom hint--rounded"
-           aria-label=GitHub
-        >
-          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
-          
-        </a>
-      
-        
-        
-        
-        <a target="_blank" rel="noopener" href="https://www.douban.com/people/166467024/" class="
-           hint--bottom hint--rounded"
-           aria-label=豆瓣
-        >
-          <i class="iconfont icon-douban-fill" aria-hidden="true"></i>
-          
-        </a>
-      
-        
-        
-        
-        <a href="javascript:;" class="qr-trigger
-           "
-           
-        >
-          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
-          
-            <img class="qr-img" src="/blog/img/wechat.png" srcset="/blog/img/loading.gif" alt="qrcode" />
-          
-        </a>
-      
-    </div>
-  </div>
-</div>
+               <p class="note note-warning">
+              <strong>本文作者: </strong><a href="/blog/">孟 虎</a> <br>
+              <strong>本文链接: </strong><a href="https://menghu1994.github.io/blog/2020/animation/">https://menghu1994.github.io/blog/2020/animation/</a> <br>
+              <strong>版权声明: </strong>本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                 </p>
+                 
 
-<article class="mt-5 markdown-body">
-  <h2 id="🔨-技能列表"><a href="#🔨-技能列表" class="headerlink" title="🔨 技能列表"></a>🔨 技能列表</h2><p align="left">
-    <img src="https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white" srcset="/blog/img/loading.gif" alt="HTML5">
-    <img src="https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3&logoColor=white" srcset="/blog/img/loading.gif" alt="CSS3">
-    <img src="https://img.shields.io/badge/-JavaScript-eed718?style=flat&logo=javascript&logoColor=ffffff" srcset="/blog/img/loading.gif" alt="Javascript">
-    <img src="https://img.shields.io/badge/vue-#4FC08D?logo=vue&style=plastic" srcset="/blog/img/loading.gif" alt="Vue">
-    <img src="https://img.shields.io/badge/photoshop-#31A8FF?logo=photoshop&style=plastic" srcset="/blog/img/loading.gif" alt="photoshop">
-    <img src="https://img.shields.io/badge/小程序-#31A8FF?logo=wechat&style=plastic" srcset="/blog/img/loading.gif" alt="小程序">
-</p>
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/2021/hexoFluid/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">hexo搭建个人主页</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/2020/Date/">
+                        <span class="hidden-mobile">new Date()</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
 
-<h2 id="🤝-联系我"><a href="#🤝-联系我" class="headerlink" title="🤝 联系我"></a>🤝 联系我</h2><p>E-mail</p>
-<p>微信</p>
-</article>
-
-
-
-
-
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
   <div id="vcomments"></div>
+  <style>
+.v[data-class=v] .veditor {
+    background-image: url(https://blog.justlovesmile.top/img/comment_bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+</style>
   <script type="text/javascript">
-    function loadValine() {
-      addScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
         new Valine({
           el: "#vcomments",
           app_id: "K5t0hzq1aPNDTQPiOHKBjo2A-gzGzoHsz",
@@ -309,17 +389,42 @@
           serverURLs: "https://K5t0hzq1aPNDTQPiOHKBjo2A-gzGzoHsz.api.lncldglobal.com",
         });
       });
-    }
-    waitElementVisible('vcomments', loadValine);
+    });
   </script>
-  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
-      powered by Valine.</a></noscript>
+  <script type="text/javascript">
+   fetch('https://v1.hitokoto.cn/?c=b&c=c')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("veditor").setAttribute("placeholder",data.hitokoto+"__"+data.from);
+    })
+    .catch(console.error)
+</script>
+  <noscript>Please enable JavaScript to view the
+    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
 
-              </div>
-            </div>
-          </div>
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -377,7 +482,11 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
 
 
 

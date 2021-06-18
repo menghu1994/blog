@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Luffy">
   <meta name="keywords" content="">
-  <title>hexo搭建个人主页 - Luffy</title>
+  <title>stylus - Luffy</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -195,12 +195,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/blog/img/bg/tag.png') no-repeat center center;
+         style="background: url('https://titangene.github.io/images/cover/css.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="hexo搭建个人主页">
+            <span class="h2" id="subtitle" title="stylus">
               
             </span>
 
@@ -210,8 +210,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-15 14:13" pubdate>
-        2021年4月15日 下午
+      <time datetime="2020-07-22 10:11" pubdate>
+        2020年7月22日 上午
       </time>
     </span>
   
@@ -222,7 +222,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      559 字
+      204 字
     </span>
   
 
@@ -232,7 +232,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       预计阅读
-      17
+      9
        分钟
     </span>
   
@@ -262,57 +262,36 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">hexo搭建个人主页</h1>
+            <h1 style="display: none">stylus</h1>
             
             <div class="markdown-body">
-              <center style="color:#3eceb8;font-size:1.5em;font-weight: bold;">
-Hexo + Fluid主题 + github page
-<br>
-搭建个人博客
-</center>
-
-<p>看了网上很多有很多不同的搭建个人博客的方式,最终选择Hexo这个大众化的博客,并选了一个简洁而优雅的bluid主题.</p>
+              <p>css预处理</p>
 <a id="more"></a>
-<style>
-.markdown-body {
-    font-family:"Microsoft YaHei",Georgia, sans, serif;
-    font-size: 18px;
-  }
- </style>
-<p><strong>准备事项: 默认已经安装<code>node.js</code>,<code>git</code>,有github账号.没有安装可以看一下我的其他的博客</strong></p>
-<h3 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a><a target="_blank" rel="noopener" href="https://hexo.io/docs/">Hexo</a>安装</h3><ul>
-<li>新建文件夹存放博客文件,比如 <code>D:\pro\blog</code>  </li>
-<li>在该目录下右键<code>git bash here</code>中使用命令行安装全局hexo<figure class="highlight avrasm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs avrasm">$ npm install -g hexo-<span class="hljs-keyword">cli</span> <br></code></pre></div></td></tr></table></figure></li>
-<li>初始化文件夹,安装必备组件<figure class="highlight 1c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs 1c"><span class="hljs-meta">&amp; hexo init</span><br><span class="hljs-meta">&amp; npm install</span><br></code></pre></div></td></tr></table></figure></li>
-<li>生成静态页面<code>&amp; hexo generate</code>,<code>&amp; hexo server</code>启动博客<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> (以下命令为缩写)<figure class="highlight 1c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs 1c"><span class="hljs-meta">&amp; hexo g</span><br><span class="hljs-meta">&amp; hexo s</span><br></code></pre></div></td></tr></table></figure></li>
-<li>crtl+c关闭本地服务器,或者关闭git控制台.<br></br></br></li>
-</ul>
-<h3 id="安装Fluid主题"><a href="#安装Fluid主题" class="headerlink" title="安装Fluid主题"></a>安装<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/">Fluid</a>主题</h3><ul>
-<li>继续使用<code>git bash here</code>下载Fluid仓库  (git命令行中粘贴快捷键是<code>shift+insert</code>)<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">&amp; git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/fluid-dev/</span>hexo-theme-fluid.git<br></code></pre></div></td></tr></table></figure></li>
-<li>将下载好的文件包剪切到blog下的themes文件夹下,并修改<code>_config.yml</code>文件中<code>theme: fluid</code></li>
-<li>重新在blog目录下执行 <code>&amp; hexo g</code>,<code>&amp; hexo s</code>新的主题页就可以看到了<br></br></br></li>
-</ul>
-<h3 id="连接github-page与hexo"><a href="#连接github-page与hexo" class="headerlink" title="连接github page与hexo"></a>连接github page与hexo</h3><ul>
-<li>创建github page<br>新建一个名称为yourname.github.io仓库</li>
-</ul>
-<p><img src="/img/hexo_github/creatRepo.jpg" srcset="/blog/img/loading.gif" alt="new repo"></p>
-<p>点击<code>setting</code>,向下拉到最后有个<code>GitHub Pages</code>,就可以有自己的静态主页了.<br><img src="/img/hexo_github/githubPage.jpg" srcset="/blog/img/loading.gif" alt="github page"></p>
-<ul>
-<li>打开blog文件夹,修改最后一行<code>deploy</code>的配置(以下账号名称改为个人注册账号名称)<figure class="highlight less"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs less"><span class="hljs-attribute">deploy</span>:<br>  <span class="hljs-attribute">type</span>: git<br>  <span class="hljs-attribute">repo</span>: <span class="hljs-attribute">https</span>:<span class="hljs-comment">//github.com/menghu1994/menghu1994.github.io.git</span><br>  <span class="hljs-attribute">branch</span>: master<br><br></code></pre></div></td></tr></table></figure></li>
-<li>安装连接扩展<figure class="highlight 1c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs 1c"><span class="hljs-meta">&amp; npm i hexo-deployer-git</span><br></code></pre></div></td></tr></table></figure></li>
-<li>清理缓存,生成静态页面,上传到github仓库<figure class="highlight 1c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs 1c"><span class="hljs-meta">&amp; hexo clean</span><br><span class="hljs-meta">&amp; hexo g</span><br><span class="hljs-meta">&amp; hexo d</span><br></code></pre></div></td></tr></table></figure></li>
-<li>打开你的<a href="https://menghu1994.github.io/">github page</a>就能看到个人主页,至此个人博客搭建已经结束.</li>
-</ul>
-<h3 id="写文章并发布"><a href="#写文章并发布" class="headerlink" title="写文章并发布"></a>写文章并发布</h3><ul>
-<li><p>新建文章</p>
-<figure class="highlight haxe"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs haxe">&amp; hexo <span class="hljs-keyword">new</span> <span class="hljs-type"></span>&#x27;<span class="hljs-keyword">new</span> <span class="hljs-type">article</span>&#x27;<br></code></pre></div></td></tr></table></figure></li>
-<li><p>在<code>blog\source\_posts</code>下可以看到多出的<code>new article.md</code></p>
-</li>
-<li><p>使用markdown语法写完一篇博客后执行以上的清理缓存,生成静态页面,上传到github仓库的步骤</p>
-</li>
-</ul>
-<h3 id="修改Fluid主题配置"><a href="#修改Fluid主题配置" class="headerlink" title="修改Fluid主题配置"></a>修改Fluid主题配置</h3><h3 id="修改hexo配置"><a href="#修改hexo配置" class="headerlink" title="修改hexo配置"></a>修改hexo配置</h3><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35668237">超详细Hexo+Github博客搭建小白教程</a></p>
+<h3 id="calc"><a href="#calc" class="headerlink" title="calc"></a>calc</h3><figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span>&#123;<br>	<span class="hljs-attribute">width</span>:<span class="hljs-number">400px</span>;<br>	<span class="hljs-attribute">height</span>:<span class="hljs-number">300px</span>;<br>	<span class="hljs-attribute">padding-left</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">50vw</span>-<span class="hljs-number">400</span>/<span class="hljs-number">2</span>);<br>	<span class="hljs-attribute">padding-top</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">50vh</span>-<span class="hljs-number">300</span>/<span class="hljs-number">2</span>);<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
+<h1 id="Stylus"><a href="#Stylus" class="headerlink" title="Stylus"></a>Stylus</h1><blockquote>
+<p>垂直居中元素</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus">.center<br>	<span class="hljs-attribute">position</span> absolute<br>	<span class="hljs-attribute">left</span> <span class="hljs-number">50%</span><br>	<span class="hljs-attribute">top</span> <span class="hljs-number">50%</span><br>	<span class="hljs-attribute">width</span> <span class="hljs-number">400px</span><br>	<span class="hljs-attribute">height</span> <span class="hljs-number">300px</span><br>	<span class="hljs-attribute">margin-left</span> -(@width / <span class="hljs-number">2</span>)<br>	<span class="hljs-attribute">margin-top</span> -(@height / <span class="hljs-number">2</span>)<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>一像素分割线</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">border-1px</span><span class="hljs-params">(<span class="hljs-variable">$color</span>)</span></span><br>	<span class="hljs-attribute">position</span> relative<br>	&amp;::after<br>		<span class="hljs-attribute">display</span> block<br>		<span class="hljs-attribute">position</span> absolute<br>		<span class="hljs-attribute">content</span> <span class="hljs-string">&#x27;&#x27;</span><br>		<span class="hljs-attribute">width</span> <span class="hljs-number">100%</span><br>		<span class="hljs-attribute">border-bottom</span> <span class="hljs-number">1px</span> solid <span class="hljs-variable">$color</span><br>		<span class="hljs-attribute">left</span> <span class="hljs-number">0</span><br>		<span class="hljs-attribute">bottom</span> <span class="hljs-number">0</span><br><span class="hljs-function"><span class="hljs-title">border-none</span><span class="hljs-params">()</span></span><br>	<span class="hljs-attribute">border</span> none<br>	&amp;::after<br>		<span class="hljs-attribute">border</span> none<br>@media screen and (min-device-pixel-ratio:<span class="hljs-number">3</span>)<br>	.<span class="hljs-attribute">border</span>-<span class="hljs-number">1px</span><br>		&amp;::after<br>			<span class="hljs-attribute">transform</span> scaleY(<span class="hljs-number">0.333</span>)<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>媒体查询采用不同尺寸的图片</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">bg-img</span><span class="hljs-params">(<span class="hljs-variable">$url</span>)</span></span><br>	<span class="hljs-attribute">background-image</span> url(<span class="hljs-variable">$url</span>+<span class="hljs-string">&quot;@2x.png&quot;</span>)<br>	@media screen and (min-device-pixel-ratio:<span class="hljs-number">3</span>)<br>		<span class="hljs-attribute">background-image</span> url(<span class="hljs-variable">$url</span>+<span class="hljs-string">&quot;@3x.png&quot;</span>)<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>清除浮动</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus">.clearfix<br>	<span class="hljs-attribute">display</span> inline-block<br>	&amp;::after<br>		<span class="hljs-attribute">content</span> <span class="hljs-string">&#x27;&#x27;</span><br>		<span class="hljs-attribute">height</span> <span class="hljs-number">0</span><br>		<span class="hljs-attribute">line-height</span> <span class="hljs-number">0</span><br>		<span class="hljs-attribute">display</span> block<br>		<span class="hljs-attribute">visibility</span> hidden <br>		<span class="hljs-attribute">clear</span> both<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">vendor</span><span class="hljs-params">(prop, args)</span></span><br>	-webkit-&#123;prop&#125; args<br>	-moz-&#123;prop&#125; args<br>	&#123;prop&#125; args<br><br><span class="hljs-function"><span class="hljs-title">border-radius</span><span class="hljs-params">()</span></span><br>	vendor(<span class="hljs-string">&#x27;border-radius&#x27;</span>, arguments)<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>变量</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus"><span class="hljs-attribute">font-size</span> <span class="hljs-number">14px</span><br><br>body<br>	<span class="hljs-attribute">font</span> font-size Arial, sans-seri<br></code></pre></div></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -322,9 +301,7 @@ Hexo + Fluid主题 + github page
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/blog/tags/Javascript/">Javascript</a>
-                    
-                      <a class="hover-with-bg" href="/blog/tags/%E4%BC%98%E5%8C%96/">优化</a>
+                      <a class="hover-with-bg" href="/blog/tags/css/">css</a>
                     
                   </div>
                 
@@ -332,7 +309,7 @@ Hexo + Fluid主题 + github page
 
                <p class="note note-warning">
               <strong>本文作者: </strong><a href="/blog/">孟 虎</a> <br>
-              <strong>本文链接: </strong><a href="https://menghu1994.github.io/blog/2021/hexoFluid/">https://menghu1994.github.io/blog/2021/hexoFluid/</a> <br>
+              <strong>本文链接: </strong><a href="https://menghu1994.github.io/blog/2020/stylus/">https://menghu1994.github.io/blog/2020/stylus/</a> <br>
               <strong>版权声明: </strong>本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
                  </p>
                  
@@ -342,21 +319,15 @@ Hexo + Fluid主题 + github page
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/2021/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/">
+                      <a href="/blog/2020/Array/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">图片懒加载</span>
+                        <span class="hidden-mobile">new Array()</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/blog/2020/animation/">
-                        <span class="hidden-mobile">CSS Animation</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>

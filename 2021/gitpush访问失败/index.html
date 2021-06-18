@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Luffy">
   <meta name="keywords" content="">
-  <title>关于 - Luffy</title>
+  <title>Failed to connect to github.com port 443 Timed out - Luffy</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -33,6 +33,8 @@
     
   
 
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
   
 
 
@@ -66,7 +68,7 @@
 
 
 <body>
-  <header style="height: 40vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -193,14 +195,51 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/blog/img/default.png') no-repeat center center;
+         style="background: url('https://www.google.com.hk/url?sa=i&url=https%3A%2F%2Fjavascript.plainenglish.io%2F6-common-git-mistakes-and-how-to-fix-them-b519bd351001&psig=AOvVaw2f-yTSdweJ43lBHLOqUazK&ust=1624000310068000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCODUieKOnvECFQAAAAAdAAAAABAJ') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="✍ Hello gays">
+            <span class="h2" id="subtitle" title="Failed to connect to github.com port 443 Timed out">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-06-17 16:20" pubdate>
+        2021年6月17日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      178 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      预计阅读
+      5
+       分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -213,87 +252,91 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-            <div class="about-avatar">
-              <img src="/blog/img/head.png" srcset="/blog/img/loading.gif"
-                   class="img-fluid" alt="avatar">
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Failed to connect to github.com port 443 Timed out</h1>
+            
+            <div class="markdown-body">
+              <p>git 命令行问题集合</p>
+<a id="more"></a>
+<p>在<a target="_blank" rel="noopener" href="http://ping.chinaz.com/github.com">chinaz</a>查询对应网址的耗时情况,查看可用ip。</p>
+<h2 id="OpenSSL-SSL-read-Connection-was-reset-errno-10054"><a href="#OpenSSL-SSL-read-Connection-was-reset-errno-10054" class="headerlink" title="OpenSSL SSL_read: Connection was reset, errno 10054"></a>OpenSSL SSL_read: Connection was reset, errno 10054</h2><blockquote>
+<p>连接超时<br>首先，造成这个错误很有可能是网络不稳定，连接超时导致的，如果再次尝试后依然报错，可以执行下面的命令。</p>
+</blockquote>
+<figure class="highlight shell"><figcaption><span>打开Git命令页面，执行git命令脚本：修改设置，解除ssl验证</span></figcaption><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git config --global http.sslVerify &quot;false&quot;<br></code></pre></div></td></tr></table></figure>
+<h2 id="git-push失败-但浏览器可以正常访问github-com"><a href="#git-push失败-但浏览器可以正常访问github-com" class="headerlink" title="git push失败,但浏览器可以正常访问github.com"></a>git push失败,但浏览器可以正常访问github.com</h2><blockquote>
+<p>代理导致</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git config --global --unset http.proxy<br></code></pre></div></td></tr></table></figure>
+<h3 id="修改host"><a href="#修改host" class="headerlink" title="修改host"></a>修改host</h3><p>host文件路径 C:\Windows\System32\drivers\etc\HOSTS<br>我们把 <code>13.250.177.223 github.com</code> 添加到 hosts 文件</p>
+<figure class="highlight shell"><figcaption><span>在shell 命令行中,刷新host设置</span></figcaption><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">ipconfig /flushdns<br></code></pre></div></td></tr></table></figure>
             </div>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
                 
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/git/">git</a>
+                    
+                  </div>
+                
+              </div>
 
-<div class="text-center">
-  <div class="about-info">
-    <div class="about-name">孟 虎</div>
-    <div class="about-intro">博客日志 | 技术文档</div>
-    <div class="about-icons">
-      
-        
-        
-        
-        <a target="_blank" rel="noopener" href="https://github.com/menghu1994" class="
-           hint--bottom hint--rounded"
-           aria-label=GitHub
-        >
-          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
-          
-        </a>
-      
-        
-        
-        
-        <a target="_blank" rel="noopener" href="https://www.douban.com/people/166467024/" class="
-           hint--bottom hint--rounded"
-           aria-label=豆瓣
-        >
-          <i class="iconfont icon-douban-fill" aria-hidden="true"></i>
-          
-        </a>
-      
-        
-        
-        
-        <a href="javascript:;" class="qr-trigger
-           "
-           
-        >
-          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
-          
-            <img class="qr-img" src="/blog/img/wechat.png" srcset="/blog/img/loading.gif" alt="qrcode" />
-          
-        </a>
-      
-    </div>
-  </div>
-</div>
+               <p class="note note-warning">
+              <strong>本文作者: </strong><a href="/blog/">孟 虎</a> <br>
+              <strong>本文链接: </strong><a href="https://menghu1994.github.io/blog/2021/gitpush%E8%AE%BF%E9%97%AE%E5%A4%B1%E8%B4%A5/">https://menghu1994.github.io/blog/2021/gitpush%E8%AE%BF%E9%97%AE%E5%A4%B1%E8%B4%A5/</a> <br>
+              <strong>版权声明: </strong>本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                 </p>
+                 
 
-<article class="mt-5 markdown-body">
-  <h2 id="🔨-技能列表"><a href="#🔨-技能列表" class="headerlink" title="🔨 技能列表"></a>🔨 技能列表</h2><p align="left">
-    <img src="https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white" srcset="/blog/img/loading.gif" alt="HTML5">
-    <img src="https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3&logoColor=white" srcset="/blog/img/loading.gif" alt="CSS3">
-    <img src="https://img.shields.io/badge/-JavaScript-eed718?style=flat&logo=javascript&logoColor=ffffff" srcset="/blog/img/loading.gif" alt="Javascript">
-    <img src="https://img.shields.io/badge/vue-#4FC08D?logo=vue&style=plastic" srcset="/blog/img/loading.gif" alt="Vue">
-    <img src="https://img.shields.io/badge/photoshop-#31A8FF?logo=photoshop&style=plastic" srcset="/blog/img/loading.gif" alt="photoshop">
-    <img src="https://img.shields.io/badge/小程序-#31A8FF?logo=wechat&style=plastic" srcset="/blog/img/loading.gif" alt="小程序">
-</p>
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/2021/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/">
+                        <span class="hidden-mobile">图片懒加载</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
 
-<h2 id="🤝-联系我"><a href="#🤝-联系我" class="headerlink" title="🤝 联系我"></a>🤝 联系我</h2><p>E-mail</p>
-<p>微信</p>
-</article>
-
-
-
-
-
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
   <div id="vcomments"></div>
+  <style>
+.v[data-class=v] .veditor {
+    background-image: url(https://blog.justlovesmile.top/img/comment_bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+</style>
   <script type="text/javascript">
-    function loadValine() {
-      addScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
         new Valine({
           el: "#vcomments",
           app_id: "K5t0hzq1aPNDTQPiOHKBjo2A-gzGzoHsz",
@@ -309,17 +352,42 @@
           serverURLs: "https://K5t0hzq1aPNDTQPiOHKBjo2A-gzGzoHsz.api.lncldglobal.com",
         });
       });
-    }
-    waitElementVisible('vcomments', loadValine);
+    });
   </script>
-  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
-      powered by Valine.</a></noscript>
+  <script type="text/javascript">
+   fetch('https://v1.hitokoto.cn/?c=b&c=c')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("veditor").setAttribute("placeholder",data.hitokoto+"__"+data.from);
+    })
+    .catch(console.error)
+</script>
+  <noscript>Please enable JavaScript to view the
+    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
 
-              </div>
-            </div>
-          </div>
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -377,7 +445,11 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
 
 
 
