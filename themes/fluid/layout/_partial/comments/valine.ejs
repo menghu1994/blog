@@ -1,0 +1,42 @@
+<% if(theme.valine.appid && theme.valine.appkey){ %>
+  <div id="vcomments"></div>
+  <style>
+.v[data-class=v] .veditor {
+    background-image: url(https://blog.justlovesmile.top/img/comment_bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+</style>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('<%= url_join(theme.static_prefix.valine, 'Valine.min.js') %>', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "<%= theme.valine.appid %>",
+          app_key: "<%= theme.valine.appkey %>",
+          placeholder: "<%= theme.valine.placeholder %>",
+          path: <%= theme.valine.path %>,
+          avatar: "<%= theme.valine.avatar %>",
+          meta: <%- JSON.stringify(theme.valine.meta || []) %>,
+          pageSize: "<%= theme.valine.pageSize %>",
+          lang: "<%= theme.valine.lang %>",
+          highlight: <%= theme.valine.highlight %>,
+          recordIP: <%= theme.valine.recordIP %>,
+          serverURLs: "<%= theme.valine.serverURLs %>",
+        });
+      });
+    });
+  </script>
+  <script type="text/javascript">
+   fetch('https://v1.hitokoto.cn/?c=b&c=c')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("veditor").setAttribute("placeholder",data.hitokoto+"__"+data.from);
+    })
+    .catch(console.error)
+</script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://valine.js.org" rel="nofollow noopener">comments powered by Valine.</a>
+  </noscript>
+<% } %>
