@@ -297,12 +297,9 @@ navbar:
     #       { key: '相册',link: '/photos/', icon: 'iconfont icon-books' }
     #     ]
     #   }
-    - { key: "关于",
-        icon: "iconfont icon-tags-fill",
-        submenu: [
-          { key: '我',link: '/about/',icon: 'iconfont icon-user-fill' },
-          { key: '简历',link: '/synopsis/', icon: 'iconfont icon-books' }
-        ]
+    - { key: "关于我",
+        icon: "iconfont icon-user-fill",
+        link: '/about/'
       }
     - { key: "留言", link: "/comments/", icon: "iconfont icon-user-fill" }
     #- { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
@@ -366,9 +363,7 @@ scroll_top_arrow:
 footer:
   # 页脚第一行文字的 HTML，建议保留 Fluid 的链接，用于向更多人推广本主题
   content: '
-    <a href="https://menghu1994.github.io/meng/" target="_blank" rel="nofollow noopener"><span>孟虎</span></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://menghu1994.github.io/wu/" target="_blank" rel="nofollow noopener"><span>吴凡</span></a>
+    # 有些事情只有爬上去了才知道 #
   '
 
   # 展示网站的 PV、UV 统计数
@@ -620,7 +615,7 @@ post:
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo
-    type: valine
+    type: gitalk
 
 
 #---------------------------
@@ -660,10 +655,10 @@ disqus:
 # Based on GitHub Issues
 # See: https://github.com/gitalk/gitalk#options
 gitalk:
-  clientID:
-  clientSecret:
-  repo:
-  owner:
+  clientID: e58406233489ad6a5d56
+  clientSecret: f2ff5891bbed6d6fc1d7689435cfec67e8d59244
+  repo: blog
+  owner:  menghu1994
   admin: ['name']
   language: zh-CN
   labels: ['Gitalk']
@@ -681,13 +676,15 @@ valine:
   appkey: iL3edhps0y1W2SNJdJLw67NF
   placeholder: 
   path: window.location.pathname
-  avatar: robohash
+  avatar: 'monsterid'
   meta: ['nick', 'mail']
   pageSize: 10
   lang: zh-CN
   highlight: false
   recordIP: false
-  serverURLs: https://K5t0hzq1aPNDTQPiOHKBjo2A-gzGzoHsz.api.lncldglobal.com
+  enableQQ: true
+  serverURLs: 
+    # https://K5t0hzq1aPNDTQPiOHKBjo2A-gzGzoHsz.api.lncldglobal.com
 
 # Waline
 # 一款从 Valine 衍生的带后端的评论插件
@@ -803,7 +800,7 @@ about:
   banner_img: /img/default.png
   banner_img_height: 40
   banner_mask_alpha: 0.3
-  subtitle:  ✍ Hello gays
+  subtitle:  ✍ Welcome!
   avatar: /img/head.png
   name: "孟 虎"
   introduce: "博客日志 | 技术文档"
@@ -833,7 +830,7 @@ page:
 #---------------------------
 page404:
   enable: true
-  banner_img: /img/default.png
+  banner_img: https://image.freepik.com/free-vector/glitch-error-404-page_23-2148105404.jpg
   banner_img_height: 85
   banner_mask_alpha: 0.3
   subtitle: "Page not found"

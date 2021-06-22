@@ -24,6 +24,9 @@
           highlight: <%= theme.valine.highlight %>,
           recordIP: <%= theme.valine.recordIP %>,
           serverURLs: "<%= theme.valine.serverURLs %>",
+          visitor: '<%- theme.valine.visitor %>' === 'true',
+          enableQQ: '<%= theme.valine.enableQQ %>', 
+          requiredFields: ['nick'], 
         });
       });
     });
