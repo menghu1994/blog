@@ -108,13 +108,13 @@ deploy:
   branch: master
 
 #豆瓣
-douban: 
-  user: 166467024    #个人的id  
+douban:
+  user: 166467024    #个人的id
   builtin: false   #如果想生成豆瓣页面，这个需要设置为true
-  book: 
-      title: '书单' 
-      quote: '我的书单' 
-  movie: 
-      title: '电影' 
-      quote: '我的影单' 
+  book:
+      title: '书单'
+      quote: '我的书单'
+  movie:
+      title: '电影'
+      quote: '我的影单'
   timeout: 20000

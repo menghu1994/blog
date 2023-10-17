@@ -3,6 +3,7 @@ layout: post
 title: npm install 安装依赖
 date: 2023-10-16 07:41:38
 tags: npm
+sticky: 100
 ---
 
 ```npm
@@ -12,6 +13,8 @@ npm init -y   初始化项目并生成package.json文件
 
 ---
 
+{% cb text, checked?, incline? %}
+<a class="btn" href="url" title="title">text</a>
 
 ```npm
 npm install        //安装依赖

@@ -188,7 +188,7 @@ custom_js:
 
 # 指定自定义 .css 文件路径，用法和 custom_js 相同
 # The usage is the same as custom_js
-custom_css: 
+custom_css:
   - https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap
   - /css/self.css
 
@@ -240,7 +240,7 @@ web_analytics:  # 网页访问统计
     app_key:
     # REST API 服务器地址，国际版不填
     # Only the Chinese mainland users need to set
-    server_url: 
+    server_url:
 
 # 对页面中的图片进行懒加载处理，可见范围外的图片不会加载
 # Lazy loading of images on the page
@@ -289,20 +289,21 @@ navbar:
   # Navigation bar menu. `key` is used to associate languages/*.yml. If there is no association, the value of `key` itself will be displayed; if `icon` is a css class, it can be omitted; adding `name` can force the display of the specified name
   menu:
     - { key: "首页", link: "/", icon: "iconfont icon-home-fill" }
+    - { key: 'tag', link: '/tags/', icon: 'iconfont icon-tags-fill' }
     - { key: "文章", link: "/archives/", icon: "iconfont icon-archive-fill" }
-    # - { key: "我们", 
-    #     icon: "iconfont icon-category-fill",
-    #     submenu: [
-    #       { key: '我们',link: '/us/',icon: 'iconfont icon-user-fill' },
-    #       { key: '相册',link: '/photos/', icon: 'iconfont icon-books' }
-    #     ]
-    #   }
+#    - { key: "我们",
+#        icon: "iconfont icon-category-fill",
+#        submenu: [
+#          { key: '我们',link: '/us/',icon: 'iconfont icon-user-fill' },
+#          { key: '相册',link: '/photos/', icon: 'iconfont icon-books' }
+#        ]
+#      }
     - { key: "关于我",
         icon: "iconfont icon-user-fill",
         link: '/about/'
       }
     - { key: "留言", link: "/comments/", icon: "iconfont icon-user-fill" }
-    #- { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
+    - { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
 
 # 搜索功能，基于 hexo-generator-search 插件，若已安装其他搜索插件请关闭此功能，以避免生成多余的索引文件
 # Search feature, based on hexo-generator-search. If you have installed other search plugins, please disable this feature to avoid generating redundant index files
@@ -452,6 +453,7 @@ index:
 
   # 打开文章的标签方式
   # The browser tag to open the post
+  # Available: _blank | _self
   # Available: _blank | _self
   post_url_target: _self
 
@@ -674,7 +676,7 @@ gitalk:
 valine:
   appid: K5t0hzq1aPNDTQPiOHKBjo2A-gzGzoHsz
   appkey: iL3edhps0y1W2SNJdJLw67NF
-  placeholder: 
+  placeholder:
   path: window.location.pathname
   avatar: 'monsterid'
   meta: ['nick', 'mail']
@@ -683,7 +685,7 @@ valine:
   highlight: false
   recordIP: false
   enableQQ: true
-  serverURLs: 
+  serverURLs:
     # https://K5t0hzq1aPNDTQPiOHKBjo2A-gzGzoHsz.api.lncldglobal.com
 
 # Waline
