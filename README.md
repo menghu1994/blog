@@ -1,7 +1,5 @@
 ## Hexo Blog
 
-### 在线预览
-
 [在线预览](https://menghu1994.github.io/)
 
 ### Fork指南
