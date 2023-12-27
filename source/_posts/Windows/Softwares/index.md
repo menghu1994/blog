@@ -2,12 +2,12 @@
 title: Software in Windows
 ---
 # Normal
-1. Google Chrome
-2. Sublime Text
+1. Google Chrome(Brower)
+2. Sublime Text(Note)
 3. Pandoc
-4. Everything
-5. Listary
-6. SETUNA
+4. Everything(Local offline search)
+5. Listary(Quick search)
+6. SETUNA(Screenshot)
 7. RUSTDESK
 8. Wox
 9. PowerToys

@@ -16,6 +16,8 @@ index_img: https://opensource.google/images/projects/os-projects-angular_thumbna
 ```tsx
 <a routerLink="/product/{{ hero.id }}" > Product </a>  
 // ‘/’代表导航到根路由
+
+<a [routerLink]="['../']" [queryParams]="{prop: 'xxx'}">Somewhere</a>
 ```
 
 ```tsx

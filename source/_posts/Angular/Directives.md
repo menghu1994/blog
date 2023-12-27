@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Angular Directives
+title: 属性型指令(Angular Directives)
 date: 2023-10-16 07:41:38
 tags: angular
 index_img: https://opensource.google/images/projects/os-projects-angular_thumbnail.png
@@ -8,11 +8,21 @@ index_img: https://opensource.google/images/projects/os-projects-angular_thumbna
 
 # directives
 
+实现input和textarea前面不能输入空格
+```js
+@Directive({
+  selector: 'input[jhiNoHeadSpace],textarea[jhiNoHeadSpace]',
+})
+export class NoHeadSpaceDirective  {
+  @HostListener('input', ['$event'])
+  onInput($event: any) {
+    if (/^\s+/g.test($event.target.value)) {
+      $event.target.value = $event.target.value.replace(/^\s+/g, "");
+      $event.target.setSelectionRange(0, 0);
+    }
+  }
+}
 
-
-Pipes？
-- currency
-> 数字转为货币字符串
-
-- async
-> 从数据流中返回最新值,并在所属组件声明周期内持续返回
+// useage
+<input formControlName="name" jhiNoHeadSpace matInput>
+```
