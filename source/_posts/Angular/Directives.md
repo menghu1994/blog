@@ -1,15 +1,16 @@
 ---
 layout: post
 title: 属性型指令(Angular Directives)
-date: 2023-10-16 07:41:38
+date: 2023-12-27 07:41:38
 tags: angular
 index_img: https://opensource.google/images/projects/os-projects-angular_thumbnail.png
 ---
 
-# directives
+## directives
 
-实现input和textarea前面不能输入空格
-```js
+### 实现input和textarea前面不能输入空格
+
+```typescript
 @Directive({
   selector: 'input[jhiNoHeadSpace],textarea[jhiNoHeadSpace]',
 })
@@ -25,4 +26,38 @@ export class NoHeadSpaceDirective  {
 
 // useage
 <input formControlName="name" jhiNoHeadSpace matInput>
+```
+
+### 实现样式改变
+
+```typescript
+@Directive({
+  selector: '[jhiReadOnlyStyle]',
+})
+export class ReadonlyTypeDirective  {
+
+  @Input() readonlyItem: boolean = false;
+
+  constructor(private el: ElementRef, private renderer: Renderer2) { }
+
+  ngAfterViewInit() {
+    if (this.readonlyItem) {
+      this.renderer.addClass(this.el.nativeElement, 'readonly-form')
+    }
+  }
+}
+
+// readonly 全局只读样式
+.readonly-form {
+  color:rgba(0, 0, 0, 0.38) !important;
+  .mat-form-field-outline{
+    color: rgba(0,0,0,0.06) !important;
+  }
+}
+
+// useage
+<mat-form-field appearance="outline" fxFlex jhiReadOnlyStyle [readonlyItem]="isView">
+  <mat-label>用户名</mat-label>
+  <input [type]="'text'" formControlName='userName' matInput [readonly]="isView">
+</mat-form-field>
 ```
