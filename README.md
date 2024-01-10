@@ -26,11 +26,20 @@ images 文件夹中是我的文章和页面里使用的图片。
 
 pages/about.md 文件内容对应网站的「关于」页面，里面的内容多为个人相关，将它们替换成你自己的信息，包括 _data 目录下的 skills.yml 和 social.yml 文件里的数据。
 
-### 生成文件
+### 创作新文章、页面
+```shell
+$ hexo new [layout] <title>
+```
+`layout` 可选项有 `post`/`page`/`draft`
+`title` 为文章或页面标题
+
+### 部署项目
 `hexo clean`清除缓存 </br>
 `hexo g` 生成文件  </br>
 `hexo s` 启动服务  </br>
-`hexo d` 部署
+`hexo d` 部署 <br>
+
+`hexo clean && hexo deploy` 生成站点并推送到远程仓库
 
 ### 联系我
 
