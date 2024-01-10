@@ -1,0 +1,482 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.png">
+  <link rel="icon" type="image/png" href="/blog/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#9DC3C1">
+  <meta name="description" content="博客 前端 nodejs typescript rxjs">
+  <meta name="author" content="Luffy">
+  <meta name="keywords" content="博客 前端 nodejs typescript rxjs">
+  <title>Date - Luffy</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/rainbow.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap.css">
+<link rel="stylesheet" href="/blog/css/self.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"menghu1994.github.io","root":"/blog/","version":"1.8.7","typing":{"enable":true,"typeSpeed":130,"cursorChar":"💙","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"💯 "},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false,"loading_img":"/img/loading.gif"},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/blog/">&nbsp;<strong>Luffy</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                文章
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于我
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/comments/">
+                <i class="iconfont icon-user-fill"></i>
+                留言
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/blog/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Date">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2023-10-16 21:41" pubdate>
+        2023年10月16日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      588 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      预计阅读
+      22
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Date</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h1><figure class="highlight typescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs typescript"><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">0</span>) <span class="hljs-comment">// 1970 年 1 月 1 日</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">24</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>) <span class="hljs-comment">// 1970 年 1 月 1 日</span><br><br><span class="hljs-comment">// 传入的整数参数代表的是自 1970-01-01 00:00:00 以来经过的毫秒数，该整数被称为`时间戳`。</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-title class_">Time</span>: <span class="hljs-built_in">number</span>)<br><br><span class="hljs-comment">// 传入的字符串会被自动解析,解析为当前时间</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-attr">date</span>: <span class="hljs-built_in">string</span>)<br><span class="hljs-comment">// 使用当前时区中的给定组件创建日期</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(year, month, date, hours, minutes, seconds, ms)<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="获取时间"><a href="#获取时间" class="headerlink" title="获取时间"></a>获取时间</h3><figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> date = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();<br>date.<span class="hljs-title function_">getFullYear</span>() <span class="hljs-comment">// 获取年份 2022</span><br>data.<span class="hljs-title function_">getMonth</span>() <span class="hljs-comment">// 获取月份 0~11</span><br>data.<span class="hljs-title function_">getDate</span>() <span class="hljs-comment">// 获取当月具体日期 1~31</span><br><span class="hljs-title function_">getHours</span>()，<span class="hljs-title function_">getMinutes</span>()，<span class="hljs-title function_">getSeconds</span>()，<span class="hljs-title function_">getMilliseconds</span>() <span class="hljs-comment">// 获取时,分钟,秒钟,毫秒</span><br>date.<span class="hljs-title function_">getDay</span>() <span class="hljs-comment">// 获取星期几  0~6 0默认是周日</span><br>date.<span class="hljs-title function_">getTime</span>() <span class="hljs-comment">// 获取从1970至今所经历的毫秒数</span><br></code></pre></div></td></tr></table></figure>
+
+<h3 id="设置时间"><a href="#设置时间" class="headerlink" title="设置时间"></a>设置时间</h3><figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">setFullYear</span>(year, [month], [date])<br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">setMonth</span>(month, [date])<br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">setDate</span>(date)<br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">setHours</span>(hour, [min], [sec], [ms])<br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">setMinutes</span>(min, [sec], [ms])<br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">setSeconds</span>(sec, [ms])<br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">setMilliseconds</span>(ms)<br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">setTime</span>(milliseconds)（使用自 <span class="hljs-number">1970</span>-<span class="hljs-number">01</span>-<span class="hljs-number">01</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> <span class="hljs-variable constant_">UTC</span>+<span class="hljs-number">0</span> 以来的毫秒数来设置整个日期）<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="具体应用"><a href="#具体应用" class="headerlink" title="具体应用"></a>具体应用</h2><h3 id="本月第一天到-最后一天"><a href="#本月第一天到-最后一天" class="headerlink" title="本月第一天到 最后一天"></a>本月第一天到 最后一天</h3><figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> nextMonth = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">getMonth</span>() + <span class="hljs-number">1</span>; <span class="hljs-comment">// 比如现在是7月，那么nextMonth === 7</span><br><span class="hljs-keyword">const</span> nextMonthFirstDay = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">getFullYear</span>(), nextMonth, <span class="hljs-number">1</span>); <br><span class="hljs-keyword">const</span> oneDay = <span class="hljs-number">24</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">1000</span>;<br><br><span class="hljs-keyword">let</span> startDate = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">setDate</span>(<span class="hljs-number">1</span>)).<span class="hljs-title function_">setHours</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>,<span class="hljs-number">0</span>, <span class="hljs-number">0</span>));<br><span class="hljs-keyword">let</span> endDate = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(nextMonthFirstDay - oneDay))<span class="hljs-title function_">setHours</span>(<span class="hljs-number">23</span>, <span class="hljs-number">59</span>, <span class="hljs-number">59</span>, <span class="hljs-number">999</span>));<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="本周第一天到-最后一天"><a href="#本周第一天到-最后一天" class="headerlink" title="本周第一天到 最后一天"></a>本周第一天到 最后一天</h3><figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> startTime = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">setHours</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">const</span> endTime = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">setHours</span>(<span class="hljs-number">23</span>, <span class="hljs-number">59</span>, <span class="hljs-number">59</span>, <span class="hljs-number">999</span>);<br><br><span class="hljs-keyword">let</span> nowDayOfWeek = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">getDay</span>();<br><span class="hljs-keyword">if</span> (nowDayOfWeek === <span class="hljs-number">0</span>) nowDayOfWeek = <span class="hljs-number">7</span>;<br><span class="hljs-keyword">const</span> dayNum = <span class="hljs-number">1</span> * <span class="hljs-number">24</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">1000</span>;<br><span class="hljs-comment">// 获取本周星期一的时间，星期一作为一周的第一天</span><br><span class="hljs-keyword">const</span> firstDate = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">valueOf</span>() - (nowDayOfWeek - <span class="hljs-number">1</span>) *dayNum);<br><span class="hljs-comment">// 获取本周星期天的时间，星期天作为一周的最后一天</span><br><span class="hljs-keyword">const</span> lastDate = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(firstDate).<span class="hljs-title function_">valueOf</span>() + <span class="hljs-number">6</span> * dayNum);<br><br><span class="hljs-keyword">const</span> startDate = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-title function_">startTime</span>(firstDate));<br><span class="hljs-keyword">const</span> endDate = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-title function_">endTime</span>(lastDate));<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="今日零点到24点"><a href="#今日零点到24点" class="headerlink" title="今日零点到24点"></a>今日零点到24点</h3><figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> startDate = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">setHours</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>));<br><span class="hljs-keyword">const</span> endDate = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">setHours</span>(<span class="hljs-number">23</span>, <span class="hljs-number">59</span>, <span class="hljs-number">59</span>, <span class="hljs-number">999</span>));<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="日期转数字"><a href="#日期转数字" class="headerlink" title="日期转数字"></a>日期转数字</h3><figure class="highlight typescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs typescript"><span class="hljs-keyword">let</span> <span class="hljs-attr">date</span>: <span class="hljs-title class_">Date</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();  <span class="hljs-comment">// Mon Jul 25 2022 13:11:45 GMT+0800 (中国标准时间)</span><br>date.<span class="hljs-title function_">valueOf</span>();  <span class="hljs-comment">// 1658725548748</span><br>date.<span class="hljs-title function_">getTime</span>();  <span class="hljs-comment">// 1658725548748</span><br><span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>();      <span class="hljs-comment">// 1658725548748</span><br>+date;           <span class="hljs-comment">// 1658725548748</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">2022</span>,<span class="hljs-number">6</span>,<span class="hljs-number">25</span>)-<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">2022</span>,<span class="hljs-number">6</span>,<span class="hljs-number">24</span>)  <span class="hljs-comment">// 86400000 隐式调用了valueOf() 方法</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">2022</span>,<span class="hljs-number">6</span>,<span class="hljs-number">25</span>).<span class="hljs-title function_">getTime</span>()-<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">2022</span>,<span class="hljs-number">6</span>,<span class="hljs-number">24</span>).<span class="hljs-title function_">getTime</span>()  <span class="hljs-comment">// 86400000 (性能比valueOf高)</span><br></code></pre></div></td></tr></table></figure>
+
+<h3 id="创建日期"><a href="#创建日期" class="headerlink" title="创建日期"></a>创建日期</h3><p>创建一个 Date 对象，日期是：Feb 20, 2012, 3:12am。时区是当地时区。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-number">1.</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">2012</span>,<span class="hljs-number">1</span>,<span class="hljs-number">20</span>,<span class="hljs-number">3</span>,<span class="hljs-number">12</span>);<br><span class="hljs-number">2.</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-string">&quot;2012-02-20T03:12&quot;</span>);<br></code></pre></div></td></tr></table></figure>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/js/">js</a>
+                    
+                  </div>
+                
+              </div>
+
+               <p class="note note-warning">
+              <strong>本文作者: </strong><a href="/blog/">孟 虎</a> <br>
+              <strong>本文链接: </strong><a href="https://menghu1994.github.io/blog/2023/10/Javascript/Date/">https://menghu1994.github.io/blog/2023/10/Javascript/Date/</a> <br>
+              <strong>版权声明: </strong>本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                 </p>
+                 
+
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/2023/10/Javascript/ClassDecorator/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Class Decorator</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/2023/10/Javascript/Map%20and%20Set/">
+                        <span class="hidden-mobile">map & set</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('gitalk-container', function() {
+      Fluid.utils.createCssLink('/blog/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: 'e58406233489ad6a5d56',
+          clientSecret: 'f2ff5891bbed6d6fc1d7689435cfec67e8d59244',
+          repo: 'blog',
+          owner: 'menghu1994',
+          admin: ["name"],
+          id: '539d01d67969e90812834ce4bd9019ba',
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     # 有些事情只有爬上去了才知道 # 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/debouncer.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/blog/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/blog/js/self.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/yinghua.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+
+<div class="text-center py-1">   
+  <div>
+    <span>Copyright © 2021</span>
+    <a href="https://menghu1994.github.io" target="_blank" rel="nofollow noopener">
+     <span>Luffy💕Miss Wu</span></a><br>
+ </div>
+
+
+</body>
+</html>
