@@ -124,6 +124,37 @@
           
           
           
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-category-fill"></i>
+                我们
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/blog/us/">
+                    <i class="iconfont icon-user-fill"></i>
+                    我们
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/blog/photos/">
+                    <i class="iconfont icon-books"></i>
+                    相册
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
             <li class="nav-item">
               <a class="nav-link" href="/blog/about/">
                 <i class="iconfont icon-user-fill"></i>
@@ -156,6 +187,11 @@
             </li>
           
         
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
@@ -196,19 +232,10 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      636 字
+      644 字
     </span>
   
 
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      预计阅读
-      21
-       分钟
-    </span>
   
 
   
@@ -239,7 +266,8 @@
             <h1 style="display: none">Angular</h1>
             
             <div class="markdown-body">
-              <h1 id="Angular"><a href="#Angular" class="headerlink" title="Angular"></a>Angular</h1><h2 id="命令行快速生成"><a href="#命令行快速生成" class="headerlink" title="命令行快速生成"></a>命令行快速生成</h2><figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">// 生成项目<br>ng new &lt;项目英文名&gt;<br><br>// 安装ng<span class="hljs-literal">-zorro</span><br>ng add ng<span class="hljs-literal">-zorro-antd</span><br><br>// 生成模块<br>ng generate module &lt;路径及模块名称&gt;<br>// 缩写,在app文件夹下生成路径为pages/setup的setup.module.ts文件<br>ng g m pages/setup<br><br>//生成组件<br>ng generage component &lt;路径及组件名称&gt;<br>// 缩写, 在app文件夹下生成路径为pages/setup的组件的模板、样式、测试文件、ts文件四个文件<br>ng g c pages/setup<br><br>// 生成服务<br>ng generage service &lt;路径及服务文件名称&gt;<br>// 缩写<br>ng g s services/local<span class="hljs-literal">-storage</span><br><br>// 启动服务<br>ng serve <br>或<br>npm <span class="hljs-built_in">start</span> <br></code></pre></div></td></tr></table></figure>
+              <h1 id="Angular"><a href="#Angular" class="headerlink" title="Angular"></a>Angular</h1><h1 id="安装Angular-CLI"><a href="#安装Angular-CLI" class="headerlink" title="安装Angular CLI"></a>安装Angular CLI</h1><p><code>npm install -g @angular/cli</code></p>
+<h2 id="命令行快速生成"><a href="#命令行快速生成" class="headerlink" title="命令行快速生成"></a>命令行快速生成</h2><figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">// 生成项目<br>ng new &lt;项目英文名&gt;<br><br>// 安装ng<span class="hljs-literal">-zorro</span><br>ng add ng<span class="hljs-literal">-zorro-antd</span><br><br>// 生成模块<br>ng generate module &lt;路径及模块名称&gt;<br>// 缩写,在app文件夹下生成路径为pages/setup的setup.module.ts文件<br>ng g m pages/setup<br><br>//生成组件<br>ng generage component &lt;路径及组件名称&gt;<br>// 缩写, 在app文件夹下生成路径为pages/setup的组件的模板、样式、测试文件、ts文件四个文件<br>ng g c pages/setup<br><br>// 生成服务<br>ng generage service &lt;路径及服务文件名称&gt;<br>// 缩写<br>ng g s services/local<span class="hljs-literal">-storage</span><br><br>// 启动服务<br>ng serve <br>或<br>npm <span class="hljs-built_in">start</span> <br></code></pre></div></td></tr></table></figure>
 
 <h2 id="多项目工作区-version-angular-gt-10-9"><a href="#多项目工作区-version-angular-gt-10-9" class="headerlink" title="多项目工作区(version angular&gt;10.9)"></a>多项目工作区(version angular&gt;10.9)</h2><blockquote>
 <p>多个angular项目共享一个git, node_modules 可用于项目(Project)和组件库(Library)同时开发</p>
@@ -310,9 +338,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/2023/10/Angular/Angular%E7%BB%84%E4%BB%B6%E5%BA%93/">
+                      <a href="/blog/2023/10/Git/Questions/gitignore/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Angular library</span>
+                        <span class="hidden-mobile">.gitignore</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -320,8 +348,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/2023/10/Angular/Components/">
-                        <span class="hidden-mobile">Angular Component</span>
+                      <a href="/blog/2023/10/Angular/Angular%E7%BB%84%E4%BB%B6%E5%BA%93/">
+                        <span class="hidden-mobile">Angular library</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -391,6 +419,28 @@
       </a>
     
 
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
     
 
     
@@ -471,6 +521,18 @@
   </script>
 
 
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/blog/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
 
 
 

@@ -124,6 +124,37 @@
           
           
           
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-category-fill"></i>
+                我们
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/blog/us/">
+                    <i class="iconfont icon-user-fill"></i>
+                    我们
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/blog/photos/">
+                    <i class="iconfont icon-books"></i>
+                    相册
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
             <li class="nav-item">
               <a class="nav-link" href="/blog/about/">
                 <i class="iconfont icon-user-fill"></i>
@@ -156,6 +187,11 @@
             </li>
           
         
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
@@ -201,15 +237,6 @@
   
 
   
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      预计阅读
-      15
-       分钟
-    </span>
-  
 
   
   
@@ -242,8 +269,8 @@
               <h2 id="mac-安装mongodb"><a href="#mac-安装mongodb" class="headerlink" title="mac 安装mongodb"></a>mac 安装mongodb</h2><ol>
 <li>brew tap mongodb/brew</li>
 <li>brew update</li>
-<li>brew install <a href="mailto:&#109;&#x6f;&#110;&#103;&#x6f;&#100;&#98;&#x2d;&#99;&#x6f;&#x6d;&#109;&#117;&#x6e;&#x69;&#x74;&#121;&#64;&#x36;&#46;&#x30;">&#109;&#x6f;&#110;&#103;&#x6f;&#100;&#98;&#x2d;&#99;&#x6f;&#x6d;&#109;&#117;&#x6e;&#x69;&#x74;&#121;&#64;&#x36;&#46;&#x30;</a></li>
-<li>brew services start <a href="mailto:&#x6d;&#111;&#x6e;&#x67;&#111;&#100;&#98;&#45;&#x63;&#111;&#x6d;&#109;&#x75;&#x6e;&#x69;&#x74;&#x79;&#64;&#54;&#x2e;&#48;">&#x6d;&#111;&#x6e;&#x67;&#111;&#100;&#98;&#45;&#x63;&#111;&#x6d;&#109;&#x75;&#x6e;&#x69;&#x74;&#x79;&#64;&#54;&#x2e;&#48;</a></li>
+<li>brew install <a href="mailto:&#x6d;&#x6f;&#110;&#103;&#111;&#x64;&#x62;&#45;&#x63;&#x6f;&#x6d;&#x6d;&#x75;&#x6e;&#105;&#116;&#121;&#64;&#54;&#46;&#48;">&#x6d;&#x6f;&#110;&#103;&#111;&#x64;&#x62;&#45;&#x63;&#x6f;&#x6d;&#x6d;&#x75;&#x6e;&#105;&#116;&#121;&#64;&#54;&#46;&#48;</a></li>
+<li>brew services start <a href="mailto:&#x6d;&#x6f;&#110;&#103;&#111;&#x64;&#98;&#x2d;&#99;&#111;&#109;&#x6d;&#117;&#x6e;&#105;&#x74;&#x79;&#x40;&#x36;&#x2e;&#x30;">&#x6d;&#x6f;&#110;&#103;&#111;&#x64;&#98;&#x2d;&#99;&#111;&#109;&#x6d;&#117;&#x6e;&#105;&#x74;&#x79;&#x40;&#x36;&#x2e;&#x30;</a></li>
 </ol>
 <ul>
 <li>brew services stop mongodb-community</li>
@@ -391,6 +418,28 @@
     
 
     
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
 
     
   </main>
@@ -470,6 +519,18 @@
   </script>
 
 
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/blog/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
 
 
 

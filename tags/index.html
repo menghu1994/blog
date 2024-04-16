@@ -108,6 +108,37 @@
           
           
           
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-category-fill"></i>
+                我们
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/blog/us/">
+                    <i class="iconfont icon-user-fill"></i>
+                    我们
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/blog/photos/">
+                    <i class="iconfont icon-books"></i>
+                    相册
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
             <li class="nav-item">
               <a class="nav-link" href="/blog/about/">
                 <i class="iconfont icon-user-fill"></i>
@@ -140,6 +171,11 @@
             </li>
           
         
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
@@ -183,7 +219,7 @@
                 
 
 <div class="text-center tagcloud">
-  <a href="/blog/tags/CSS/" style="font-size: 15px; color: #bbe">CSS</a> <a href="/blog/tags/Javascript/" style="font-size: 23.33px; color: #8ea5dc">Javascript</a> <a href="/blog/tags/Library/" style="font-size: 19.17px; color: #a4b0e5">Library</a> <a href="/blog/tags/System/" style="font-size: 19.17px; color: #a4b0e5">System</a> <a href="/blog/tags/angular/" style="font-size: 40px; color: #337ab7">angular</a> <a href="/blog/tags/angular-material/" style="font-size: 15px; color: #bbe">angular material</a> <a href="/blog/tags/angular-pipe/" style="font-size: 15px; color: #bbe">angular pipe</a> <a href="/blog/tags/animation/" style="font-size: 19.17px; color: #a4b0e5">animation</a> <a href="/blog/tags/css/" style="font-size: 19.17px; color: #a4b0e5">css</a> <a href="/blog/tags/express/" style="font-size: 27.5px; color: #779bd3">express</a> <a href="/blog/tags/git/" style="font-size: 27.5px; color: #779bd3">git</a> <a href="/blog/tags/javascript/" style="font-size: 15px; color: #bbe">javascript</a> <a href="/blog/tags/js/" style="font-size: 35.83px; color: #4a85c0">js</a> <a href="/blog/tags/mongodb/" style="font-size: 27.5px; color: #779bd3">mongodb</a> <a href="/blog/tags/nestjs/" style="font-size: 19.17px; color: #a4b0e5">nestjs</a> <a href="/blog/tags/nestjs-mongodb/" style="font-size: 15px; color: #bbe">nestjs mongodb</a> <a href="/blog/tags/npm/" style="font-size: 15px; color: #bbe">npm</a> <a href="/blog/tags/rxjs/" style="font-size: 19.17px; color: #a4b0e5">rxjs</a> <a href="/blog/tags/software/" style="font-size: 15px; color: #bbe">software</a> <a href="/blog/tags/swagger/" style="font-size: 15px; color: #bbe">swagger</a> <a href="/blog/tags/system/" style="font-size: 15px; color: #bbe">system</a> <a href="/blog/tags/ts/" style="font-size: 31.67px; color: #6090c9">ts</a> <a href="/blog/tags/uniapp/" style="font-size: 23.33px; color: #8ea5dc">uniapp</a> <a href="/blog/tags/vue3/" style="font-size: 15px; color: #bbe">vue3</a> <a href="/blog/tags/webpack/" style="font-size: 15px; color: #bbe">webpack</a> <a href="/blog/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/" style="font-size: 15px; color: #bbe">代码优化</a> <a href="/blog/tags/%E4%BC%98%E5%8C%96/" style="font-size: 19.17px; color: #a4b0e5">优化</a> <a href="/blog/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 19.17px; color: #a4b0e5">小程序</a>
+  <a href="/blog/tags/CSS/" style="font-size: 15px; color: #bbe">CSS</a> <a href="/blog/tags/Javascript/" style="font-size: 23.33px; color: #8ea5dc">Javascript</a> <a href="/blog/tags/Library/" style="font-size: 19.17px; color: #a4b0e5">Library</a> <a href="/blog/tags/System/" style="font-size: 19.17px; color: #a4b0e5">System</a> <a href="/blog/tags/angular/" style="font-size: 40px; color: #337ab7">angular</a> <a href="/blog/tags/angular-material/" style="font-size: 19.17px; color: #a4b0e5">angular material</a> <a href="/blog/tags/angular-pipe/" style="font-size: 15px; color: #bbe">angular pipe</a> <a href="/blog/tags/angular17/" style="font-size: 15px; color: #bbe">angular17</a> <a href="/blog/tags/angular17-signal/" style="font-size: 15px; color: #bbe">angular17 signal</a> <a href="/blog/tags/animation/" style="font-size: 19.17px; color: #a4b0e5">animation</a> <a href="/blog/tags/css/" style="font-size: 19.17px; color: #a4b0e5">css</a> <a href="/blog/tags/express/" style="font-size: 27.5px; color: #779bd3">express</a> <a href="/blog/tags/git/" style="font-size: 27.5px; color: #779bd3">git</a> <a href="/blog/tags/javascript/" style="font-size: 15px; color: #bbe">javascript</a> <a href="/blog/tags/js/" style="font-size: 35.83px; color: #4a85c0">js</a> <a href="/blog/tags/mongodb/" style="font-size: 27.5px; color: #779bd3">mongodb</a> <a href="/blog/tags/nestjs/" style="font-size: 19.17px; color: #a4b0e5">nestjs</a> <a href="/blog/tags/nestjs-mongodb/" style="font-size: 15px; color: #bbe">nestjs mongodb</a> <a href="/blog/tags/npm/" style="font-size: 15px; color: #bbe">npm</a> <a href="/blog/tags/rxjs/" style="font-size: 19.17px; color: #a4b0e5">rxjs</a> <a href="/blog/tags/software/" style="font-size: 15px; color: #bbe">software</a> <a href="/blog/tags/swagger/" style="font-size: 15px; color: #bbe">swagger</a> <a href="/blog/tags/system/" style="font-size: 15px; color: #bbe">system</a> <a href="/blog/tags/ts/" style="font-size: 31.67px; color: #6090c9">ts</a> <a href="/blog/tags/uniapp/" style="font-size: 23.33px; color: #8ea5dc">uniapp</a> <a href="/blog/tags/vue3/" style="font-size: 15px; color: #bbe">vue3</a> <a href="/blog/tags/webpack/" style="font-size: 15px; color: #bbe">webpack</a> <a href="/blog/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/" style="font-size: 15px; color: #bbe">代码优化</a> <a href="/blog/tags/%E4%BC%98%E5%8C%96/" style="font-size: 19.17px; color: #a4b0e5">优化</a> <a href="/blog/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 19.17px; color: #a4b0e5">小程序</a>
 </div>
 
               </div>
@@ -199,6 +235,28 @@
       </a>
     
 
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
     
 
     
@@ -273,6 +331,18 @@
   </script>
 
 
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/blog/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
 
 
 

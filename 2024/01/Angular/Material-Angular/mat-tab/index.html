@@ -124,6 +124,37 @@
           
           
           
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-category-fill"></i>
+                我们
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/blog/us/">
+                    <i class="iconfont icon-user-fill"></i>
+                    我们
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/blog/photos/">
+                    <i class="iconfont icon-books"></i>
+                    相册
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
             <li class="nav-item">
               <a class="nav-link" href="/blog/about/">
                 <i class="iconfont icon-user-fill"></i>
@@ -156,6 +187,11 @@
             </li>
           
         
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
@@ -196,19 +232,10 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      86 字
+      146 字
     </span>
   
 
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      预计阅读
-      3
-       分钟
-    </span>
   
 
   
@@ -241,6 +268,10 @@
             <div class="markdown-body">
               <h1 id="Material-Angular-Mat-tab-使用技巧"><a href="#Material-Angular-Mat-tab-使用技巧" class="headerlink" title="Material Angular Mat-tab 使用技巧"></a>Material Angular Mat-tab 使用技巧</h1><h3 id="mat-tab-切换时如何刷新数据-只渲染当前tab"><a href="#mat-tab-切换时如何刷新数据-只渲染当前tab" class="headerlink" title="mat-tab 切换时如何刷新数据(只渲染当前tab)"></a>mat-tab 切换时如何刷新数据(只渲染当前tab)</h3><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">mat-tab-group</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">mat-tab</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;A&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">matTabContent</span>&gt;</span> Content of tab A <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">mat-tab</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">mat-tab</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;B&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">matTabContent</span>&gt;</span> Content of tab B <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">mat-tab</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mat-tab-group</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
+<h3 id="自定义mat-tab-label内容"><a href="#自定义mat-tab-label内容" class="headerlink" title="自定义mat-tab label内容"></a>自定义mat-tab label内容</h3><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">mat-tab-group</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">mat-tab</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">mat-tab-label</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> [<span class="hljs-attr">matBadge</span>]=<span class="hljs-string">&quot;10&quot;</span> <span class="hljs-attr">matBadgeOverlap</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">matBadgeColor</span>=<span class="hljs-string">&quot;warn&quot;</span>&gt;</span>自定义标题<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">mat-tab</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mat-tab-group</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+
+
             </div>
             <hr>
             <div>
@@ -267,6 +298,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/blog/2024/01/Angular17/index/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Angular17</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
@@ -343,6 +380,28 @@
       </a>
     
 
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
     
 
     
@@ -423,6 +482,18 @@
   </script>
 
 
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/blog/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
 
 
 

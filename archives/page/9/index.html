@@ -108,6 +108,37 @@
           
           
           
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-category-fill"></i>
+                我们
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/blog/us/">
+                    <i class="iconfont icon-user-fill"></i>
+                    我们
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/blog/photos/">
+                    <i class="iconfont icon-books"></i>
+                    相册
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
             <li class="nav-item">
               <a class="nav-link" href="/blog/about/">
                 <i class="iconfont icon-user-fill"></i>
@@ -140,6 +171,11 @@
             </li>
           
         
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
@@ -183,7 +219,7 @@
                 
 
 <div class="list-group">
-  <p class="h4">共计 93 篇文章</p>
+  <p class="h4">共计 98 篇文章</p>
   <hr>
   
   
@@ -191,20 +227,38 @@
       
       <p class="h5">2023</p>
     
+    <a href="/blog/2023/10/Animation/GSAP/index/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">gsap</span>
+      <time style="float: right;">10-16</time>
+    </a>
+  
+    
+    <a href="/blog/2023/10/Git/Questions/gitignore/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">.gitignore</span>
+      <time style="float: right;">10-16</time>
+    </a>
+  
+    
+    <a href="/blog/2023/10/Angular/Angular/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Angular</span>
+      <time style="float: right;">10-16</time>
+    </a>
+  
+    
+    <a href="/blog/2023/10/Angular/Angular%E7%BB%84%E4%BB%B6%E5%BA%93/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Angular library</span>
+      <time style="float: right;">10-16</time>
+    </a>
+  
+    
+    <a href="/blog/2023/10/Angular/Components/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Angular Component</span>
+      <time style="float: right;">10-16</time>
+    </a>
+  
+    
     <a href="/blog/2023/10/Angular/Data%20Binding/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">Angular Data Binding</span>
-      <time style="float: right;">10-16</time>
-    </a>
-  
-    
-    <a href="/blog/2023/10/Angular/Dynamic%20Components/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Angular Dynamic Component</span>
-      <time style="float: right;">10-16</time>
-    </a>
-  
-    
-    <a href="/blog/2023/10/Angular/Form/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Angular Form</span>
       <time style="float: right;">10-16</time>
     </a>
   
@@ -215,38 +269,20 @@
     </a>
   
     
+    <a href="/blog/2023/10/Angular/Form/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Angular Form</span>
+      <time style="float: right;">10-16</time>
+    </a>
+  
+    
+    <a href="/blog/2023/10/Angular/Dynamic%20Components/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Angular Dynamic Component</span>
+      <time style="float: right;">10-16</time>
+    </a>
+  
+    
     <a href="/blog/2023/10/Angular/Modules/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">Angular Modules</span>
-      <time style="float: right;">10-16</time>
-    </a>
-  
-    
-    <a href="/blog/2023/10/Angular/Observables%20&%20RxJS/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Angular Rxjs</span>
-      <time style="float: right;">10-16</time>
-    </a>
-  
-    
-    <a href="/blog/2023/10/Angular/ResponseDesign/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Angular Response Design</span>
-      <time style="float: right;">10-16</time>
-    </a>
-  
-    
-    <a href="/blog/2023/10/Angular/Router/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Angular Router</span>
-      <time style="float: right;">10-16</time>
-    </a>
-  
-    
-    <a href="/blog/2023/10/Angular/Services/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Angular Services</span>
-      <time style="float: right;">10-16</time>
-    </a>
-  
-    
-    <a href="/blog/2023/10/Angular/angular.json/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Angular.json</span>
       <time style="float: right;">10-16</time>
     </a>
   
@@ -281,6 +317,28 @@
       </a>
     
 
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
     
 
     
@@ -355,6 +413,18 @@
   </script>
 
 
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/blog/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
 
 
 
