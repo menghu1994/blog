@@ -8,6 +8,9 @@ tags: angular
 
 # Angular
 
+# 安装Angular CLI
+`npm install -g @angular/cli`
+
 ## 命令行快速生成
 
 ```powershell

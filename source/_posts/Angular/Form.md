@@ -47,6 +47,17 @@ formgroup.setValue({name:'xiaoming'});
 ## Active trigger verification
 
 
+## 查看是否验证失败
+```ts
+   Object.keys(this.editForm.controls).forEach(controlName => {
+      const control = this.editForm.controls[controlName];
+      if (!control.valid) {
+        console.log(`Control '${controlName}' is invalid.`);
+      }
+    });
+```
+
+
 ## Reference
 <div id="refer-anchor-1"></div>
 - [1] [Setvalue vs Patchvalue Angular](https://sami-chkhachkhi.medium.com/setvalue-vs-patchvalue-angular-a64a55e912b8)

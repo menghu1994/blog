@@ -14,3 +14,11 @@ tags: mongodb
  - Copy file to `C:\Program Files\MongoDB\Server\6.0\bin`
 
 ## Command
+命令行工具： `mongosh.exe`
+
+ - `show dbs` 查看已连接的数据库
+ - `use <database>` 切换数据库
+ - `db.<collection>.find( { name: 'Luffy' } )` 查询数据
+ - `db.<collection>.updateOne({ name: "Luffy" }, { $set: { age: 35 } })` 修改数据
+ - `db.<collection>.deleteOne({ name: "Luffy" })` 删除数据
+ - `db.<collection>.insertOne({ name: "Luffy", age: 30 })` 添加数据

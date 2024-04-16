@@ -34,3 +34,16 @@ $ nest g mo <ModuleName>
 // 如果ModuleName=ControllerName,则controller会自动注入到module里
 $ nest g co <ControllerName>
 ```
+
+### 
+`@HttpCode(204)` 自定义状态码
+`@Header('Cache-Control', 'none')` 自定义响应头
+`@Redirect('https://nestjs.com', 301)` 重定向url
+```js
+@Get('docs')
+@Redirect('https://docs.nestjs.com', 302)
+getDocs() {
+	// 返回值会覆盖
+  return { url: 'https://docs.nestjs.com/v5/', statusCode: 200 };
+}
+```
