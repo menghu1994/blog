@@ -64,6 +64,7 @@
   </script>
   <script  src="/blog/js/utils.js" ></script>
   <script  src="/blog/js/color-schema.js" ></script>
+<!--  <script src="https://cdn.tailwindcss.com"></script>-->
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 
@@ -72,7 +73,10 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/blog/">&nbsp;<strong>Luffy</strong>&nbsp;</a>
+       href="/blog/">
+        <img src="/blog/img/logo.png" srcset="/blog/img/loading.gif" height="46">
+        <strong>Luffy</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -182,7 +186,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/links/">
                 <i class="iconfont icon-link-fill"></i>
-                友链
+                书签
               </a>
             </li>
           
@@ -205,7 +209,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/blog/img/default.png') no-repeat center center;
+         style="background: url('https://miro.medium.com/max/892/1*bFIR37BFmQcxyPd7UPs6xg.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -232,7 +236,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      887 字
+      1.2k 字
     </span>
   
 
@@ -266,7 +270,60 @@
             <h1 style="display: none">Array</h1>
             
             <div class="markdown-body">
-              <h1 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h1><blockquote>
+              <h1 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h1><h2 id="添加-删除元素"><a href="#添加-删除元素" class="headerlink" title="添加/删除元素:"></a>添加/删除元素:</h2><ul>
+<li><p>arr.push()  //从尾端添加元素</p>
+</li>
+<li><p>arr.pop()   //从尾端提取元素</p>
+</li>
+<li><p>arr.shift()   //从前端提取元素</p>
+</li>
+<li><p>arr.unshift()  //从前端添加元素</p>
+</li>
+<li><p>arr.splice(index,num,arr) //从索引为index开始删除num个数组元素,并在当前位置插入arr</p>
+</li>
+<li><p>arr.slice(start,end) //返回索引start到end的数组</p>
+</li>
+<li><p>arr.concat(arr2) //合并数组并返回</p>
+</li>
+</ul>
+<h2 id="遍历元素"><a href="#遍历元素" class="headerlink" title="遍历元素:"></a>遍历元素:</h2><ul>
+<li>arr.forEach() //数组为每个元素都运行一个函数</li>
+</ul>
+<ul>
+<li>forEach, for, for..of   //遍历数组</li>
+<li>map(func)  //遍历并新数组</li>
+</ul>
+<h2 id="搜索元素"><a href="#搜索元素" class="headerlink" title="搜索元素:"></a>搜索元素:</h2><ul>
+<li><p>arr.indexOf()  //返回索引,找不到返回-1</p>
+</li>
+<li><p>arr.lastIndexOf()  //返回索引</p>
+</li>
+<li><p>arr.includes()  //返回true/false</p>
+</li>
+<li><p>arr.find(function(){…}) //返回单个元素</p>
+</li>
+<li><p>arr.findIndex() //返回索引</p>
+</li>
+<li><p>arr.filter(function(){…})  //返回多个元素</p>
+</li>
+</ul>
+<h2 id="转换数组"><a href="#转换数组" class="headerlink" title="转换数组:"></a>转换数组:</h2><ul>
+<li><p>arr.sort( (a,b) =&gt; a-b )  //数字排序</p>
+</li>
+<li><p>arr.sort( (a,b) =&gt; a.localeCompare(b) )  //字符串排序</p>
+</li>
+<li><p>arr.reverse()  //反转顺序</p>
+</li>
+<li><p>arr.reduce( (accumulator, item, index, array) =&gt; {..} )  //accumulartor是上次函数调用的结果</p>
+</li>
+<li><p>arr.reduceRight()</p>
+</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他:"></a>其他:</h2><ul>
+<li>Array.isArray(arr)  //检查arr是否是一个数组</li>
+</ul>
+<p>Array : toString();<br>toLocalString();<br>valueOf();<br>some();<br>every();<br>fliter();<br>forEach();<br>map( function(item,index,array){} );<br>reduce( function(prev,cur,index,array){} );<br>arr.sort( function(a,b){<br>return a-b;<br>})</p>
+<blockquote>
 <p>数组降维</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> array2d = [[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>],[<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>],[<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>]]<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>([].<span class="hljs-title function_">concat</span>(...array2d))<br><span class="hljs-comment">// 数组降维的另外一种方式, nodejs 11+ 支持</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(array2d.<span class="hljs-title function_">flatMap</span>(<span class="hljs-function"><span class="hljs-params">x</span>=&gt;</span>x))<br></code></pre></div></td></tr></table></figure>
@@ -332,7 +389,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/blog/tags/js/">js</a>
+                      <a class="hover-with-bg" href="/blog/tags/Javascript/">Javascript</a>
                     
                   </div>
                 

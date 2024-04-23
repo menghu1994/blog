@@ -64,6 +64,7 @@
   </script>
   <script  src="/blog/js/utils.js" ></script>
   <script  src="/blog/js/color-schema.js" ></script>
+<!--  <script src="https://cdn.tailwindcss.com"></script>-->
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 
@@ -72,7 +73,10 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/blog/">&nbsp;<strong>Luffy</strong>&nbsp;</a>
+       href="/blog/">
+        <img src="/blog/img/logo.png" srcset="/blog/img/loading.gif" height="46">
+        <strong>Luffy</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -182,7 +186,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/links/">
                 <i class="iconfont icon-link-fill"></i>
-                友链
+                书签
               </a>
             </li>
           
@@ -232,7 +236,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      588 字
+      724 字
     </span>
   
 
@@ -266,7 +270,32 @@
             <h1 style="display: none">Date</h1>
             
             <div class="markdown-body">
-              <h1 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h1><figure class="highlight typescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs typescript"><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">0</span>) <span class="hljs-comment">// 1970 年 1 月 1 日</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">24</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>) <span class="hljs-comment">// 1970 年 1 月 1 日</span><br><br><span class="hljs-comment">// 传入的整数参数代表的是自 1970-01-01 00:00:00 以来经过的毫秒数，该整数被称为`时间戳`。</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-title class_">Time</span>: <span class="hljs-built_in">number</span>)<br><br><span class="hljs-comment">// 传入的字符串会被自动解析,解析为当前时间</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-attr">date</span>: <span class="hljs-built_in">string</span>)<br><span class="hljs-comment">// 使用当前时区中的给定组件创建日期</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(year, month, date, hours, minutes, seconds, ms)<br></code></pre></div></td></tr></table></figure>
+              <h1 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h1><p>let now = new Date()</p>
+<ul>
+<li>new Date(0)  //1970年1月1日</li>
+</ul>
+<h2 id="获取日期组件"><a href="#获取日期组件" class="headerlink" title="获取日期组件"></a>获取日期组件</h2><ul>
+<li>now.getFullYear()  //获取年份2008</li>
+<li>now.getMonth()  //获取月份,0~11</li>
+<li>now.getDate()  //获取天,1~31</li>
+<li>now.getHours()</li>
+<li>now.getMinutes()</li>
+<li>now.getSeconds()</li>
+<li>now.getMilliseconds()</li>
+<li>now.getDay() //0~6,周日到周六</li>
+<li>now.getTime() //获取从1970至今的毫秒数(优先)</li>
+</ul>
+<ul>
+<li>alert( +now ) //获取从1970至今的毫秒数</li>
+<li>Date.now()  //获取从1970至今的毫秒数</li>
+</ul>
+<h2 id="设置日期组件"><a href="#设置日期组件" class="headerlink" title="设置日期组件"></a>设置日期组件</h2><ul>
+<li>setFullYear()<br>…</li>
+<li>setTime()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-title class_">Date</span> :  <span class="hljs-keyword">var</span> now = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();<br><span class="hljs-keyword">var</span> sometime = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-title class_">Date</span>.<span class="hljs-title function_">parse</span>(<span class="hljs-string">&quot;7/10/2019&quot;</span>));<br><span class="hljs-keyword">var</span> sometime = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-title class_">Date</span>.<span class="hljs-title function_">UTC</span>(<span class="hljs-number">2018</span>,<span class="hljs-number">6</span>,<span class="hljs-number">10</span>));<br>		<span class="hljs-title function_">getTime</span>();<br>		<span class="hljs-title function_">getFullYear</span>();<br>		<span class="hljs-title function_">getMonth</span>();<br>		<span class="hljs-title function_">getDate</span>();<br>		<span class="hljs-title function_">getDay</span>();<br>		<span class="hljs-title function_">getHours</span>();<br>		<span class="hljs-title function_">getMinutes</span>();<br>		<span class="hljs-title function_">getSeconds</span>();<br>		<span class="hljs-title function_">getMilliSeconds</span>();<br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight typescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs typescript"><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">0</span>) <span class="hljs-comment">// 1970 年 1 月 1 日</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">24</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>) <span class="hljs-comment">// 1970 年 1 月 1 日</span><br><br><span class="hljs-comment">// 传入的整数参数代表的是自 1970-01-01 00:00:00 以来经过的毫秒数，该整数被称为`时间戳`。</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-title class_">Time</span>: <span class="hljs-built_in">number</span>)<br><br><span class="hljs-comment">// 传入的字符串会被自动解析,解析为当前时间</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-attr">date</span>: <span class="hljs-built_in">string</span>)<br><span class="hljs-comment">// 使用当前时区中的给定组件创建日期</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(year, month, date, hours, minutes, seconds, ms)<br></code></pre></div></td></tr></table></figure>
 
 <h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="获取时间"><a href="#获取时间" class="headerlink" title="获取时间"></a>获取时间</h3><figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> date = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();<br>date.<span class="hljs-title function_">getFullYear</span>() <span class="hljs-comment">// 获取年份 2022</span><br>data.<span class="hljs-title function_">getMonth</span>() <span class="hljs-comment">// 获取月份 0~11</span><br>data.<span class="hljs-title function_">getDate</span>() <span class="hljs-comment">// 获取当月具体日期 1~31</span><br><span class="hljs-title function_">getHours</span>()，<span class="hljs-title function_">getMinutes</span>()，<span class="hljs-title function_">getSeconds</span>()，<span class="hljs-title function_">getMilliseconds</span>() <span class="hljs-comment">// 获取时,分钟,秒钟,毫秒</span><br>date.<span class="hljs-title function_">getDay</span>() <span class="hljs-comment">// 获取星期几  0~6 0默认是周日</span><br>date.<span class="hljs-title function_">getTime</span>() <span class="hljs-comment">// 获取从1970至今所经历的毫秒数</span><br></code></pre></div></td></tr></table></figure>
 
@@ -292,7 +321,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/blog/tags/js/">js</a>
+                      <a class="hover-with-bg" href="/blog/tags/Javascript/">Javascript</a>
                     
                   </div>
                 

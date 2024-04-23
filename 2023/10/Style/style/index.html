@@ -64,6 +64,7 @@
   </script>
   <script  src="/blog/js/utils.js" ></script>
   <script  src="/blog/js/color-schema.js" ></script>
+<!--  <script src="https://cdn.tailwindcss.com"></script>-->
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 
@@ -72,7 +73,10 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/blog/">&nbsp;<strong>Luffy</strong>&nbsp;</a>
+       href="/blog/">
+        <img src="/blog/img/logo.png" srcset="/blog/img/loading.gif" height="46">
+        <strong>Luffy</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -182,7 +186,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/links/">
                 <i class="iconfont icon-link-fill"></i>
-                友链
+                书签
               </a>
             </li>
           
@@ -232,7 +236,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      23 字
+      46 字
     </span>
   
 
@@ -266,7 +270,7 @@
             <h1 style="display: none">Css</h1>
             
             <div class="markdown-body">
-              <figure class="highlight scss"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs scss"><span class="hljs-comment">// 在rgba中使用&#x27;#ffffff&#x27;颜色格式</span><br><span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgba</span>(<span class="hljs-variable">$color</span>: <span class="hljs-variable">$uni-color-error</span>, <span class="hljs-variable">$alpha</span>: <span class="hljs-number">0.3</span>)<br></code></pre></div></td></tr></table></figure>
+              <figure class="highlight scss"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs scss"><span class="hljs-comment">// 在rgba中使用&#x27;#ffffff&#x27;颜色格式</span><br><span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgba</span>(<span class="hljs-variable">$color</span>: <span class="hljs-variable">$uni-color-error</span>, <span class="hljs-variable">$alpha</span>: <span class="hljs-number">0.3</span>)<br><br><br>    @for <span class="hljs-variable">$i</span> from <span class="hljs-number">0</span> through <span class="hljs-number">24</span> &#123;<br>      <span class="hljs-selector-class">.width-</span>#&#123;<span class="hljs-variable">$i</span>&#125; &#123;<br>        <span class="hljs-attribute">width</span>: <span class="hljs-built_in">calc</span>(#&#123;<span class="hljs-variable">$i</span> * <span class="hljs-number">4.1666%</span>&#125; - <span class="hljs-number">4px</span>) !important;<br>      &#125;<br>    &#125;<br></code></pre></div></td></tr></table></figure>
             </div>
             <hr>
             <div>

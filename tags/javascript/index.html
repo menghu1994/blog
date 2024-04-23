@@ -48,6 +48,7 @@
   </script>
   <script  src="/blog/js/utils.js" ></script>
   <script  src="/blog/js/color-schema.js" ></script>
+<!--  <script src="https://cdn.tailwindcss.com"></script>-->
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 
@@ -56,7 +57,10 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/blog/">&nbsp;<strong>Luffy</strong>&nbsp;</a>
+       href="/blog/">
+        <img src="/blog/img/logo.png" srcset="/blog/img/loading.gif" height="46">
+        <strong>Luffy</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -166,7 +170,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/links/">
                 <i class="iconfont icon-link-fill"></i>
-                友链
+                书签
               </a>
             </li>
           
@@ -219,7 +223,7 @@
                 
 
 <div class="list-group">
-  <p class="h4">共计 3 篇文章</p>
+  <p class="h4">共计 13 篇文章</p>
   <hr>
   
   
@@ -233,22 +237,73 @@
     </a>
   
     
-    <a href="/blog/2023/10/Date/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">new Date()</span>
+    <a href="/blog/2023/10/Tools/RegularExpression/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">常用正则表达式</span>
       <time style="float: right;">10-20</time>
     </a>
   
     
-      
-      <p class="h5">2021</p>
+    <a href="/blog/2023/10/Javascript/Class/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Class</span>
+      <time style="float: right;">10-20</time>
+    </a>
+  
     
-    <a href="/blog/2021/06/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">图片懒加载</span>
-      <time style="float: right;">06-17</time>
+    <a href="/blog/2023/10/Javascript/Array/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Array</span>
+      <time style="float: right;">10-16</time>
+    </a>
+  
+    
+    <a href="/blog/2023/10/Javascript/ClassDecorator/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Class Decorator</span>
+      <time style="float: right;">10-16</time>
+    </a>
+  
+    
+    <a href="/blog/2023/10/Javascript/Map%20and%20Set/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">map &amp; set</span>
+      <time style="float: right;">10-16</time>
+    </a>
+  
+    
+    <a href="/blog/2023/10/Javascript/Date/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Date</span>
+      <time style="float: right;">10-16</time>
+    </a>
+  
+    
+    <a href="/blog/2023/10/Javascript/Map/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">map</span>
+      <time style="float: right;">10-16</time>
+    </a>
+  
+    
+    <a href="/blog/2023/10/Javascript/Object/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Object</span>
+      <time style="float: right;">10-16</time>
+    </a>
+  
+    
+    <a href="/blog/2023/10/Javascript/Promise/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Promise</span>
+      <time style="float: right;">10-16</time>
     </a>
   
 </div>
 
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/blog/tags/Javascript/page/2/">2</a><a class="extend next" rel="next" href="/blog/tags/Javascript/page/2/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 

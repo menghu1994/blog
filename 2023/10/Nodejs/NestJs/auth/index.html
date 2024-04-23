@@ -64,6 +64,7 @@
   </script>
   <script  src="/blog/js/utils.js" ></script>
   <script  src="/blog/js/color-schema.js" ></script>
+<!--  <script src="https://cdn.tailwindcss.com"></script>-->
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 
@@ -72,7 +73,10 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/blog/">&nbsp;<strong>Luffy</strong>&nbsp;</a>
+       href="/blog/">
+        <img src="/blog/img/logo.png" srcset="/blog/img/loading.gif" height="46">
+        <strong>Luffy</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -182,7 +186,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/links/">
                 <i class="iconfont icon-link-fill"></i>
-                友链
+                书签
               </a>
             </li>
           
@@ -269,6 +273,7 @@
               <h1 id="Auth-in-nestjs"><a href="#Auth-in-nestjs" class="headerlink" title="Auth in nestjs"></a>Auth in nestjs</h1><h2 id="Use-bcrypt-to-encryption-password-in-backend"><a href="#Use-bcrypt-to-encryption-password-in-backend" class="headerlink" title="Use bcrypt to encryption password in backend"></a>Use bcrypt to encryption password in backend</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">npm install --save @nestjs/passport passport passport-local<br>// types<br>npm install --save-dev @types/passport-local<br>// mongoose<br>npm install --save @nestjs/mongoose mongoose<br>npm install @types/bcrypt bcrypt<br></code></pre></div></td></tr></table></figure>
 
 <h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a><a target="_blank" rel="noopener" href="https://www.loginradius.com/blog/engineering/guest-post/session-authentication-with-nestjs-and-mongodb/">Usage</a></h3><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// UsersController</span><br><span class="hljs-title function_">constructor</span>(<span class="hljs-params">private readonly usersService: UsersService</span>) &#123;&#125;<br> @<span class="hljs-title class_">Post</span>(<span class="hljs-string">&#x27;/signup&#x27;</span>)<br>  <span class="hljs-keyword">async</span> <span class="hljs-title function_">addUser</span>(<span class="hljs-params"></span><br><span class="hljs-params">    @Body(<span class="hljs-string">&#x27;password&#x27;</span>) userPassword: string,</span><br><span class="hljs-params">    @Body(<span class="hljs-string">&#x27;username&#x27;</span>) userName: string,</span><br><span class="hljs-params">  </span>) &#123;<br>    <span class="hljs-keyword">const</span> saltOrRounds = <span class="hljs-number">10</span>;<br>    <span class="hljs-keyword">const</span> hashedPassword = <span class="hljs-keyword">await</span> bcrypt.<span class="hljs-title function_">hash</span>(userPassword, saltOrRounds);<br>    <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">usersService</span>.<span class="hljs-title function_">insertUser</span>(<br>      userName,<br>      hashedPassword,<br>    );<br>    <span class="hljs-keyword">return</span> &#123;<br>      <span class="hljs-attr">msg</span>: <span class="hljs-string">&#x27;User successfully registered&#x27;</span>,<br>      <span class="hljs-attr">userId</span>: result.<span class="hljs-property">id</span>,<br>      <span class="hljs-attr">userName</span>: result.<span class="hljs-property">username</span><br>    &#125;;<br>  &#125;<br><br><span class="hljs-comment">// UsersService </span><br><span class="hljs-title function_">constructor</span>(<span class="hljs-params">@InjectModel(<span class="hljs-string">&#x27;user&#x27;</span>) private readonly userModel: Model&lt;User&gt;</span>) &#123;<br><span class="hljs-keyword">async</span> <span class="hljs-title function_">insertUser</span>(<span class="hljs-params">userName: string, password: string</span>) &#123;<br>  <span class="hljs-keyword">const</span> username = userName.<span class="hljs-title function_">toLowerCase</span>();<br>  <span class="hljs-keyword">const</span> newUser = <span class="hljs-keyword">new</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">userModel</span>(&#123;<br>    username,<br>    password,<br>  &#125;);<br>  <span class="hljs-keyword">await</span> newUser.<span class="hljs-title function_">save</span>();<br>  <span class="hljs-keyword">return</span> newUser;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
             </div>
             <hr>
             <div>
@@ -278,7 +283,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/blog/tags/nestjs-mongodb/">nestjs mongodb</a>
+                      <a class="hover-with-bg" href="/blog/tags/mongodb/">mongodb</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/nestjs/">nestjs</a>
                     
                   </div>
                 

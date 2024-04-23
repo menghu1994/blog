@@ -64,6 +64,7 @@
   </script>
   <script  src="/blog/js/utils.js" ></script>
   <script  src="/blog/js/color-schema.js" ></script>
+<!--  <script src="https://cdn.tailwindcss.com"></script>-->
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 
@@ -72,7 +73,10 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/blog/">&nbsp;<strong>Luffy</strong>&nbsp;</a>
+       href="/blog/">
+        <img src="/blog/img/logo.png" srcset="/blog/img/loading.gif" height="46">
+        <strong>Luffy</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -182,7 +186,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/links/">
                 <i class="iconfont icon-link-fill"></i>
-                友链
+                书签
               </a>
             </li>
           
@@ -232,7 +236,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      8 字
+      181 字
     </span>
   
 
@@ -268,6 +272,11 @@
             <div class="markdown-body">
               <h1 id="GSAP-in-Angular"><a href="#GSAP-in-Angular" class="headerlink" title="GSAP in Angular"></a>GSAP in Angular</h1><h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">npm install --save gsap @types/gsap<br></code></pre></div></td></tr></table></figure>
 
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// to 动画的最终状态;ep: 当前元素位置是0,那么动画将从0开始抵达100的位置</span><br>gasp.<span class="hljs-title function_">to</span>(<span class="hljs-string">&#x27;box&#x27;</span>, &#123; <span class="hljs-attr">rotation</span>: <span class="hljs-number">27</span>, <span class="hljs-attr">x</span>:<span class="hljs-number">100</span>, <span class="hljs-attr">duration</span>: <span class="hljs-number">1</span> &#125;)<br><br><span class="hljs-comment">// from 动画的初始状态;ep: 当前元素位置是0,那么动画将从-100开始抵达0的位置</span><br>gsap.<span class="hljs-title function_">from</span>(<span class="hljs-string">&quot;.purple&quot;</span>, &#123;<span class="hljs-attr">rotation</span>: -<span class="hljs-number">360</span>, <span class="hljs-attr">x</span>: -<span class="hljs-number">100</span>, <span class="hljs-attr">duration</span>: <span class="hljs-number">1</span>&#125;);<br><br><span class="hljs-comment">// fromTo ep: 当前元素从-100位置到100位置,默认动画时间1s</span><br>gsap.<span class="hljs-title function_">fromTo</span>(<span class="hljs-string">&quot;.blue&quot;</span>, &#123; <span class="hljs-attr">x</span>: -<span class="hljs-number">100</span> &#125;, &#123; <span class="hljs-attr">x</span>: <span class="hljs-number">100</span>, <span class="hljs-attr">duration</span>: <span class="hljs-number">2</span> &#125;);<br></code></pre></div></td></tr></table></figure>
+
+<p><code>gsap.timeline()</code> 按顺序执行动画</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">const</span> tl = gsap.<span class="hljs-title function_">timeline</span>();<br>tl.<span class="hljs-title function_">to</span>(<span class="hljs-string">&quot;.box1&quot;</span>, &#123;<span class="hljs-attr">duration</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">x</span>: <span class="hljs-number">100</span>&#125;, <span class="hljs-number">1</span>)<br>  .<span class="hljs-title function_">to</span>(<span class="hljs-string">&quot;.box2&quot;</span>, &#123;<span class="hljs-attr">duration</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">200</span>&#125;, <span class="hljs-string">&quot;-=1.5&quot;</span>)<br>  .<span class="hljs-title function_">to</span>(<span class="hljs-string">&quot;.box3&quot;</span>, &#123;<span class="hljs-attr">duration</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">rotation</span>: <span class="hljs-number">360</span>&#125;, <span class="hljs-string">&quot;+=3&quot;</span>);<br></code></pre></div></td></tr></table></figure>
+
             </div>
             <hr>
             <div>
@@ -278,6 +287,8 @@
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/blog/tags/animation/">animation</a>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/gsap/">gsap</a>
                     
                   </div>
                 
