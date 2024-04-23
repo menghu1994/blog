@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Typescript
-tags: ts
+tags: ['Typescript']
 ---
 
 # [Typescript](https://ts.xcatliu.com/basics)

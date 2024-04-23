@@ -3,8 +3,7 @@ layout: post
 title: CSS Animation
 banner_img: https://angieng47.files.wordpress.com/2012/09/screen-shot-2012-09-27-at-6-11-20-pm.png
 index_img: https://cdn.dribbble.com/users/1052222/screenshots/6252807/drivitty_still_2x.gif?compress=1&resize=400x300
-tags:
- - css
+tags: ['css']
 ---
 transition;animation
 <!--more-->

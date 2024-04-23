@@ -3,8 +3,7 @@ layout: post
 title: new Array()
 index_img: https://www.freecodecamp.org/news/content/images/2021/05/freeCodeCamp-Cover-1.png
 banner_img: https://miro.medium.com/max/892/1*bFIR37BFmQcxyPd7UPs6xg.png
-tags:
- - javascript
+tags: ['Javascript']
 ---
 Javascript 数组对象
 <!--more-->

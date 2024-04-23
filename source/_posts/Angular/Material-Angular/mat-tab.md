@@ -2,7 +2,7 @@
 layout: post
 title: Material-Angular
 date: 2024-1-10 09:48:00
-tags: angular material
+tags: ['Angular', 'material']
 ---
 
 # Material Angular Mat-tab 使用技巧

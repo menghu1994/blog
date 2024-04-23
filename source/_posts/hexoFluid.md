@@ -3,9 +3,7 @@ layout: post
 title: hexo搭建个人主页
 index_img: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPclomfHkbCVFgGlbkHBIaUYQqrC_k7t7yEg&usqp=CAU
 banner_img: /img/bg/tag.png
-tags:
- - 优化
- - Javascript
+tags: ['Javascript']
 ---
 
 

@@ -2,7 +2,7 @@
 layout: post
 title: Date
 date: 2023-10-16 21:41:38
-tags: js
+tags: ['Javascript']
 ---
 # Date
 

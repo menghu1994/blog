@@ -3,8 +3,7 @@ layout: post
 title: stylus
 index_img: https://www.stylus-lang.cn/img/stylus-logo.png
 banner_img: https://titangene.github.io/images/cover/css.png
-tags:
- - css
+tags: ['css']
 ---
 css预处理
 <!--more-->

@@ -2,7 +2,7 @@
 layout: post
 title: 属性型指令(Angular Directives)
 date: 2023-12-27 07:41:38
-tags: angular
+tags: ['Angular']
 index_img: https://opensource.google/images/projects/os-projects-angular_thumbnail.png
 ---
 

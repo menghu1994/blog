@@ -3,8 +3,7 @@ layout: post
 title: Failed to connect to github.com port 443 Timed out
 index_img: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSge4enVOAsO6uTzChHRkXM6WMkfRJ_zA_Xdg&usqp=CAU
 banner_img: https://www.google.com.hk/url?sa=i&url=https%3A%2F%2Fjavascript.plainenglish.io%2F6-common-git-mistakes-and-how-to-fix-them-b519bd351001&psig=AOvVaw2f-yTSdweJ43lBHLOqUazK&ust=1624000310068000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCODUieKOnvECFQAAAAAdAAAAABAJ
-tags:
- - git
+tags: ['Git']
 ---
 
 git 命令行问题集合

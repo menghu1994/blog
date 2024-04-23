@@ -2,7 +2,7 @@
 layout: post
 title: git config
 date: 2023-10-16 21:41:38
-tags: git
+tags: ['Git']
 ---
 
 # Mac

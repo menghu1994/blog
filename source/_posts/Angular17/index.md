@@ -3,7 +3,7 @@ layout: post
 title: Angular17
 date: 2024-01-15
 index_img: https://opensource.google/images/projects/os-projects-angular_thumbnail.png
-tags: angular17
+tags: ['Angular17']
 ---
 
 # Angular17

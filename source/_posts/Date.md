@@ -2,9 +2,7 @@
 layout: post
 title: new Date()
 index_img: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-DrMvfXRpwdDe84ycvLVF5GVuRgdkk2DUfQ&usqp=CAU
-tags:
- - Javascript
-
+tags: ['Javascript']
 ---
 Javascript 时间对象
 <!--more-->

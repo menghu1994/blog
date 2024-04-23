@@ -271,6 +271,8 @@ navbar:
   # The title on the left side of the navigation bar. If empty, it is based on `title` in hexo config
   blog_title: "Luffy"
 
+  blog_logo: /img/logo.png
+
   # 导航栏毛玻璃特效，实验性功能，可能会造成页面滚动掉帧和抖动，部分浏览器不支持会自动不生效
   # Navigation bar frosted glass special animation. It is an experimental feature
   ground_glass:
