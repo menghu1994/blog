@@ -1,3 +1,10 @@
+---
+layout: post
+title: Material Angular 使用技巧
+index_img: https://www.w3cplus.com/sites/default/files/blogs/2020/2007/greensock-beginner-1.png
+tags: ['Angular','material']
+---
+
 # Material Angular 使用技巧
 
 ### mat-tab 切换时如何刷新数据(只渲染当前tab)

@@ -67,7 +67,9 @@ function trimString(value: string | undefined) {
 
 组件使用2
 > `ngProjectAs` 挂在内容到任意html标签
+```html
 <custom-item>
     <h2 ngProjectAs="card-title">插槽title</h2>
     <card-body>插槽body</card-body>
 </custom-item>
+```

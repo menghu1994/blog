@@ -2,6 +2,8 @@
 layout: post
 title: npm install 安装依赖
 date: 2023-10-16 07:41:38
+index_img: https://oss-cn-hangzhou.aliyuncs.com/codingsky/cdn/img/2020-01-14/199f28ab01b68d6055185cb291412a98.png
+banner_img: https://oss-cn-hangzhou.aliyuncs.com/codingsky/cdn/img/2020-01-14/199f28ab01b68d6055185cb291412a98.png
 tags: npm
 sticky: 100
 ---
@@ -10,11 +12,7 @@ sticky: 100
 npm init -y   初始化项目并生成package.json文件
 ```
 **-y** yes的缩写，会跳过所有的配置提示，直接生成package.json文件，配置可在文件生成后直接在文件中填写。
-
 ---
-
-{% cb text, checked?, incline? %}
-<a class="btn" href="url" title="title">text</a>
 
 ```npm
 npm install        //安装依赖

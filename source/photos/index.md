@@ -16,4 +16,9 @@ date: 2021-02-01 13:55:53
 <span class="label label-success">secondary</span>
 
 {% cb 普通示例 %}
+
+
+{% cb text, checked?, incline? %}
+<a class="btn" href="url" title="title">text</a>
+
 <a class="btn" title="title">text</a>

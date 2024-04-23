@@ -845,32 +845,53 @@ page404:
 # Links Page
 #---------------------------
 links:
-  enable: false
+  enable: true
   banner_img: /img/default.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
   # 友链的成员项
   # Member item of page
-  items:
-    - {
-      title: "Fluid Blog",
-      intro: "主题博客",
-      link: "https://hexo.fluid-dev.com/",
-      image: "/img/favicon.png"
-    }
-    - {
-      title: "Fluid Docs",
+  items: [
+    {
+      title: "前端",
       intro: "主题使用指南",
-      link: "https://hexo.fluid-dev.com/docs/",
-      image: "/img/favicon.png"
+      image: "/img/favicon.png",
+      children: [
+        {
+          title: "Vue",
+          intro: "介绍",
+          link: "https://cn.vuejs.org/guide/introduction.html",
+          image: 'https://atts.w3cschool.cn/attachments/day_210906/202109061704399755.jpg',
+        },
+        {
+          title: "Angular",
+          intro: "介绍",
+          link: "https://hexo.fluid-dev.com/",
+          image: '/img/about.png',
+        },
+        {
+          title: "React",
+          intro: "介绍",
+          link: "https://hexo.fluid-dev.com/",
+          image: '/img/about.png',
+        }
+      ]
+    },
+    {
+      title: "3D模型",
+      intro: "主题使用指南",
+      image: "/img/favicon.png",
+      children: [
+        {
+          title: "Vue",
+          intro: "介绍",
+          link: "https://hexo.fluid-dev.com/",
+          image: '/img/about.png',
+        }
+      ]
     }
-    - {
-      title: "Fluid Repo",
-      intro: "主题 GitHub 仓库",
-      link: "https://github.com/fluid-dev/hexo-theme-fluid",
-      image: "/img/favicon.png"
-    }
+  ]
 
 
 #---------------------------
