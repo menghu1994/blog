@@ -1,5 +1,6 @@
 ---
 title: Express + Typescript + Mongodb
+tags: ['express']
 ---
 
 [Project Create](./install.md)

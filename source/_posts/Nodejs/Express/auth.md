@@ -1,7 +1,7 @@
 ---
 layout: post
 title: auth
-tags: express
+tags: ['express']
 ---
 
 # Password in Express
