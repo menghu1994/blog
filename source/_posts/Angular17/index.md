@@ -73,3 +73,53 @@ function trimString(value: string | undefined) {
     <card-body>插槽body</card-body>
 </custom-item>
 ```
+
+## use service
+`service`Demo
+```typescript
+import {Injectable} from '@angular/core';
+@Injectable({
+  providedIn: 'root',
+})
+export class CalculatorService {
+  add(x: number, y: number) {
+    return x + y;
+  }
+}
+```
+usage
+```typescript
+@Component({
+  selector: 'app-receipt',
+  template: `<h1>The total is {{ totalCost }}</h1>`,
+})
+export class Receipt {
+    // 在非构造函数中使用
+  private calculatorService = inject(CalculatorService);
+  totalCost = this.calculatorService.add(50, 25);
+}
+```
+
+## ng-content && ngProjectAs
+Component template
+```html
+<div class="card-shadow">
+  <ng-content select="card-title"></ng-content>
+  <div class="card-divider"></div>
+  <ng-content></ng-content>
+</div>
+```
+Using the component1
+```html
+<custom-card>
+  <card-title>Hello</card-title>
+  <p>Welcome to the example</p>
+</custom-card>
+```
+Using the component2
+```html
+<custom-card>
+  <h3 ngProjectAs="card-title">Hello</h3>
+  <p>Welcome to the example</p>
+</custom-card>
+```

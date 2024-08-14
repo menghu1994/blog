@@ -7,6 +7,34 @@ index_img: https://opensource.google/images/projects/os-projects-angular_thumbna
 ---
 
 ## directives
+> 属性型指令，通过属性的方式使用，用于改变DOM元素的行为或外观
+
+### `ng` create directives
+```shell
+$ ng generate directive shark --skip-tests
+```
+shark.directive.ts
+```typescript
+import {Directive, ElementRef, Renderer2} from '@angular/core';
+
+@Directive(
+  { selector: '[appShark]' }
+)
+export class SharkDirective {
+  creature = 'Dolphin';
+
+  constructor(elem: ElementRef, renderer: Renderer2) {
+    let shark = renderer.createText('Shark ');
+    renderer.appendChild(elem.nativeElement, shark);
+  }
+}
+```
+app.component.html
+```html
+<span appShark>Fin!</span>
+<!-- Shark Fin! -->
+```
+
 
 ### 实现input和textarea前面不能输入空格
 
