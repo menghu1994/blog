@@ -10,6 +10,7 @@ tags: ['Angular']
 > Use `Viewchild` in Angular to access a child Component, Director, or DOM Element 
 
 ### [Access `directive`](./Directives.md)
+{% post_link Directives Directives %}
 ```typescript
 import {Component, ViewChild, AfterViewInit} from '@angular/core';
 import { SharkDirective } from './shark.directive';
