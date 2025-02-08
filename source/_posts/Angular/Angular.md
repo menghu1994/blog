@@ -137,3 +137,7 @@ getValue(event: Event): string {
 <div [hidden]="!itemForm.form.valid">sub
 </div>
 ```
+
+
+tips:
+在已有目录下创建项目 ng new <project name> --directory ./

@@ -27,15 +27,25 @@ export class DynamicChildLoaderDirective {
 
 Usage in your ts file
 ```ts
-@ViewChild(DynamicChildLoaderDirective, { static: true })
-dynamicChild!: DynamicChildLoaderDirective;
-    
-ngOnInit(): void {
-  this.loadDynamicComponent();
-}
-    
-private loadDynamicComponent() {
-  this.dynamicChild.viewContainerRef.createComponent(YourDynamicChildComponent);
+@Component({
+    selector: 'phmi-vibration-indicator-comp',
+    standalone: true,
+    template: `<ng-template phmiVibrationIndicatorComp></ng-template>
+`,
+})
+export class DynamicComponents implements OnInit {
+    @ViewChild(DynamicChildLoaderDirective, { static: true })
+    dynamicChild!: DynamicChildLoaderDirective;
+        
+    ngOnInit(): void {
+      this.loadDynamicComponent();
+    }
+        
+    private loadDynamicComponent() {
+        const viewContainerRef = this.dynamicChild!.viewContainerRef;
+        viewContainerRef.clear();
+        viewContainerRef.createComponent(YourDynamicChildComponent);
+    }
 }
 
 

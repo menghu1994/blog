@@ -43,10 +43,15 @@ app.component.html
   selector: 'input[jhiNoHeadSpace],textarea[jhiNoHeadSpace]',
 })
 export class NoHeadSpaceDirective  {
+  constructor(private ngControl: NgControl) {}
+
   @HostListener('input', ['$event'])
   onInput($event: any) {
     if (/^\s+/g.test($event.target.value)) {
+      const newValue = $event.target.value.replace(/^\s+/g, "");
       $event.target.value = $event.target.value.replace(/^\s+/g, "");
+      this.ngControl.control?.setValue(newValue);
+      this.ngControl.control?.updateValueAndValidity();
       $event.target.setSelectionRange(0, 0);
     }
   }
@@ -83,7 +88,7 @@ export class ReadonlyTypeDirective  {
   }
 }
 
-// useage
+// usage
 <mat-form-field appearance="outline" fxFlex jhiReadOnlyStyle [readonlyItem]="isView">
   <mat-label>用户名</mat-label>
   <input [type]="'text'" formControlName='userName' matInput [readonly]="isView">

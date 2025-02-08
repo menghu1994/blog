@@ -24,14 +24,17 @@ Tips: node.js > 16
 
 ## 命令行快速生成module，controller..
 ```shell
-// 查看帮助
+# 查看帮助
 $ nest -help
 
-// 生成module = nest generate module <ModuleName>
+# 快速生成CRUD
+$ nest g resource [name]
+
+# 生成module = nest generate module <ModuleName>
 $ nest g mo <ModuleName> 
 
-// 生成controller = nest generate controller <ControllerName>
-// 如果ModuleName=ControllerName,则controller会自动注入到module里
+# 生成controller = nest generate controller <ControllerName>
+# 如果ModuleName=ControllerName,则controller会自动注入到module里
 $ nest g co <ControllerName>
 ```
 
