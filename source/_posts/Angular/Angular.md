@@ -11,6 +11,10 @@ tags: ['Angular']
 # 安装Angular CLI
 `npm install -g @angular/cli`
 
+## 更新cli
+npm uninstall -g @angular/cli
+npm install -g @angular/cli@latest
+
 ## 命令行快速生成
 
 ```powershell
