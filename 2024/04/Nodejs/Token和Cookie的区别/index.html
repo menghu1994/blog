@@ -236,7 +236,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      409 字
+      692 字
     </span>
   
 
@@ -274,8 +274,9 @@
 <li>目的相同,验证用户登录状态</li>
 </ul>
 <h3 id="实现登录验证的方式"><a href="#实现登录验证的方式" class="headerlink" title="实现登录验证的方式"></a>实现登录验证的方式</h3><ol>
-<li>(全后端处理)后端可以控制客户端浏览器的cookie,后端通过setCookie把登录验证字符串(token字符串,前端用不到)放到cookie中,<br>由于cookie的特性是所有的请求内容都会自动携带，所以每次发送请求时后端自动识别cookie中的信息以达到验证登录状态的作用。</li>
-<li>由后端返回token验证字符串,前端将token手动放到请求header中,后端接收请求后识别header中的token以达到验证登录状态的作用。</li>
+<li>(全后端处理)后端可以控制客户端浏览器的cookie,后端通过setCookie把登录验证字符串(token字符串,前端用不到)放到cookie中,<br>由于cookie的特性是所有的请求内容都会自动携带，所以每次发送请求时后端自动识别cookie中的信息以达到验证登录状态的作用(此种方式过期会自动退出登录)。</li>
+<li>由后端返回token验证字符串,前端将token手动放到请求header中,后端接收请求后识别header中的token以达到验证登录状态的作用,<br>如果access token过期,前端重新发送刷新token请求(携带refresh token),如果refresh token也过期(request 401)，则退出登录,否则刷新本地access token和refresh token。</li>
+<li>前端通过cookie存储token,每次请求自动携带cookie,后端识别cookie中的token以达到验证登录状态的作用,<br>要保持登录，前端需要解析token的过期时间，在token即将过期时发送刷新token请求。</li>
 </ol>
 <h2 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h2><ol>
 <li><p>定义不同</p>
@@ -289,8 +290,15 @@
 </blockquote>
 </li>
 </ol>
-<h2 id="为什么后端设置cookie更方便，还会有前端处理"><a href="#为什么后端设置cookie更方便，还会有前端处理" class="headerlink" title="为什么后端设置cookie更方便，还会有前端处理"></a>为什么后端设置cookie更方便，还会有前端处理</h2><p>因为cookie会自动携带,所以每次请求都会携带，包括图片，音频等内容，会增加每个请求的数据量</p>
-<h2 id="Access-Token-和-Refresh-Token"><a href="#Access-Token-和-Refresh-Token" class="headerlink" title="Access Token 和 Refresh Token"></a>Access Token 和 Refresh Token</h2>
+<h2 id="为什么后端设置cookie更方便，还会有前端处理"><a href="#为什么后端设置cookie更方便，还会有前端处理" class="headerlink" title="为什么后端设置cookie更方便，还会有前端处理"></a>为什么后端设置cookie更方便，还会有前端处理</h2><ol>
+<li>因为cookie会自动携带,所以每次请求都会携带，包括图片，音频等内容，会增加每个请求的数据量</li>
+<li>后端无法知道刷新token的时机</li>
+</ol>
+<h2 id="自动刷新机制-请求时检查token是否过期-和-access-token过期后再发送刷新token请求的区别"><a href="#自动刷新机制-请求时检查token是否过期-和-access-token过期后再发送刷新token请求的区别" class="headerlink" title="自动刷新机制 请求时检查token是否过期 和 access token过期后再发送刷新token请求的区别"></a>自动刷新机制 请求时检查token是否过期 和 <code>access token</code>过期后再发送刷新token请求的区别</h2><ol>
+<li>应用场景不同，前端解析<code>access token</code>时可以知道过期时间，在过期前可以手动发送刷新token请求,<br>用户体验更友好，请求发送前token已自动刷新，不会出现请求失败的情况。适合需要高频率请求并且要求尽可能减少失败请求的应用场景。</li>
+<li><code>access token</code>过期后再发送刷新token请求<br>实现简单，适合请求不频繁的管理系统等</li>
+</ol>
+
             </div>
             <hr>
             <div>
@@ -300,7 +308,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/blog/tags/token/">token</a>
+                      <a class="hover-with-bg" href="/blog/tags/network/">network</a>
                     
                   </div>
                 

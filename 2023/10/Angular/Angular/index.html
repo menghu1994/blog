@@ -236,7 +236,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      644 字
+      670 字
     </span>
   
 
@@ -271,6 +271,7 @@
             
             <div class="markdown-body">
               <h1 id="Angular"><a href="#Angular" class="headerlink" title="Angular"></a>Angular</h1><h1 id="安装Angular-CLI"><a href="#安装Angular-CLI" class="headerlink" title="安装Angular CLI"></a>安装Angular CLI</h1><p><code>npm install -g @angular/cli</code></p>
+<h2 id="更新cli"><a href="#更新cli" class="headerlink" title="更新cli"></a>更新cli</h2><p>npm uninstall -g @angular/cli<br>npm install -g @angular/cli@latest</p>
 <h2 id="命令行快速生成"><a href="#命令行快速生成" class="headerlink" title="命令行快速生成"></a>命令行快速生成</h2><figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">// 生成项目<br>ng new &lt;项目英文名&gt;<br><br>// 安装ng<span class="hljs-literal">-zorro</span><br>ng add ng<span class="hljs-literal">-zorro-antd</span><br><br>// 生成模块<br>ng generate module &lt;路径及模块名称&gt;<br>// 缩写,在app文件夹下生成路径为pages/setup的setup.module.ts文件<br>ng g m pages/setup<br><br>//生成组件<br>ng generage component &lt;路径及组件名称&gt;<br>// 缩写, 在app文件夹下生成路径为pages/setup的组件的模板、样式、测试文件、ts文件四个文件<br>ng g c pages/setup<br><br>// 生成服务<br>ng generage service &lt;路径及服务文件名称&gt;<br>// 缩写<br>ng g s services/local<span class="hljs-literal">-storage</span><br><br>// 启动服务<br>ng serve <br>或<br>npm <span class="hljs-built_in">start</span> <br></code></pre></div></td></tr></table></figure>
 
 <h2 id="多项目工作区-version-angular-gt-10-9"><a href="#多项目工作区-version-angular-gt-10-9" class="headerlink" title="多项目工作区(version angular&gt;10.9)"></a>多项目工作区(version angular&gt;10.9)</h2><blockquote>
@@ -315,6 +316,9 @@
 </blockquote>
 <figure class="highlight ts"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ts">&lt;form #itemForm=<span class="hljs-string">&quot;ngForm&quot;</span>&gt;<br>   <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Name:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span><br>   <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Submit<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br>&lt;/form&gt;<br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> [<span class="hljs-attr">hidden</span>]=<span class="hljs-string">&quot;!itemForm.form.valid&quot;</span>&gt;</span>sub</span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></code></pre></div></td></tr></table></figure>
 
+
+<p>tips:<br>在已有目录下创建项目 ng new <project name> –directory ./</p>
+
             </div>
             <hr>
             <div>
@@ -352,8 +356,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/2023/10/Angular/Dependency%20Injection/">
-                        <span class="hidden-mobile">Angular Dependency Injection</span>
+                      <a href="/blog/2023/10/Angular/Angular%E7%BB%84%E4%BB%B6%E5%BA%93/">
+                        <span class="hidden-mobile">Angular library</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
