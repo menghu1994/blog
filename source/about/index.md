@@ -31,5 +31,4 @@ banner_img: https://cdn.jsdelivr.net/gh/bynotes/bynotes.github.io@master/img/bg/
 
 ## 🤝 联系我
 
-<p>E-mail</p>
-<p>微信</p>
+<span>E-mail</span>: 1037127772@qq.com

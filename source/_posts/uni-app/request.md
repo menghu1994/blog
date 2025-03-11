@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Uniapp 网络请求封装
-tags: uniapp
+tags: ['Uniapp']
 ---
 
 # Uniapp 网络请求封装

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 常用正则表达式
-tags: js
+tags: ['Javascript']
 ---
 
 ## 正则表达式

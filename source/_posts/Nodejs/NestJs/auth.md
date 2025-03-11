@@ -1,7 +1,7 @@
 ---
 layout: post
 title: auth in nestjs
-tags: nestjs mongodb
+tags: ['nestjs', 'mongodb']
 ---
 
 # Auth in nestjs

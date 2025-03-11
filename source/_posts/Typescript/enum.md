@@ -1,7 +1,7 @@
 ---
 layout: post
 title: enum
-tags: ts
+tags: ['Typescript']
 ---
 
 # enum

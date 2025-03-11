@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hot Update
-tags: express
+tags: ['express']
 ---
 
 

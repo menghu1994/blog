@@ -2,7 +2,7 @@
 layout: post
 title: Material-Angular
 date: 2024-1-10 09:48:00
-tags: angular material
+tags: ['Angular', 'material']
 ---
 
 # Material Angular Mat-tab 使用技巧
@@ -18,3 +18,16 @@ tags: angular material
   </mat-tab>
 </mat-tab-group>
 ```
+
+### 自定义mat-tab label内容
+```html
+<mat-tab-group>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span [matBadge]="10" matBadgeOverlap="false" matBadgeColor="warn">自定义标题</span>
+        </ng-template>
+    </mat-tab>
+</mat-tab-group>
+```
+
+

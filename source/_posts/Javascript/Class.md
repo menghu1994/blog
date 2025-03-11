@@ -1,3 +1,9 @@
+---
+layout: post
+title: Class
+tags: ['Javascript']
+---
+
 # class
 > 类相当于对构造函数的封装
 

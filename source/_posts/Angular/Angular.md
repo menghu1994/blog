@@ -3,10 +3,17 @@ layout: post
 title: Angular
 date: 2023-10-16 07:41:38
 index_img: https://opensource.google/images/projects/os-projects-angular_thumbnail.png
-tags: angular
+tags: ['Angular']
 ---
 
 # Angular
+
+# 安装Angular CLI
+`npm install -g @angular/cli`
+
+## 更新cli
+npm uninstall -g @angular/cli
+npm install -g @angular/cli@latest
 
 ## 命令行快速生成
 
@@ -134,3 +141,7 @@ getValue(event: Event): string {
 <div [hidden]="!itemForm.form.valid">sub
 </div>
 ```
+
+
+tips:
+在已有目录下创建项目 ng new <project name> --directory ./

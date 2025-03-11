@@ -1,7 +1,7 @@
 ---
 layout: post
 title: interface
-tags: ts
+tags: ['Typescript']
 ---
 
 # [interface](https://ts.xcatliu.com/basics/type-of-object-interfaces.html)

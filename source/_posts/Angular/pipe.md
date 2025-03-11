@@ -2,7 +2,7 @@
 layout: post
 title: Angular Pipes(管道) 
 date: 2023-10-20
-tags: angular pipe
+tags: ['Angular17']
 index_img: https://opensource.google/images/projects/os-projects-angular_thumbnail.png
 ---
 

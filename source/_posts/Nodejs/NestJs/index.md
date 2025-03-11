@@ -24,13 +24,29 @@ Tips: node.js > 16
 
 ## 命令行快速生成module，controller..
 ```shell
-// 查看帮助
+# 查看帮助
 $ nest -help
 
-// 生成module = nest generate module <ModuleName>
+# 快速生成CRUD
+$ nest g resource [name]
+
+# 生成module = nest generate module <ModuleName>
 $ nest g mo <ModuleName> 
 
-// 生成controller = nest generate controller <ControllerName>
-// 如果ModuleName=ControllerName,则controller会自动注入到module里
+# 生成controller = nest generate controller <ControllerName>
+# 如果ModuleName=ControllerName,则controller会自动注入到module里
 $ nest g co <ControllerName>
+```
+
+### 
+`@HttpCode(204)` 自定义状态码
+`@Header('Cache-Control', 'none')` 自定义响应头
+`@Redirect('https://nestjs.com', 301)` 重定向url
+```js
+@Get('docs')
+@Redirect('https://docs.nestjs.com', 302)
+getDocs() {
+	// 返回值会覆盖
+  return { url: 'https://docs.nestjs.com/v5/', statusCode: 200 };
+}
 ```
