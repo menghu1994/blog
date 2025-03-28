@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Angular
+title: Angular目录
 date: 2025-03-28
 index_img: https://opensource.google/images/projects/os-projects-angular_thumbnail.png
 categories:
