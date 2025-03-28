@@ -4,6 +4,8 @@ title: ViewChild in Angular
 date: 2024-08-14
 index_img: https://opensource.google/images/projects/os-projects-angular_thumbnail.png
 tags: ['Angular']
+categories:
+ - FrontEnd
 ---
 
 # ViewChild in Angular
