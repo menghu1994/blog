@@ -41,6 +41,12 @@ $ hexo new [layout] <title>
 
 `hexo clean && hexo deploy` 生成站点并推送到远程仓库
 
+### 文章路径
+
+```md
+[Title](/blog/:category[0]/:category[n]/:folder/:fileName/)
+```
+
 ### 联系我
 
 如果对本博客模板或者内容有任何建议，可以通过 Issues 或者微信公众号「饥荒老菜鸟」与我取得联系。

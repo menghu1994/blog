@@ -2,9 +2,21 @@
 layout: post
 title: Angular Pipes(管道) 
 date: 2023-10-20
-tags: ['Angular17']
+tags: ['Angular']
 index_img: https://opensource.google/images/projects/os-projects-angular_thumbnail.png
+categories:
+ - FrontEnd
 ---
+
+```typescript
+export class demo {
+    @Input({ transform: trimString }) label = ''
+}
+
+function trimString(value: string | undefined) {
+    return value?.trim() ?? ''
+}
+```
 
 ### 实例:
 管道实现内容超出显示省略号

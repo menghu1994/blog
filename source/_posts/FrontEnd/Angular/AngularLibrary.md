@@ -4,9 +4,15 @@ title: Angular library
 date: 2023-10-16 07:41:38
 index_img: https://opensource.google/images/projects/os-projects-angular_thumbnail.png
 tags: ['Angular']
+categories:
+ - FrontEnd
 ---
 
 ### 组件库
+
+`npm run ngc -p tsconfig.json` 编译成js文件输出(dist/out-tsc)
+> Angular 编译器会按照 tsconfig.json 配置的规则进行编译,一般在开发 Angular 库时运行
+> 它会把 Decorator、Scss、TS、HTML 变成 JS，把 "声明式代码" 变成 "执行代码"。
 
 > 发布
 ```shell

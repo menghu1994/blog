@@ -1,7 +1,9 @@
 ---
 layout: post
-title: Angular Component
+title: Angular Dependency Injection(依赖注入)
 date: 2023-10-16 07:41:38
 index_img: https://opensource.google/images/projects/os-projects-angular_thumbnail.png
 tags: ['Angular']
+categories:
+ - FrontEnd
 ---
