@@ -291,21 +291,22 @@ navbar:
   # Navigation bar menu. `key` is used to associate languages/*.yml. If there is no association, the value of `key` itself will be displayed; if `icon` is a css class, it can be omitted; adding `name` can force the display of the specified name
   menu:
     - { key: "首页", link: "/", icon: "iconfont icon-home-fill" }
-    - { key: 'tag', link: '/tags/', icon: 'iconfont icon-tags-fill' }
-    - { key: "文章", link: "/archives/", icon: "iconfont icon-archive-fill" }
-    - { key: "我们",
+#    - { key: '书签', link: '/tags/', icon: 'iconfont icon-tags-fill' }
+#    - { key: "文章", link: "/archives/", icon: "iconfont icon-archive-fill" }
+    - { key: "快捷导航",
         icon: "iconfont icon-category-fill",
         submenu: [
-          { key: '我们',link: '/us/',icon: 'iconfont icon-user-fill' },
-          { key: '相册',link: '/photos/', icon: 'iconfont icon-books' }
+          { key: '书签',link: '/tags/',icon: 'iconfont icon-tags-fill' },
+          { key: '文章',link: '/archives/',icon: 'iconfont icon-archive-fill' },
+          { key: '网址大全',link: '/links/', icon: 'iconfont icon-link-fill' }
         ]
       }
     - { key: "关于我",
         icon: "iconfont icon-user-fill",
         link: '/about/'
       }
-    - { key: "留言", link: "/comments/", icon: "iconfont icon-user-fill" }
-    - { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
+#    - { key: "留言", link: "/comments/", icon: "iconfont icon-user-fill" }
+#    - { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
 
 # 搜索功能，基于 hexo-generator-search 插件，若已安装其他搜索插件请关闭此功能，以避免生成多余的索引文件
 # Search feature, based on hexo-generator-search. If you have installed other search plugins, please disable this feature to avoid generating redundant index files
@@ -479,12 +480,13 @@ index:
 #---------------------------
 post:
   banner_img: /img/default.png
-  banner_img_height: 70
+  banner_img_height: 30
   banner_mask_alpha: 0.3
 
   # 文章在首页的默认封面图，当没有指定 index_img 时会使用该图片，若两者都为空则不显示任何图片
   # Path of the default post cover when `index_img` is not set. If both are empty, no image will be displayed
-  default_index_img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTooE-XJ_ajOu3d7zVPZ3s6SbABa8Kn241MyA&usqp=CAU'
+#  default_index_img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTooE-XJ_ajOu3d7zVPZ3s6SbABa8Kn241MyA&usqp=CAU'
+  default_index_img: /img/panner.png
 
   # 文章标题下方的元信息
   # Meta information below title
@@ -497,7 +499,7 @@ post:
     # 文章日期，优先根据 front-matter 里 date 字段，其次是 md 文件日期
     # Post date, based on `date` field in front-matter, if not set, based on create date of .md file
     date:
-      enable: true
+      enable: false
       # 格式参照 ISO-8601 日期格式化
       # ISO-8601 date format
       # See: http://momentjs.cn/docs/#/parsing/string-format/
@@ -506,7 +508,7 @@ post:
     # 字数统计
     # Word count
     wordcount:
-      enable: true
+      enable: false
       # 显示的文本，{}是数字的占位符（必须包含)，下同
       # Displayed text, {} is a placeholder for numbers (must be included), the same below
       format: "{} 字"
