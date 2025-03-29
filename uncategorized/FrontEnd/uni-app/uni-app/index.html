@@ -1,0 +1,543 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.png">
+  <link rel="icon" type="image/png" href="/blog/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#9DC3C1">
+  <meta name="description" content="博客 前端 nodejs typescript rxjs">
+  <meta name="author" content="Luffy">
+  <meta name="keywords" content="博客 前端 nodejs typescript rxjs">
+  <title>Uniapp - Luffy</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/rainbow.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap.css">
+<link rel="stylesheet" href="/blog/css/self.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"menghu1994.github.io","root":"/blog/","version":"1.8.7","typing":{"enable":true,"typeSpeed":130,"cursorChar":"💙","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"💯 "},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false,"loading_img":"/img/loading.gif"},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+<!--  <script src="https://cdn.tailwindcss.com"></script>-->
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header style="height: 30vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/blog/">
+        <img src="/blog/img/logo.png" srcset="/blog/img/loading.gif" height="46">
+        <strong>Luffy</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-category-fill"></i>
+                快捷导航
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/blog/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    书签
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/blog/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    文章
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/blog/links/">
+                    <i class="iconfont icon-link-fill"></i>
+                    网址大全
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于我
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/blog/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Uniapp">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+</div>
+
+<div class="mt-1">
+  
+
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Uniapp</h1>
+            
+            <div class="markdown-body">
+              <h1 id="uni-app"><a href="#uni-app" class="headerlink" title="uni-app"></a>uni-app</h1><blockquote>
+<p>uniapp是使用vue的语法，和微信小程序的组件、api的一个开发框架。<br>虽然可以多端编译,但安卓、ios、支付宝小程序等都有特性,需要分别写一些代码进行平台判断,具体的问题需要测试遇到再看…</p>
+</blockquote>
+<h2 id="项目框架"><a href="#项目框架" class="headerlink" title="项目框架"></a>项目框架</h2><h3 id="用Hbuilder生成类小程序项目-选用"><a href="#用Hbuilder生成类小程序项目-选用" class="headerlink" title="用Hbuilder生成类小程序项目(选用)"></a>用Hbuilder生成类小程序项目(选用)</h3><blockquote>
+<p>优势: Hbuilder对uniapp支持完善(语法),拥有可视化预览，真机调试，打包发布，热更新，云打包，云开发，插件市场等功能,项目配置可视化(<code>manifest.json</code>)</p>
+</blockquote>
+<blockquote>
+<p>劣势：Uniapp只能运行在Hbuilder中,Hbuilder相对其他开发工具(vs code,webstorm)体验较差</p>
+</blockquote>
+<h3 id="生成Vue项目目录"><a href="#生成Vue项目目录" class="headerlink" title="生成Vue项目目录"></a>生成Vue项目目录</h3><blockquote>
+<p>优势: 纯Vue项目目录,降低学习成本,可以在任意开发工具中使用</p>
+</blockquote>
+<blockquote>
+<p>劣势：不能实现云等功能,<code>package.json</code>运行启动项复杂</p>
+</blockquote>
+<h2 id="项目目录（非常规Vue项目文件）"><a href="#项目目录（非常规Vue项目文件）" class="headerlink" title="项目目录（非常规Vue项目文件）"></a>项目目录（非常规Vue项目文件）</h2><p><code>manifest.json</code></p>
+<blockquote>
+<p>项目配置文件,包含应用名称、版本号、图标、启动页面、权限、网络、权限、基础配置等</p>
+</blockquote>
+<p>注意事项：</p>
+<ul>
+<li>打包必须生成appid</li>
+<li><code>modules</code>中配置是否需要某些模块(蓝牙,指纹,相机,扫码等)</li>
+<li>本地开发跨域配置</li>
+</ul>
+<ul>
+<li><code>manifest.json</code>中配置<code>h5</code>的<code>devServer</code></li>
+<li>url带有services的请求都会被代理<br>“proxy” : {<br>“/services” : {<br>“target” : “<a target="_blank" rel="noopener" href="http://192.168.1.251:8080/&quot;">http://192.168.1.251:8080/&quot;</a>,<br>“changeOrigin” : true, //是否跨域<br>“secure” : false, // 设置支持https协议的代理<br>“pathRewrite” : {<br>“^/services” : “/services”<br>}<br>},</li>
+</ul>
+<p><code>pages.json</code></p>
+<blockquote>
+<p>页面配置文件,包含页面路径、窗口样式、tabBar、分包、条件编译等(类小程序)</p>
+</blockquote>
+<p>注意事项：</p>
+<ul>
+<li>添加顶部按钮</li>
+</ul>
+<ul>
+<li>单独的页面添加<code>&quot;app-plus&quot;: &#123; &quot;titleNView&quot;: &#123; &quot;buttons&quot;: [&#123; &quot;type&quot;: &quot;menu&quot;,&quot;float&quot;: &quot;right&quot; &#125;] &#125; &#125;</code>、</li>
+</ul>
+<ul>
+<li>分包</li>
+</ul>
+<ul>
+<li>主包目录 <code>&quot;pages&quot;: [&#123; &quot;path&quot;: &quot;pagesA/index&quot; &#125;]</code></li>
+<li>分包目录 <code>&quot;subPackages&quot;: [&#123; &quot;root&quot;: &quot;pagesA&quot;, &quot;pages&quot;: [&#123; &quot;path&quot;: &quot;pagesA/index&quot; &#125;] &#125;]</code></li>
+</ul>
+<ul>
+<li>客户端适配</li>
+</ul>
+<ul>
+<li><code>globalStyle</code> 中配置是否自动横屏, 设备宽度等</li>
+</ul>
+<h2 id="form-表单验证"><a href="#form-表单验证" class="headerlink" title="form 表单验证"></a>form 表单验证</h2><p><a target="_blank" rel="noopener" href="https://www.uviewui.com/components/form.html">表单验证</a></p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">&lt;u-form :model=<span class="hljs-string">&quot;formName&quot;</span> ref=<span class="hljs-string">&quot;uForm&quot;</span>&gt;<br> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">u-form-item</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;批次码/产品码&quot;</span> <span class="hljs-attr">prop</span>=<span class="hljs-string">&quot;objectName&quot;</span> </span></span><br><span class="hljs-tag"><span class="language-xml"> 	<span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;objectName&quot;</span> <span class="hljs-attr">label-position</span>=<span class="hljs-string">&quot;left&quot;</span> <span class="hljs-attr">:label-width</span>=<span class="hljs-string">&quot;194&quot;</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">u-input</span> <span class="hljs-attr">:clearable</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;40&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;inventoryForm.objectName&quot;</span> </span></span><br><span class="hljs-tag"><span class="language-xml">	@<span class="hljs-attr">blur</span>=<span class="hljs-string">&quot;matchObjectName&quot;</span> <span class="hljs-attr">:focus</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">300</span> /&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">u-icon</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;scan-icon&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;scan&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;48&quot;</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;onScanObjectName&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-icon</span>&gt;</span></span><br><span class="language-xml"> <span class="hljs-tag">&lt;/<span class="hljs-name">u-form-item</span>&gt;</span></span><br>&lt;/u-form&gt;<br><br><span class="hljs-attr">rules</span>: &#123;<br> <span class="hljs-attr">objectName</span>: [&#123;<br>  <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;请输入产品码/批次码&#x27;</span>,<br>  <span class="hljs-attr">trigger</span>: [<span class="hljs-string">&#x27;blur&#x27;</span>,<span class="hljs-string">&#x27;change&#x27;</span>],<br> &#125;],<br> <span class="hljs-attr">locationNumber</span>: [&#123;<br>  <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;请输入货位&#x27;</span>,<br>  <span class="hljs-attr">trigger</span>: [<span class="hljs-string">&#x27;change&#x27;</span>, <span class="hljs-string">&#x27;blur&#x27;</span>],<br> &#125;],<br> <span class="hljs-attr">stockQuantity</span>: [&#123;<br>  <span class="hljs-attr">pattern</span>: <span class="hljs-regexp">/^([1-9]([0-9]+)?)$/g</span>,<br>  <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;请输入正整数&#x27;</span>,<br>  <span class="hljs-attr">trigger</span>: [<span class="hljs-string">&#x27;change&#x27;</span>,<span class="hljs-string">&#x27;blur&#x27;</span>]<br> &#125;,&#123;<br>  <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;请输入数量&#x27;</span>,<br>  <span class="hljs-attr">trigger</span>: <span class="hljs-string">&#x27;blur&#x27;</span><br> &#125;],<br>&#125;,<br><br><span class="hljs-title function_">onReady</span>(<span class="hljs-params"></span>) &#123;<br> <span class="hljs-variable language_">this</span>.<span class="hljs-property">$refs</span>.<span class="hljs-property">uForm</span>.<span class="hljs-title function_">setRules</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">rules</span>);<br>&#125;,<br><br></code></pre></div></td></tr></table></figure>
+
+<h3 id="常用功能"><a href="#常用功能" class="headerlink" title="常用功能"></a>常用功能</h3><h4 id="动态设置页面标题"><a href="#动态设置页面标题" class="headerlink" title="动态设置页面标题"></a>动态设置页面标题</h4><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">uni.<span class="hljs-title function_">setNavigationBarTitle</span>(&#123;<br>    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;标题&#x27;</span><br>&#125;);<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="返回首页"><a href="#返回首页" class="headerlink" title="返回首页"></a>返回首页</h4><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-attr">onNavigationBarButtonTap</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) &#123;<br>    uni.<span class="hljs-title function_">switchTab</span>(&#123;<br>        <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;../pages/home/home&#x27;</span><br>    &#125;)<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><ul>
+<li>在onReady中给添加验证规则</li>
+<li>赋值之后单独验证（赋值必须为字符串格式） 需要在form-item中添加ref,并使用this.$refs[‘这里是ref名称’].onFieldChange() 单独验证,需单独验证的字段的验证规则的trigger必须添加’change’</li>
+<li>重置验证内容，resetFields</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/Uniapp/">Uniapp</a>
+                    
+                  </div>
+                
+              </div>
+
+               <p class="note note-warning">
+              <strong>本文作者: </strong><a href="/blog/">孟 虎</a> <br>
+              <strong>本文链接: </strong><a href="https://menghu1994.github.io/blog/uncategorized/FrontEnd/uni-app/uni-app/">https://menghu1994.github.io/blog/uncategorized/FrontEnd/uni-app/uni-app/</a> <br>
+              <strong>版权声明: </strong>本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                 </p>
+                 
+
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/uncategorized/FrontEnd/uni-app/request/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Uniapp 网络请求封装</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/uncategorized/FrontEnd/Typescript/Interface/">
+                        <span class="hidden-mobile">interface</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('gitalk-container', function() {
+      Fluid.utils.createCssLink('/blog/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: 'e58406233489ad6a5d56',
+          clientSecret: 'f2ff5891bbed6d6fc1d7689435cfec67e8d59244',
+          repo: 'blog',
+          owner: 'menghu1994',
+          admin: ["name"],
+          id: 'cc0241a1f2b257ce29bb381da80800ba',
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     # 有些事情只有爬上去了才知道 # 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/debouncer.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/blog/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/blog/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/blog/js/self.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/yinghua.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+
+<div class="text-center py-1">   
+  <div>
+    <span>Copyright © 2021</span>
+    <a href="https://menghu1994.github.io" target="_blank" rel="nofollow noopener">
+     <span>Luffy💕Miss Wu</span></a><br>
+ </div>
+
+
+</body>
+</html>

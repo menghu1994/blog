@@ -1,0 +1,493 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.png">
+  <link rel="icon" type="image/png" href="/blog/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#9DC3C1">
+  <meta name="description" content="博客 前端 nodejs typescript rxjs">
+  <meta name="author" content="Luffy">
+  <meta name="keywords" content="博客 前端 nodejs typescript rxjs">
+  <title>Excel.js - Luffy</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/rainbow.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap.css">
+<link rel="stylesheet" href="/blog/css/self.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"menghu1994.github.io","root":"/blog/","version":"1.8.7","typing":{"enable":true,"typeSpeed":130,"cursorChar":"💙","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"💯 "},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false,"loading_img":"/img/loading.gif"},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+<!--  <script src="https://cdn.tailwindcss.com"></script>-->
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header style="height: 30vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/blog/">
+        <img src="/blog/img/logo.png" srcset="/blog/img/loading.gif" height="46">
+        <strong>Luffy</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-category-fill"></i>
+                快捷导航
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/blog/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    书签
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/blog/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    文章
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/blog/links/">
+                    <i class="iconfont icon-link-fill"></i>
+                    网址大全
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于我
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/blog/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Excel.js">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+</div>
+
+<div class="mt-1">
+  
+
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Excel.js</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Exceljs"><a href="#Exceljs" class="headerlink" title="Exceljs"></a>Exceljs</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">npm install exceljs<br><span class="hljs-meta prompt_"># </span><span class="language-bash">下载到本地</span><br>npm install file-saver<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a><a target="_blank" rel="noopener" href="https://juejin.cn/post/7283311629197000739#heading-0">基本概念</a></h2><h3 id="workbook"><a href="#workbook" class="headerlink" title="workbook"></a>workbook</h3><blockquote>
+<p><code>const workbook = new ExcelJS.Workbook()</code>创建工作簿(相当于一个excel文件)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">const</span> workbook = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ExcelJS</span>.<span class="hljs-title class_">Workbook</span>()<br>workbook.<span class="hljs-property">creator</span> = <span class="hljs-string">&#x27;Me&#x27;</span>;<br>workbook.<span class="hljs-property">lastModifiedBy</span> = <span class="hljs-string">&#x27;Her&#x27;</span>;<br>workbook.<span class="hljs-property">created</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">1985</span>, <span class="hljs-number">8</span>, <span class="hljs-number">30</span>);<br>workbook.<span class="hljs-property">modified</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();<br>workbook.<span class="hljs-property">lastPrinted</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">2016</span>, <span class="hljs-number">9</span>, <span class="hljs-number">27</span>);<br></code></pre></div></td></tr></table></figure>
+<h3 id="worksheet"><a href="#worksheet" class="headerlink" title="worksheet"></a>worksheet</h3><blockquote>
+<p>每个工作簿中的单表(sheet页)</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 创建带有红色标签颜色的工作表</span><br><span class="hljs-keyword">const</span> sheet = workbook.<span class="hljs-title function_">addWorksheet</span>(<span class="hljs-string">&#x27;My Sheet&#x27;</span>, &#123;<span class="hljs-attr">properties</span>:&#123;<span class="hljs-attr">tabColor</span>:&#123;<span class="hljs-attr">argb</span>:<span class="hljs-string">&#x27;FFC0000&#x27;</span>&#125;&#125;&#125;);<br><br><span class="hljs-comment">// 创建一个隐藏了网格线的工作表</span><br><span class="hljs-keyword">const</span> sheet = workbook.<span class="hljs-title function_">addWorksheet</span>(<span class="hljs-string">&#x27;My Sheet&#x27;</span>, &#123;<span class="hljs-attr">views</span>: [&#123;<span class="hljs-attr">showGridLines</span>: <span class="hljs-literal">false</span>&#125;]&#125;);<br><br><span class="hljs-comment">// 创建一个第一行和列冻结的工作表</span><br><span class="hljs-keyword">const</span> sheet = workbook.<span class="hljs-title function_">addWorksheet</span>(<span class="hljs-string">&#x27;My Sheet&#x27;</span>, &#123;<span class="hljs-attr">views</span>:[&#123;<span class="hljs-attr">xSplit</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">ySplit</span>:<span class="hljs-number">1</span>&#125;]&#125;);<br><br><span class="hljs-comment">// 使用A4设置的页面设置设置创建新工作表 - 横向</span><br><span class="hljs-keyword">const</span> worksheet =  workbook.<span class="hljs-title function_">addWorksheet</span>(<span class="hljs-string">&#x27;My Sheet&#x27;</span>, &#123;<br>  <span class="hljs-attr">pageSetup</span>:&#123;<span class="hljs-attr">paperSize</span>: <span class="hljs-number">9</span>, <span class="hljs-attr">orientation</span>:<span class="hljs-string">&#x27;landscape&#x27;</span>&#125;<br>&#125;);<br><br><span class="hljs-comment">// 创建一个具有页眉页脚的工作表</span><br><span class="hljs-keyword">const</span> sheet = workbook.<span class="hljs-title function_">addWorksheet</span>(<span class="hljs-string">&#x27;My Sheet&#x27;</span>, &#123;<br>  <span class="hljs-attr">headerFooter</span>:&#123;<span class="hljs-attr">firstHeader</span>: <span class="hljs-string">&quot;Hello Exceljs&quot;</span>, <span class="hljs-attr">firstFooter</span>: <span class="hljs-string">&quot;Hello World&quot;</span>&#125;<br>&#125;);<br><br><span class="hljs-comment">// 创建一个冻结了第一行和第一列的工作表</span><br><span class="hljs-keyword">const</span> sheet = workbook.<span class="hljs-title function_">addWorksheet</span>(<span class="hljs-string">&#x27;My Sheet&#x27;</span>, &#123;<span class="hljs-attr">views</span>:[&#123;<span class="hljs-attr">state</span>: <span class="hljs-string">&#x27;frozen&#x27;</span>, <span class="hljs-attr">xSplit</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">ySplit</span>:<span class="hljs-number">1</span>&#125;]&#125;);<br><br></code></pre></div></td></tr></table></figure>
+<h3 id="columns-列"><a href="#columns-列" class="headerlink" title="columns 列"></a>columns 列</h3><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 添加列标题并定义列键和宽度</span><br><span class="hljs-comment">// 注意：这些列结构仅是构建工作簿的方便之处，除了列宽之外，它们不会完全保留。</span><br>worksheet.<span class="hljs-property">columns</span> = [<br>  &#123; <span class="hljs-attr">header</span>: <span class="hljs-string">&#x27;Id&#x27;</span>, <span class="hljs-attr">key</span>: <span class="hljs-string">&#x27;id&#x27;</span>, <span class="hljs-attr">width</span>: <span class="hljs-number">10</span> &#125;,<br>  &#123; <span class="hljs-attr">header</span>: <span class="hljs-string">&#x27;Name&#x27;</span>, <span class="hljs-attr">key</span>: <span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-attr">width</span>: <span class="hljs-number">32</span> &#125;,<br>  &#123; <span class="hljs-attr">header</span>: <span class="hljs-string">&#x27;D.O.B.&#x27;</span>, <span class="hljs-attr">key</span>: <span class="hljs-string">&#x27;DOB&#x27;</span>, <span class="hljs-attr">width</span>: <span class="hljs-number">10</span>, <span class="hljs-attr">outlineLevel</span>: <span class="hljs-number">1</span> &#125;<br>];<br><br><span class="hljs-comment">// 通过键，字母和基于1的列号访问单个列</span><br><span class="hljs-keyword">const</span> idCol = worksheet.<span class="hljs-title function_">getColumn</span>(<span class="hljs-string">&#x27;id&#x27;</span>);<br><span class="hljs-keyword">const</span> nameCol = worksheet.<span class="hljs-title function_">getColumn</span>(<span class="hljs-string">&#x27;B&#x27;</span>);<br><span class="hljs-keyword">const</span> dobCol = worksheet.<span class="hljs-title function_">getColumn</span>(<span class="hljs-number">3</span>);<br><br><span class="hljs-comment">// 设置列属性</span><br><br><span class="hljs-comment">// 注意：将覆盖 C1 单元格值</span><br>dobCol.<span class="hljs-property">header</span> = <span class="hljs-string">&#x27;Date of Birth&#x27;</span>;<br><br><span class="hljs-comment">// 注意：这将覆盖 C1:C2 单元格值</span><br>dobCol.<span class="hljs-property">header</span> = [<span class="hljs-string">&#x27;Date of Birth&#x27;</span>, <span class="hljs-string">&#x27;A.K.A. D.O.B.&#x27;</span>];<br><br><span class="hljs-comment">// 从现在开始，此列将以 “dob” 而不是 “DOB” 建立索引</span><br>dobCol.<span class="hljs-property">key</span> = <span class="hljs-string">&#x27;dob&#x27;</span>;<br><br>dobCol.<span class="hljs-property">width</span> = <span class="hljs-number">15</span>;<br><br><span class="hljs-comment">// 如果需要，隐藏列</span><br>dobCol.<span class="hljs-property">hidden</span> = <span class="hljs-literal">true</span>;<br><br><span class="hljs-comment">// 为列设置大纲级别</span><br>worksheet.<span class="hljs-title function_">getColumn</span>(<span class="hljs-number">4</span>).<span class="hljs-property">outlineLevel</span> = <span class="hljs-number">0</span>;<br>worksheet.<span class="hljs-title function_">getColumn</span>(<span class="hljs-number">5</span>).<span class="hljs-property">outlineLevel</span> = <span class="hljs-number">1</span>;<br><br><span class="hljs-comment">// 列支持一个只读字段，以指示基于 `OutlineLevel` 的折叠状态</span><br><span class="hljs-title function_">expect</span>(worksheet.<span class="hljs-title function_">getColumn</span>(<span class="hljs-number">4</span>).<span class="hljs-property">collapsed</span>).<span class="hljs-property">to</span>.<span class="hljs-title function_">equal</span>(<span class="hljs-literal">false</span>);<br><span class="hljs-title function_">expect</span>(worksheet.<span class="hljs-title function_">getColumn</span>(<span class="hljs-number">5</span>).<span class="hljs-property">collapsed</span>).<span class="hljs-property">to</span>.<span class="hljs-title function_">equal</span>(<span class="hljs-literal">true</span>);<br><br><span class="hljs-comment">// 遍历此列中的所有当前单元格</span><br>dobCol.<span class="hljs-title function_">eachCell</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">cell, rowNumber</span>) &#123;<br>  <span class="hljs-comment">// ...</span><br>&#125;);<br><br><span class="hljs-comment">// 遍历此列中的所有当前单元格，包括空单元格</span><br>dobCol.<span class="hljs-title function_">eachCell</span>(&#123; <span class="hljs-attr">includeEmpty</span>: <span class="hljs-literal">true</span> &#125;, <span class="hljs-keyword">function</span>(<span class="hljs-params">cell, rowNumber</span>) &#123;<br>  <span class="hljs-comment">// ...</span><br>&#125;);<br><br><span class="hljs-comment">// 添加一列新值</span><br>worksheet.<span class="hljs-title function_">getColumn</span>(<span class="hljs-number">6</span>).<span class="hljs-property">values</span> = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>];<br><br><span class="hljs-comment">// 添加稀疏列值</span><br>worksheet.<span class="hljs-title function_">getColumn</span>(<span class="hljs-number">7</span>).<span class="hljs-property">values</span> = [,,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,,<span class="hljs-number">5</span>,,<span class="hljs-number">7</span>,,,,<span class="hljs-number">11</span>];<br><br><span class="hljs-comment">// 剪切一列或多列（右边的列向左移动）</span><br><span class="hljs-comment">// 如果定义了列属性，则会相应地对其进行切割或移动</span><br><span class="hljs-comment">// 已知问题：如果拼接导致任何合并的单元格移动，结果可能是不可预测的</span><br>worksheet.<span class="hljs-title function_">spliceColumns</span>(<span class="hljs-number">3</span>,<span class="hljs-number">2</span>);<br><br><span class="hljs-comment">// 删除一列，再插入两列。</span><br><span class="hljs-comment">// 注意：第4列及以上的列将右移1列。</span><br><span class="hljs-comment">// 另外：如果工作表中的行数多于列插入项中的值，则行将仍然被插入，就好像值存在一样。</span><br><span class="hljs-keyword">const</span> newCol3Values = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>];<br><span class="hljs-keyword">const</span> newCol4Values = [<span class="hljs-string">&#x27;one&#x27;</span>, <span class="hljs-string">&#x27;two&#x27;</span>, <span class="hljs-string">&#x27;three&#x27;</span>, <span class="hljs-string">&#x27;four&#x27;</span>, <span class="hljs-string">&#x27;five&#x27;</span>];<br>worksheet.<span class="hljs-title function_">spliceColumns</span>(<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, newCol3Values, newCol4Values);<br><br></code></pre></div></td></tr></table></figure>
+<h3 id="row-行"><a href="#row-行" class="headerlink" title="row 行"></a>row 行</h3><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// 获取一个行对象。如果尚不存在，则将返回一个新的空对象</span><br><span class="hljs-keyword">const</span> row = worksheet.<span class="hljs-title function_">getRow</span>(<span class="hljs-number">5</span>);<br><br><span class="hljs-comment">// Get multiple row objects. If it doesn&#x27;t already exist, new empty ones will be returned</span><br><span class="hljs-keyword">const</span> rows = worksheet.<span class="hljs-title function_">getRows</span>(<span class="hljs-number">5</span>, <span class="hljs-number">2</span>); <span class="hljs-comment">// start, length (&gt;0, else undefined is returned)</span><br><br><span class="hljs-comment">// 获取工作表中的最后一个可编辑行（如果没有，则为 `undefined`）</span><br><span class="hljs-keyword">const</span> row = worksheet.<span class="hljs-property">lastRow</span>;<br><br><span class="hljs-comment">// 设置特定的行高</span><br>row.<span class="hljs-property">height</span> = <span class="hljs-number">42.5</span>;<br><br><span class="hljs-comment">// 隐藏行</span><br>row.<span class="hljs-property">hidden</span> = <span class="hljs-literal">true</span>;<br><br><span class="hljs-comment">// 为行设置大纲级别</span><br>worksheet.<span class="hljs-title function_">getRow</span>(<span class="hljs-number">4</span>).<span class="hljs-property">outlineLevel</span> = <span class="hljs-number">0</span>;<br>worksheet.<span class="hljs-title function_">getRow</span>(<span class="hljs-number">5</span>).<span class="hljs-property">outlineLevel</span> = <span class="hljs-number">1</span>;<br><br><span class="hljs-comment">// 行支持一个只读字段，以指示基于 `OutlineLevel` 的折叠状态</span><br><span class="hljs-title function_">expect</span>(worksheet.<span class="hljs-title function_">getRow</span>(<span class="hljs-number">4</span>).<span class="hljs-property">collapsed</span>).<span class="hljs-property">to</span>.<span class="hljs-title function_">equal</span>(<span class="hljs-literal">false</span>);<br><span class="hljs-title function_">expect</span>(worksheet.<span class="hljs-title function_">getRow</span>(<span class="hljs-number">5</span>).<span class="hljs-property">collapsed</span>).<span class="hljs-property">to</span>.<span class="hljs-title function_">equal</span>(<span class="hljs-literal">true</span>);<br><br><br>row.<span class="hljs-title function_">getCell</span>(<span class="hljs-number">1</span>).<span class="hljs-property">value</span> = <span class="hljs-number">5</span>; <span class="hljs-comment">// A5 的值设置为5</span><br>row.<span class="hljs-title function_">getCell</span>(<span class="hljs-string">&#x27;name&#x27;</span>).<span class="hljs-property">value</span> = <span class="hljs-string">&#x27;Zeb&#x27;</span>; <span class="hljs-comment">// B5 的值设置为 “Zeb” - 假设第2列仍按名称键入</span><br>row.<span class="hljs-title function_">getCell</span>(<span class="hljs-string">&#x27;C&#x27;</span>).<span class="hljs-property">value</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(); <span class="hljs-comment">// C5 的值设置为当前时间</span><br><br><span class="hljs-comment">// 获取行并作为稀疏数组返回</span><br><span class="hljs-comment">// 注意：接口更改：worksheet.getRow(4) ==&gt; worksheet.getRow(4).values</span><br>row = worksheet.<span class="hljs-title function_">getRow</span>(<span class="hljs-number">4</span>).<span class="hljs-property">values</span>;<br><span class="hljs-title function_">expect</span>(row[<span class="hljs-number">5</span>]).<span class="hljs-title function_">toEqual</span>(<span class="hljs-string">&#x27;Kyle&#x27;</span>);<br><br><span class="hljs-comment">// 通过连续数组分配行值（其中数组元素 0 具有值）</span><br>row.<span class="hljs-property">values</span> = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];<br><span class="hljs-title function_">expect</span>(row.<span class="hljs-title function_">getCell</span>(<span class="hljs-number">1</span>).<span class="hljs-property">value</span>).<span class="hljs-title function_">toEqual</span>(<span class="hljs-number">1</span>);<br><span class="hljs-title function_">expect</span>(row.<span class="hljs-title function_">getCell</span>(<span class="hljs-number">2</span>).<span class="hljs-property">value</span>).<span class="hljs-title function_">toEqual</span>(<span class="hljs-number">2</span>);<br><span class="hljs-title function_">expect</span>(row.<span class="hljs-title function_">getCell</span>(<span class="hljs-number">3</span>).<span class="hljs-property">value</span>).<span class="hljs-title function_">toEqual</span>(<span class="hljs-number">3</span>);<br><br><span class="hljs-comment">// 通过稀疏数组分配行值（其中数组元素 0 为 `undefined`）</span><br><span class="hljs-keyword">const</span> values = []<br>values[<span class="hljs-number">5</span>] = <span class="hljs-number">7</span>;<br>values[<span class="hljs-number">10</span>] = <span class="hljs-string">&#x27;Hello, World!&#x27;</span>;<br>row.<span class="hljs-property">values</span> = values;<br><span class="hljs-title function_">expect</span>(row.<span class="hljs-title function_">getCell</span>(<span class="hljs-number">1</span>).<span class="hljs-property">value</span>).<span class="hljs-title function_">toBeNull</span>();<br><span class="hljs-title function_">expect</span>(row.<span class="hljs-title function_">getCell</span>(<span class="hljs-number">5</span>).<span class="hljs-property">value</span>).<span class="hljs-title function_">toEqual</span>(<span class="hljs-number">7</span>);<br><span class="hljs-title function_">expect</span>(row.<span class="hljs-title function_">getCell</span>(<span class="hljs-number">10</span>).<span class="hljs-property">value</span>).<span class="hljs-title function_">toEqual</span>(<span class="hljs-string">&#x27;Hello, World!&#x27;</span>);<br><br><span class="hljs-comment">// 使用列键按对象分配行值</span><br>row.<span class="hljs-property">values</span> = &#123;<br>  <span class="hljs-attr">id</span>: <span class="hljs-number">13</span>,<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Thing 1&#x27;</span>,<br>  <span class="hljs-attr">dob</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()<br>&#125;;<br><br><span class="hljs-comment">// 在该行下方插入一个分页符</span><br>row.<span class="hljs-title function_">addPageBreak</span>();<br><br><span class="hljs-comment">// 遍历工作表中具有值的所有行</span><br>worksheet.<span class="hljs-title function_">eachRow</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">row, rowNumber</span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Row &#x27;</span> + rowNumber + <span class="hljs-string">&#x27; = &#x27;</span> + <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(row.<span class="hljs-property">values</span>));<br>&#125;);<br><br><span class="hljs-comment">// 遍历工作表中的所有行（包括空行）</span><br>worksheet.<span class="hljs-title function_">eachRow</span>(&#123; <span class="hljs-attr">includeEmpty</span>: <span class="hljs-literal">true</span> &#125;, <span class="hljs-keyword">function</span>(<span class="hljs-params">row, rowNumber</span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Row &#x27;</span> + rowNumber + <span class="hljs-string">&#x27; = &#x27;</span> + <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(row.<span class="hljs-property">values</span>));<br>&#125;);<br><br><span class="hljs-comment">// 连续遍历所有非空单元格</span><br>row.<span class="hljs-title function_">eachCell</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">cell, colNumber</span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Cell &#x27;</span> + colNumber + <span class="hljs-string">&#x27; = &#x27;</span> + cell.<span class="hljs-property">value</span>);<br>&#125;);<br><br><span class="hljs-comment">// 遍历一行中的所有单元格（包括空单元格）</span><br>row.<span class="hljs-title function_">eachCell</span>(&#123; <span class="hljs-attr">includeEmpty</span>: <span class="hljs-literal">true</span> &#125;, <span class="hljs-keyword">function</span>(<span class="hljs-params">cell, colNumber</span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Cell &#x27;</span> + colNumber + <span class="hljs-string">&#x27; = &#x27;</span> + cell.<span class="hljs-property">value</span>);<br>&#125;);<br><br><span class="hljs-comment">// 提交给流一个完成的行</span><br>row.<span class="hljs-title function_">commit</span>();<br><br><span class="hljs-comment">// 行尺寸</span><br><span class="hljs-keyword">const</span> rowSize = row.<span class="hljs-property">cellCount</span>;<br><span class="hljs-keyword">const</span> numValues = row.<span class="hljs-property">actualCellCount</span>;<br><br></code></pre></div></td></tr></table></figure>
+<p>添加行</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// Add a couple of Rows by key-value, after the last current row, using the column keys</span><br>worksheet.<span class="hljs-title function_">addRow</span>(&#123;<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;John Doe&#x27;</span>, <span class="hljs-attr">dob</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">1970</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)&#125;);<br>worksheet.<span class="hljs-title function_">addRow</span>(&#123;<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Jane Doe&#x27;</span>, <span class="hljs-attr">dob</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">1965</span>,<span class="hljs-number">1</span>,<span class="hljs-number">7</span>)&#125;);<br><br><span class="hljs-comment">// Add a row by contiguous Array (assign to columns A, B &amp; C)</span><br>worksheet.<span class="hljs-title function_">addRow</span>([<span class="hljs-number">3</span>, <span class="hljs-string">&#x27;Sam&#x27;</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()]);<br><br><span class="hljs-comment">// Add a row by sparse Array (assign to columns A, E &amp; I)</span><br><span class="hljs-keyword">const</span> rowValues = [];<br>rowValues[<span class="hljs-number">1</span>] = <span class="hljs-number">4</span>;<br>rowValues[<span class="hljs-number">5</span>] = <span class="hljs-string">&#x27;Kyle&#x27;</span>;<br>rowValues[<span class="hljs-number">9</span>] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();<br>worksheet.<span class="hljs-title function_">addRow</span>(rowValues);<br><br><span class="hljs-comment">// Add a row with inherited style</span><br><span class="hljs-comment">// This new row will have same style as last row</span><br><span class="hljs-comment">// And return as row object</span><br><span class="hljs-keyword">const</span> newRow = worksheet.<span class="hljs-title function_">addRow</span>(rowValues, <span class="hljs-string">&#x27;i&#x27;</span>);<br><br><span class="hljs-comment">// Add an array of rows</span><br><span class="hljs-keyword">const</span> rows = [<br>  [<span class="hljs-number">5</span>,<span class="hljs-string">&#x27;Bob&#x27;</span>,<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()], <span class="hljs-comment">// row by array</span><br>  &#123;<span class="hljs-attr">id</span>:<span class="hljs-number">6</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Barbara&#x27;</span>, <span class="hljs-attr">dob</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()&#125;<br>];<br><span class="hljs-comment">// add new rows and return them as array of row objects</span><br><span class="hljs-keyword">const</span> newRows = worksheet.<span class="hljs-title function_">addRows</span>(rows);<br><br><span class="hljs-comment">// Add an array of rows with inherited style</span><br><span class="hljs-comment">// These new rows will have same styles as last row</span><br><span class="hljs-comment">// and return them as array of row objects</span><br><span class="hljs-keyword">const</span> newRowsStyled = worksheet.<span class="hljs-title function_">addRows</span>(rows, <span class="hljs-string">&#x27;i&#x27;</span>);<br><br></code></pre></div></td></tr></table></figure>
+
+<h2 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h2><figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; saveAs &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;file-saver&#x27;</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">Workbook</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;exceljs&#x27;</span>;<br><br><span class="hljs-title function_">onExportBasicExcel</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-keyword">const</span> workbook = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ExcelJs</span>.<span class="hljs-title class_">Workbook</span>();<br>    <span class="hljs-comment">// 添加sheet</span><br>    <span class="hljs-keyword">const</span> worksheet = workbook.<span class="hljs-title function_">addWorksheet</span>(<span class="hljs-string">&#x27;demo sheet&#x27;</span>);<br>    <span class="hljs-comment">// 设置 sheet 的默认行高</span><br>    worksheet.<span class="hljs-property">properties</span>.<span class="hljs-property">defaultRowHeight</span> = <span class="hljs-number">20</span>;<br>    <span class="hljs-comment">// 设置列</span><br>    worksheet.<span class="hljs-property">columns</span> = [<br>      &#123; <span class="hljs-attr">header</span>: <span class="hljs-string">&#x27;Id&#x27;</span>, <span class="hljs-attr">key</span>: <span class="hljs-string">&#x27;id&#x27;</span>, <span class="hljs-attr">width</span>: <span class="hljs-number">10</span> &#125;,<br>      &#123; <span class="hljs-attr">header</span>: <span class="hljs-string">&#x27;Name&#x27;</span>, <span class="hljs-attr">key</span>: <span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-attr">width</span>: <span class="hljs-number">32</span> &#125;,<br>      &#123; <span class="hljs-attr">header</span>: <span class="hljs-string">&#x27;D.O.B.&#x27;</span>, <span class="hljs-attr">key</span>: <span class="hljs-string">&#x27;DOB&#x27;</span>, <span class="hljs-attr">width</span>: <span class="hljs-number">10</span>, <span class="hljs-attr">outlineLevel</span>: <span class="hljs-number">1</span> &#125;<br>    ];<br><br>    <span class="hljs-comment">// 添加行</span><br>    <span class="hljs-keyword">let</span> list = [<br>    &#123;<span class="hljs-attr">id</span>:<span class="hljs-number">1</span>,<span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;test1&#x27;</span>,<span class="hljs-attr">DOB</span>:<span class="hljs-string">&#x27;11&#x27;</span>&#125;,<br>    &#123;<span class="hljs-attr">id</span>:<span class="hljs-number">2</span>,<span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;test2&#x27;</span>,<span class="hljs-attr">DOB</span>:<span class="hljs-string">&#x27;22&#x27;</span>&#125;,<br>    &#123;<span class="hljs-attr">id</span>:<span class="hljs-number">3</span>,<span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;test3&#x27;</span>,<span class="hljs-attr">DOB</span>:<span class="hljs-string">&#x27;33&#x27;</span>&#125;<br>    ]<br>    <br>    worksheet.<span class="hljs-title function_">addRows</span>(list);<br>    <span class="hljs-comment">// 导出excel</span><br>    <span class="hljs-title function_">saveWorkbook</span>(workbook, <span class="hljs-string">&#x27;simple-demo.xlsx&#x27;</span>);<br>&#125;<br><br><br><span class="hljs-comment">// `saveWorkbook()`是自己封装的方法，接收 workbook 和文件名来下载 excel 到本地。</span><br><span class="hljs-comment">// 下载是使用 `file-saver`库。</span><br><span class="hljs-title function_">saveWorkbook</span>(<span class="hljs-params">workbook, fileName</span>) &#123;<br>  <span class="hljs-comment">// 导出文件</span><br>  workbook.<span class="hljs-property">xlsx</span>.<span class="hljs-title function_">writeBuffer</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> blob = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Blob</span>([data], &#123; <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;&#x27;</span> &#125;);<br>    <span class="hljs-title function_">saveAs</span>(blob, fileName);<br>  &#125;);<br>&#125;<br><br><span class="hljs-comment">// ^4.4</span><br><span class="hljs-title function_">saveWorkbook2</span>(<span class="hljs-params">workbook, fileName</span>) &#123;<br>	workbook.<span class="hljs-property">xlsx</span>.<span class="hljs-title function_">writeFile</span>(fileName)<br>	.<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>		<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;已保存。&#x27;</span>);<br>	&#125;)<br>	.<span class="hljs-title function_">catch</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) &#123;<br>	<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;保存文件时出错: &#x27;</span>, error);<br>	&#125;);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/Exceljs/">Exceljs</a>
+                    
+                  </div>
+                
+              </div>
+
+               <p class="note note-warning">
+              <strong>本文作者: </strong><a href="/blog/">孟 虎</a> <br>
+              <strong>本文链接: </strong><a href="https://menghu1994.github.io/blog/uncategorized/FrontEnd/Packages/Exceljs/index/">https://menghu1994.github.io/blog/uncategorized/FrontEnd/Packages/Exceljs/index/</a> <br>
+              <strong>版权声明: </strong>本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                 </p>
+                 
+
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/uncategorized/FrontEnd/Style/Bootstrap/Bootstrap/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/uncategorized/FrontEnd/Packages/SciCharts/chart/">
+                        <span class="hidden-mobile">SciCharts</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('gitalk-container', function() {
+      Fluid.utils.createCssLink('/blog/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: 'e58406233489ad6a5d56',
+          clientSecret: 'f2ff5891bbed6d6fc1d7689435cfec67e8d59244',
+          repo: 'blog',
+          owner: 'menghu1994',
+          admin: ["name"],
+          id: '5e443992f211409ddc686dd32918d875',
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     # 有些事情只有爬上去了才知道 # 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/debouncer.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/blog/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/blog/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/blog/js/self.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/yinghua.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+
+<div class="text-center py-1">   
+  <div>
+    <span>Copyright © 2021</span>
+    <a href="https://menghu1994.github.io" target="_blank" rel="nofollow noopener">
+     <span>Luffy💕Miss Wu</span></a><br>
+ </div>
+
+
+</body>
+</html>
