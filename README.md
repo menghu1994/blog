@@ -41,11 +41,18 @@ $ hexo new [layout] <title>
 
 `hexo clean && hexo deploy` 生成站点并推送到远程仓库
 
-### 文章路径
+### 部分配置
+
+md头 sticky: 100
+配置文章置顶排序
+
+#### 文章路径
 
 ```md
 [Title](/blog/:category[0]/:category[n]/:folder/:fileName/)
 ```
+
+
 
 ### 联系我
 

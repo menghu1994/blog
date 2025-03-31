@@ -1,11 +1,12 @@
 ---
 layout: post
-title: Angular目录
+title: Angular教程
 date: 2025-03-28
 index_img: https://opensource.google/images/projects/os-projects-angular_thumbnail.png
 categories:
  - FrontEnd
 tags: ['Angular']
+sticky: 101
 ---
 
 # 目录
