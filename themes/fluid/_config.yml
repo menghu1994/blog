@@ -40,7 +40,7 @@ code:
       # 在链接中挑选 style 填入
       # Select a style in the link
       # See: https://highlightjs.org/static/demo/
-      # style: "Github Gist"
+      # style: "Github Gist" "Rainbow"
       style: "Rainbow"
 
       # 是否根据 style 改变代码背景色（如果 style 是深色背景别忘了开启此项）
@@ -256,7 +256,7 @@ lazyload:
 version:
   # 每次生成页面后，检测主题是否为最新版本
   # If true, check whether Fluid is the latest version after hexo generate
-  check: false
+  check: true
 
 
 #---------------------------
