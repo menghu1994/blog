@@ -21,6 +21,7 @@ categories:
 // 生成项目
 $ ng new <项目英文名> --style=scss --skip-tests --ssr=false -s -t
 # --style=scss 使用scss作为css
+
 # --skip-tests 不生成测试代码
 # --routing=false 不生成路由代码
 # --ssr=false 不支持ssr(服务端渲染)
