@@ -69,7 +69,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 30vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -104,51 +104,35 @@
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/blog/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/blog/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                文章
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-category-fill"></i>
-                我们
+                快捷导航
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 
                   
                   
                   
-                  <a class="dropdown-item" href="/blog/us/">
-                    <i class="iconfont icon-user-fill"></i>
-                    我们
+                  <a class="dropdown-item" href="/blog/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    书签
                   </a>
                 
                   
                   
                   
-                  <a class="dropdown-item" href="/blog/photos/">
-                    <i class="iconfont icon-books"></i>
-                    相册
+                  <a class="dropdown-item" href="/blog/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    文章
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/blog/links/">
+                    <i class="iconfont icon-link-fill"></i>
+                    网址大全
                   </a>
                 
               </div>
@@ -163,30 +147,6 @@
               <a class="nav-link" href="/blog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于我
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/blog/comments/">
-                <i class="iconfont icon-user-fill"></i>
-                留言
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/blog/links/">
-                <i class="iconfont icon-link-fill"></i>
-                书签
               </a>
             </li>
           
@@ -222,22 +182,9 @@
               <div class="mt-3">
   
   
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2023-10-16 07:41" pubdate>
-        2023年10月16日 早上
-      </time>
-    </span>
-  
 </div>
 
 <div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      692 字
-    </span>
   
 
   
@@ -272,7 +219,7 @@
             <div class="markdown-body">
               <h1 id="安装Angular-CLI"><a href="#安装Angular-CLI" class="headerlink" title="安装Angular CLI"></a>安装Angular CLI</h1><p><code>npm install -g @angular/cli</code></p>
 <h2 id="更新cli"><a href="#更新cli" class="headerlink" title="更新cli"></a>更新cli</h2><p><code>npm uninstall -g @angular/cli</code><br><code>npm install -g @angular/cli@latest</code></p>
-<h2 id="命令行快速生成"><a href="#命令行快速生成" class="headerlink" title="命令行快速生成"></a>命令行快速生成</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">// 生成项目<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">ng new &lt;项目英文名&gt; --style=scss --skip-tests --ssr=<span class="hljs-literal">false</span> -s -t</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">--style=scss 使用scss作为css</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">--skip-tests 不生成测试代码</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">--routing=<span class="hljs-literal">false</span> 不生成路由代码</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">--ssr=<span class="hljs-literal">false</span> 不支持ssr(服务端渲染)</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">-s （--inline-style）移除.scss文件，直接在ts文件中写样式</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">-t  (--inline-template) 移除.html文件，直接在ts文件中写</span><br><br>// 安装ng-zorro<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">ng add ng-zorro-antd</span><br><br>// 生成模块<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">ng generate module &lt;路径及模块名称&gt;</span><br>// 缩写,在app文件夹下生成路径为pages/setup的setup.module.ts文件<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">ng g m pages/setup</span><br><br>//生成组件<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">ng generage component &lt;路径及组件名称&gt;</span><br>// 缩写, 在app文件夹下生成路径为pages/setup的组件的模板、样式、测试文件、ts文件四个文件<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">ng g c pages/setup</span><br><br>// 生成服务<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">ng generage service &lt;路径及服务文件名称&gt;</span><br>// 缩写<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">ng g s services/local-storage</span><br><br>// 启动服务<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">ng serve</span> <br>或<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">npm start</span> <br></code></pre></div></td></tr></table></figure>
+<h2 id="命令行快速生成"><a href="#命令行快速生成" class="headerlink" title="命令行快速生成"></a>命令行快速生成</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">// 生成项目<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">ng new &lt;项目英文名&gt; --style=scss --skip-tests --ssr=<span class="hljs-literal">false</span> -s -t</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">--style=scss 使用scss作为css</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">--skip-tests 不生成测试代码</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">--routing=<span class="hljs-literal">false</span> 不生成路由代码</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">--ssr=<span class="hljs-literal">false</span> 不支持ssr(服务端渲染)</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">-s （--inline-style）移除.scss文件，直接在ts文件中写样式</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">-t  (--inline-template) 移除.html文件，直接在ts文件中写</span><br><br>// 安装ng-zorro<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">ng add ng-zorro-antd</span><br><br>// 生成模块<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">ng generate module &lt;路径及模块名称&gt;</span><br>// 缩写,在app文件夹下生成路径为pages/setup的setup.module.ts文件<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">ng g m pages/setup</span><br><br>//生成组件<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">ng generage component &lt;路径及组件名称&gt;</span><br>// 缩写, 在app文件夹下生成路径为pages/setup的组件的模板、样式、测试文件、ts文件四个文件<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">ng g c pages/setup</span><br><br>// 生成服务<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">ng generage service &lt;路径及服务文件名称&gt;</span><br>// 缩写<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">ng g s services/local-storage</span><br><br>// 启动服务<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">ng serve</span> <br>或<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">npm start</span> <br></code></pre></div></td></tr></table></figure>
 
 <h2 id="多项目工作区-version-angular-gt-10-9"><a href="#多项目工作区-version-angular-gt-10-9" class="headerlink" title="多项目工作区(version angular&gt;10.9)"></a>多项目工作区(version angular&gt;10.9)</h2><blockquote>
 <p>多个angular项目共享一个git, node_modules;<br>可用于项目(Project)和组件库(Library)同时开发</p>

@@ -17,7 +17,7 @@
   <meta name="description" content="博客 前端 nodejs typescript rxjs">
   <meta name="author" content="Luffy">
   <meta name="keywords" content="博客 前端 nodejs typescript rxjs">
-  <title>Github项目添加徽章小牌子 - Luffy</title>
+  <title>零基础 Ubuntu远程服务器纯前端项目搭建 - Luffy</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -69,7 +69,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 30vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -104,51 +104,35 @@
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/blog/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/blog/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                文章
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-category-fill"></i>
-                我们
+                快捷导航
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 
                   
                   
                   
-                  <a class="dropdown-item" href="/blog/us/">
-                    <i class="iconfont icon-user-fill"></i>
-                    我们
+                  <a class="dropdown-item" href="/blog/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    书签
                   </a>
                 
                   
                   
                   
-                  <a class="dropdown-item" href="/blog/photos/">
-                    <i class="iconfont icon-books"></i>
-                    相册
+                  <a class="dropdown-item" href="/blog/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    文章
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/blog/links/">
+                    <i class="iconfont icon-link-fill"></i>
+                    网址大全
                   </a>
                 
               </div>
@@ -163,30 +147,6 @@
               <a class="nav-link" href="/blog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于我
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/blog/comments/">
-                <i class="iconfont icon-user-fill"></i>
-                留言
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/blog/links/">
-                <i class="iconfont icon-link-fill"></i>
-                书签
               </a>
             </li>
           
@@ -209,12 +169,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.jsdelivr.net/gh/bynotes/bynotes.github.io@master/img/bg/20201204194816.webp') no-repeat center center;
+         style="background: url('/blog/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Github项目添加徽章小牌子">
+            <span class="h2" id="subtitle" title="零基础 Ubuntu远程服务器纯前端项目搭建">
               
             </span>
 
@@ -222,22 +182,9 @@
               <div class="mt-3">
   
   
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-28 14:06" pubdate>
-        2021年1月28日 下午
-      </time>
-    </span>
-  
 </div>
 
 <div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      275 字
-    </span>
   
 
   
@@ -267,43 +214,65 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Github项目添加徽章小牌子</h1>
+            <h1 style="display: none">零基础 Ubuntu远程服务器纯前端项目搭建</h1>
             
             <div class="markdown-body">
-              <p>为了突出github的项目版本、技术栈版本列表、协议、平台、进度等等,所以为项目添加一些标记信息</p>
-<span id="more"></span>
-<meta name="keyword" content="Github,shields,徽标,logo,旗帜,图标">
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>由于工作原因，需要搭建一个远程服务器，用来部署前端项目，本文将介绍如何在 Ubuntu 18.04 上安装 Node.js、Nginx、Git、MongoDB 以及部署前端项目。</p>
+</blockquote>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>购买远程服务器（云服务器或自建服务器</li>
+<li>远程服务器需要开放 80、443、27017 端口</li>
+<li>远程服务器需要安装 SSH 客户端（如：Putty）</li>
+<li>远程服务器需要安装 Node.js、Nginx、Git、MongoDB</li>
+</ul>
+<h2 id="linux-ubuntu"><a href="#linux-ubuntu" class="headerlink" title="linux - ubuntu"></a>linux - ubuntu</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># 更改密码</span><br>sudo passwd root<br><br><span class="hljs-comment"># 登录root</span><br>su -<br><span class="hljs-comment"># 切换临时用户 </span><br>su - luffy<br><span class="hljs-comment"># 退出临时用户</span><br><span class="hljs-built_in">exit</span><br><br><span class="hljs-comment"># 配置</span><br>visudo<br><br><span class="hljs-comment"># 创建用户及密码</span><br>sudo useradd luffy<br>sudo passwd luffy<br><br></code></pre></div></td></tr></table></figure>
 
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h4 id="shields徽标制作网站"><a href="#shields徽标制作网站" class="headerlink" title="shields徽标制作网站"></a><a target="_blank" rel="noopener" href="https://shields.io/">shields徽标制作网站</a></h4><p>网站地址<a target="_blank" rel="noopener" href="https://shields.io/">https://shields.io/</a></p>
-<h4 id="煮个栗子"><a href="#煮个栗子" class="headerlink" title="煮个栗子"></a>煮个栗子</h4><div>
-    <img style="display: inline-block;" src="https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white" srcset="/blog/img/loading.gif">
-    <img style="display: inline-block;" src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" srcset="/blog/img/loading.gif">
-    <img style="display: inline-block;" src="https://img.shields.io/cocoapods/v/Kingfisher.svg?style=flat" srcset="/blog/img/loading.gif">
-    <img style="display: inline-block;" src="https://badges.gitter.im/Alamofire/Alamofire.svg" srcset="/blog/img/loading.gif">
-</div>
+<h2 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># 推荐使用 NodeSource 安装最新 LTS 版本</span><br>curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -<br>sudo apt install -y nodejs<br><br><span class="hljs-comment"># 验证安装</span><br>node -v  <span class="hljs-comment"># 检查 Node.js 版本</span><br>npm -v   <span class="hljs-comment"># 检查 npm 版本</span><br></code></pre></div></td></tr></table></figure>
 
-<h2 id="制作方法"><a href="#制作方法" class="headerlink" title="制作方法"></a>制作方法</h2><h3 id="常用徽标"><a href="#常用徽标" class="headerlink" title="常用徽标"></a>常用徽标</h3><h3 id="个性化徽标"><a href="#个性化徽标" class="headerlink" title="个性化徽标"></a>个性化徽标</h3><p><code>shields.io</code>提供了添加自定义徽标的功能，通过修改如下 URL 即可获取自定义徽标图片：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs markdown">https://img.shields.io/badge/&#123;徽标标题&#125;-&#123;徽标内容&#125;-&#123;徽标颜色&#125;.svg<br></code></pre></div></td></tr></table></figure>
-<p>{徽标标题}：徽标左半部分的文本（短线：–，下划线：__，空格： 或_）；<br>{徽标内容}：徽标右半部分的文本，同上；<br>{徽标颜色}：徽标右半部分背景颜色，可以是 red、green、blue 等颜色英文单词，也可以直接写十六进制的颜色值，如 ff69b4，示例如下：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs markdown">https://img.shields.io/badge/zuo-you-fff21d.svg<br></code></pre></div></td></tr></table></figure>
-<img src="https://img.shields.io/badge/zuo-you-fff21d.svg" srcset="/blog/img/loading.gif">
-或者打开官网首页,填写相应的内容点击`make badge`生成
-<img src="shields01.png" srcset="/blog/img/loading.gif">
+<h2 id="安装-Nginx"><a href="#安装-Nginx" class="headerlink" title="安装 Nginx"></a>安装 Nginx</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo apt update<br>sudo apt install -y nginx<br><br><span class="hljs-comment"># 启动 Nginx</span><br>sudo systemctl start nginx<br>sudo systemctl <span class="hljs-built_in">enable</span> nginx<br><br><span class="hljs-comment"># 验证</span><br>curl http://localhost<br></code></pre></div></td></tr></table></figure>
 
-<h3 id="样式附加参数"><a href="#样式附加参数" class="headerlink" title="样式附加参数"></a>样式附加参数</h3><h3 id="带图标地址"><a href="#带图标地址" class="headerlink" title="带图标地址"></a>带图标地址</h3><p><a target="_blank" rel="noopener" href="https://simpleicons.org/">simpleicons</a>支持图标地址</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://lpd-ios.github.io/2017/05/03/GitHub-Badge-Introduction/">GitHub项目徽章的添加和设置</a></p>
+<h3 id="配置-Nginx"><a href="#配置-Nginx" class="headerlink" title="配置 Nginx"></a>配置 Nginx</h3><blockquote>
+<p>默认站点目录 <code>/var/www/html </code></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo nano /etc/nginx/sites-available/default <br><br><br>server &#123;<br>    listen 80;<br>    server_name your_domain.com;<br><br>    location / &#123;<br>        proxy_pass http://localhost:3000;  <span class="hljs-comment"># 假设 Node.js 运行在 3000 端口</span><br>        proxy_set_header Host <span class="hljs-variable">$host</span>;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="测试配置并重新加载"><a href="#测试配置并重新加载" class="headerlink" title="测试配置并重新加载"></a>测试配置并重新加载</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo nginx -t   <span class="hljs-comment"># 检查语法</span><br>sudo systemctl reload nginx<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="检查nginx状态并设置开机启动"><a href="#检查nginx状态并设置开机启动" class="headerlink" title="检查nginx状态并设置开机启动"></a>检查nginx状态并设置开机启动</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo systemctl status nginx  <span class="hljs-comment"># 确认状态为 &quot;active (running)&quot;</span><br><br><span class="hljs-comment"># 未启动时启动 Nginx</span><br>sudo systemctl start nginx<br>sudo systemctl <span class="hljs-built_in">enable</span> nginx  <span class="hljs-comment"># 设置开机自启</span><br></code></pre></div></td></tr></table></figure>
+
+<h3 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo ufw allow 80/tcp   <span class="hljs-comment"># 开放 HTTP 端口（80）</span><br>sudo ufw allow 443/tcp  <span class="hljs-comment"># 开放 HTTPS 端口（443）</span><br>sudo ufw reload<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="配置代理并启动"><a href="#配置代理并启动" class="headerlink" title="配置代理并启动"></a>配置代理并启动</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">server &#123;<br>    listen 80;<br>    server_name your-domain.com;  <span class="hljs-comment"># 替换为域名或服务器IP</span><br><br>    <span class="hljs-comment"># 前端静态文件（如 Vue/React 打包后的 dist 目录）</span><br>    location / &#123;<br>        root /path/to/your-project/dist;<br>        index index.html;<br>        try_files <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ /index.html;  <span class="hljs-comment"># 支持前端路由</span><br>    &#125;<br><br>    <span class="hljs-comment"># 后端 API 反向代理（如 Node.js 运行在 3000 端口）</span><br>    <span class="hljs-comment"># location /api &#123;</span><br>    <span class="hljs-comment">#     proxy_pass http://localhost:3000;</span><br>    <span class="hljs-comment">#     proxy_set_header Host $host;</span><br>    <span class="hljs-comment"># &#125;</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>移动目录</p>
+<p><code>sudo cp -r /luffy/home /var/www/my-frontend/</code></p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/categories/FrontEnd/">FrontEnd</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/Ubuntu/">Ubuntu</a>
+                    
+                  </div>
                 
               </div>
 
                <p class="note note-warning">
               <strong>本文作者: </strong><a href="/blog/">孟 虎</a> <br>
-              <strong>本文链接: </strong><a href="https://menghu1994.github.io/blog/uncategorized/Tools/%E5%BE%BD%E6%A0%87/%E5%BE%BD%E6%A0%87/">https://menghu1994.github.io/blog/uncategorized/Tools/%E5%BE%BD%E6%A0%87/%E5%BE%BD%E6%A0%87/</a> <br>
+              <strong>本文链接: </strong><a href="https://menghu1994.github.io/blog/FrontEnd/Network/Ubuntu/projectServe/">https://menghu1994.github.io/blog/FrontEnd/Network/Ubuntu/projectServe/</a> <br>
               <strong>版权声明: </strong>本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
                  </p>
                  
@@ -313,15 +282,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/uncategorized/FrontEnd/Javascript/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/">
+                      <a href="/blog/FrontEnd/Network/Ubuntu/index/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">图片懒加载</span>
+                        <span class="hidden-mobile">Ubuntu 初体验</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/blog/uncategorized/FrontEnd/Gists/padStart/">
+                        <span class="hidden-mobile">个位数转十位数</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
@@ -344,7 +319,7 @@
           repo: 'blog',
           owner: 'menghu1994',
           admin: ["name"],
-          id: 'd6b9b23bbbdcfc48d72f68b73bc8dcd0',
+          id: '192f76b1d787e9e5fcb638f937e56b99',
           language: 'zh-CN',
           labels: ["Gitalk"],
           perPage: 10,
