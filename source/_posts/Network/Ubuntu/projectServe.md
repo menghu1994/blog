@@ -61,6 +61,7 @@ sudo apt install -y nginx
 
 # 启动 Nginx
 sudo systemctl start nginx
+# 设置开机自动启动
 sudo systemctl enable nginx
 
 # 验证
@@ -109,6 +110,54 @@ sudo ufw allow 443/tcp  # 开放 HTTPS 端口（443）
 sudo ufw reload
 ```
 
+### 配置新站点
+1. 创建配置文件
+`sudo nano /etc/nginx/sites-available/siteA` 
+```nginx
+server {
+    listen 80;
+    server_name example.com;  # 你自己的域名或 IP
+
+    root /var/www/siteA;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+```
+2. 创建站点目录
+```bash
+sudo mkdir -p /var/www/siteA
+```
+将前端build文件移入`siteA`目录中
+```bash
+sudo cp -r /luffy/home /var/www/SiteA/
+```
+
+3. 设置权限
+```bash
+sudo chown -R www-data:www-data /var/www/siteA
+```
+
+4. 启用配置
+```bash
+sudo ln -s /etc/nginx/sites-available/SiteA /etc/nginx/sites-enabled/
+```
+
+5. 检查配置语法并重启
+```bash
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+6. 开启HTTPS (可选)
+使用`Let's Encrypt`免费证书
+```bash
+sudo apt install certbot python3-certbot-nginx
+sudo certbot --nginx
+```
+
 ## 配置代理并启动
 ```bash
 server {
@@ -129,7 +178,3 @@ server {
     # }
 }
 ```
-
-移动目录
-
-`sudo cp -r /luffy/home /var/www/my-frontend/`
