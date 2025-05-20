@@ -1,7 +1,6 @@
 ---
 layout: post
 title: 零基础 Ubuntu远程服务器纯前端项目搭建
-date: 2025-03-28
 index_img: https://i-blog.csdnimg.cn/blog_migrate/afa8ff6e370df63afbfd4bcf80814ea7.jpeg
 categories:
  - FrontEnd

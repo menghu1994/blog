@@ -291,16 +291,16 @@ navbar:
   # Navigation bar menu. `key` is used to associate languages/*.yml. If there is no association, the value of `key` itself will be displayed; if `icon` is a css class, it can be omitted; adding `name` can force the display of the specified name
   menu:
     - { key: "首页", link: "/", icon: "iconfont icon-home-fill" }
-#    - { key: '书签', link: '/tags/', icon: 'iconfont icon-tags-fill' }
-#    - { key: "文章", link: "/archives/", icon: "iconfont icon-archive-fill" }
-    - { key: "快捷导航",
-        icon: "iconfont icon-category-fill",
-        submenu: [
-          { key: '书签',link: '/tags/',icon: 'iconfont icon-tags-fill' },
-          { key: '文章',link: '/archives/',icon: 'iconfont icon-archive-fill' },
-          { key: '网址大全',link: '/links/', icon: 'iconfont icon-link-fill' }
-        ]
-      }
+    - { key: "文章", link: "/archives/", icon: "iconfont icon-archive-fill" }
+    - { key: '书签', link: '/tags/', icon: 'iconfont icon-tags-fill' }
+#    - { key: "快捷导航",
+#        icon: "iconfont icon-category-fill",
+#        submenu: [
+#          { key: '书签',link: '/tags/',icon: 'iconfont icon-tags-fill' },
+#          { key: '文章',link: '/archives/',icon: 'iconfont icon-archive-fill' },
+#          { key: '网址大全',link: '/links/', icon: 'iconfont icon-link-fill' }
+#        ]
+#      }
     - { key: "关于我",
         icon: "iconfont icon-user-fill",
         link: '/about/'
