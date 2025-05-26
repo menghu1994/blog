@@ -104,38 +104,23 @@
           
           
           
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="iconfont icon-category-fill"></i>
-                快捷导航
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                文章
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" href="/blog/tags/">
-                    <i class="iconfont icon-tags-fill"></i>
-                    书签
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" href="/blog/archives/">
-                    <i class="iconfont icon-archive-fill"></i>
-                    文章
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" href="/blog/links/">
-                    <i class="iconfont icon-link-fill"></i>
-                    网址大全
-                  </a>
-                
-              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                书签
+              </a>
             </li>
           
         
@@ -230,7 +215,7 @@
 
 <h2 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># 推荐使用 NodeSource 安装最新 LTS 版本</span><br>curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -<br>sudo apt install -y nodejs<br><br><span class="hljs-comment"># 验证安装</span><br>node -v  <span class="hljs-comment"># 检查 Node.js 版本</span><br>npm -v   <span class="hljs-comment"># 检查 npm 版本</span><br></code></pre></div></td></tr></table></figure>
 
-<h2 id="安装-Nginx"><a href="#安装-Nginx" class="headerlink" title="安装 Nginx"></a>安装 Nginx</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo apt update<br>sudo apt install -y nginx<br><br><span class="hljs-comment"># 启动 Nginx</span><br>sudo systemctl start nginx<br>sudo systemctl <span class="hljs-built_in">enable</span> nginx<br><br><span class="hljs-comment"># 验证</span><br>curl http://localhost<br></code></pre></div></td></tr></table></figure>
+<h2 id="安装-Nginx"><a href="#安装-Nginx" class="headerlink" title="安装 Nginx"></a>安装 Nginx</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo apt update<br>sudo apt install -y nginx<br><br><span class="hljs-comment"># 启动 Nginx</span><br>sudo systemctl start nginx<br><span class="hljs-comment"># 设置开机自动启动</span><br>sudo systemctl <span class="hljs-built_in">enable</span> nginx<br><br><span class="hljs-comment"># 验证</span><br>curl http://localhost<br></code></pre></div></td></tr></table></figure>
 
 <h3 id="配置-Nginx"><a href="#配置-Nginx" class="headerlink" title="配置 Nginx"></a>配置 Nginx</h3><blockquote>
 <p>默认站点目录 <code>/var/www/html </code></p>
@@ -243,10 +228,29 @@
 
 <h3 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo ufw allow 80/tcp   <span class="hljs-comment"># 开放 HTTP 端口（80）</span><br>sudo ufw allow 443/tcp  <span class="hljs-comment"># 开放 HTTPS 端口（443）</span><br>sudo ufw reload<br></code></pre></div></td></tr></table></figure>
 
-<h2 id="配置代理并启动"><a href="#配置代理并启动" class="headerlink" title="配置代理并启动"></a>配置代理并启动</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">server &#123;<br>    listen 80;<br>    server_name your-domain.com;  <span class="hljs-comment"># 替换为域名或服务器IP</span><br><br>    <span class="hljs-comment"># 前端静态文件（如 Vue/React 打包后的 dist 目录）</span><br>    location / &#123;<br>        root /path/to/your-project/dist;<br>        index index.html;<br>        try_files <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ /index.html;  <span class="hljs-comment"># 支持前端路由</span><br>    &#125;<br><br>    <span class="hljs-comment"># 后端 API 反向代理（如 Node.js 运行在 3000 端口）</span><br>    <span class="hljs-comment"># location /api &#123;</span><br>    <span class="hljs-comment">#     proxy_pass http://localhost:3000;</span><br>    <span class="hljs-comment">#     proxy_set_header Host $host;</span><br>    <span class="hljs-comment"># &#125;</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h3 id="配置新站点"><a href="#配置新站点" class="headerlink" title="配置新站点"></a>配置新站点</h3><ol>
+<li><p>创建配置文件<br><code>sudo nano /etc/nginx/sites-available/siteA</code> </p>
+<figure class="highlight nginx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-section">server</span> &#123;<br>    <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span>;<br>    <span class="hljs-attribute">server_name</span> example.com;  <span class="hljs-comment"># 你自己的域名或 IP</span><br><br>    <span class="hljs-attribute">root</span> /var/www/siteA;<br>    <span class="hljs-attribute">index</span> index.html;<br><br>    <span class="hljs-section">location</span> / &#123;<br>        <span class="hljs-attribute">try_files</span> <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ =<span class="hljs-number">404</span>;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
+<li><p>创建站点目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo <span class="hljs-built_in">mkdir</span> -p /var/www/siteA<br></code></pre></div></td></tr></table></figure>
+<p>将前端build文件移入<code>siteA</code>目录中</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo <span class="hljs-built_in">cp</span> -r /luffy/home /var/www/SiteA/<br></code></pre></div></td></tr></table></figure>
+</li>
+<li><p>设置权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo <span class="hljs-built_in">chown</span> -R www-data:www-data /var/www/siteA<br></code></pre></div></td></tr></table></figure>
+</li>
+<li><p>启用配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo <span class="hljs-built_in">ln</span> -s /etc/nginx/sites-available/SiteA /etc/nginx/sites-enabled/<br></code></pre></div></td></tr></table></figure>
+</li>
+<li><p>检查配置语法并重启</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo nginx -t<br>sudo systemctl reload nginx<br></code></pre></div></td></tr></table></figure>
+</li>
+<li><p>开启HTTPS (可选)<br>使用<code>Let&#39;s Encrypt</code>免费证书</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo apt install certbot python3-certbot-nginx<br>sudo certbot --nginx<br></code></pre></div></td></tr></table></figure>
 
-<p>移动目录</p>
-<p><code>sudo cp -r /luffy/home /var/www/my-frontend/</code></p>
+</li>
+</ol>
+<h2 id="配置代理并启动"><a href="#配置代理并启动" class="headerlink" title="配置代理并启动"></a>配置代理并启动</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">server &#123;<br>    listen 80;<br>    server_name your-domain.com;  <span class="hljs-comment"># 替换为域名或服务器IP</span><br><br>    <span class="hljs-comment"># 前端静态文件（如 Vue/React 打包后的 dist 目录）</span><br>    location / &#123;<br>        root /path/to/your-project/dist;<br>        index index.html;<br>        try_files <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ /index.html;  <span class="hljs-comment"># 支持前端路由</span><br>    &#125;<br><br>    <span class="hljs-comment"># 后端 API 反向代理（如 Node.js 运行在 3000 端口）</span><br>    <span class="hljs-comment"># location /api &#123;</span><br>    <span class="hljs-comment">#     proxy_pass http://localhost:3000;</span><br>    <span class="hljs-comment">#     proxy_set_header Host $host;</span><br>    <span class="hljs-comment"># &#125;</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
             </div>
             <hr>
@@ -282,9 +286,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/FrontEnd/Network/Ubuntu/index/">
+                      <a href="/blog/uncategorized/FrontEnd/Gists/numberValid/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Ubuntu 初体验</span>
+                        <span class="hidden-mobile">输入框数字验证</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -292,8 +296,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/uncategorized/FrontEnd/Gists/padStart/">
-                        <span class="hidden-mobile">个位数转十位数</span>
+                      <a href="/blog/FrontEnd/Network/Ubuntu/index/">
+                        <span class="hidden-mobile">Ubuntu 初体验</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

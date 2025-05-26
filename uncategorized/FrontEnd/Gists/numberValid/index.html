@@ -17,7 +17,7 @@
   <meta name="description" content="博客 前端 nodejs typescript rxjs">
   <meta name="author" content="Luffy">
   <meta name="keywords" content="博客 前端 nodejs typescript rxjs">
-  <title>Css - Luffy</title>
+  <title>输入框数字验证 - Luffy</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -104,38 +104,23 @@
           
           
           
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="iconfont icon-category-fill"></i>
-                快捷导航
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                文章
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" href="/blog/tags/">
-                    <i class="iconfont icon-tags-fill"></i>
-                    书签
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" href="/blog/archives/">
-                    <i class="iconfont icon-archive-fill"></i>
-                    文章
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" href="/blog/links/">
-                    <i class="iconfont icon-link-fill"></i>
-                    网址大全
-                  </a>
-                
-              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                书签
+              </a>
             </li>
           
         
@@ -174,7 +159,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Css">
+            <span class="h2" id="subtitle" title="输入框数字验证">
               
             </span>
 
@@ -214,21 +199,31 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Css</h1>
+            <h1 style="display: none">输入框数字验证</h1>
             
             <div class="markdown-body">
-              <figure class="highlight scss"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs scss"><span class="hljs-comment">// 在rgba中使用&#x27;#ffffff&#x27;颜色格式</span><br><span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgba</span>(<span class="hljs-variable">$color</span>: <span class="hljs-variable">$uni-color-error</span>, <span class="hljs-variable">$alpha</span>: <span class="hljs-number">0.3</span>)<br><br><br>    @for <span class="hljs-variable">$i</span> from <span class="hljs-number">0</span> through <span class="hljs-number">24</span> &#123;<br>      <span class="hljs-selector-class">.width-</span>#&#123;<span class="hljs-variable">$i</span>&#125; &#123;<br>        <span class="hljs-attribute">width</span>: <span class="hljs-built_in">calc</span>(#&#123;<span class="hljs-variable">$i</span> * <span class="hljs-number">4.1666%</span>&#125; - <span class="hljs-number">4px</span>) !important;<br>      &#125;<br>    &#125;<br></code></pre></div></td></tr></table></figure>
+              <p>输入框只能输入数字类型</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> @<span class="hljs-attr">input</span>=<span class="hljs-string">&quot;validateNumber($event)&quot;</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">@<span class="hljs-title class_">Params</span> &#123;<br>	<span class="hljs-attr">event</span>: 输入框内容<br>	<span class="hljs-attr">v</span>: <span class="hljs-number">1</span> 只有一个小数点<br>	<span class="hljs-attr">maxValue</span>: 限制输入数字最大值<br>	obj, propertyName 自定将obj[propertyName]替换为输入的内容<br>&#125;<br><span class="hljs-title function_">validateNumber</span>(<span class="hljs-params">event: any,v: number, maxValue?: number, obj?: any, propertyName?: string</span>) &#123;<br>    <span class="hljs-keyword">let</span> value = event.<span class="hljs-property">target</span>.<span class="hljs-property">value</span>;<br>    value = value.<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/^\s+|\s+$/g</span>, <span class="hljs-string">&#x27;&#x27;</span>); <span class="hljs-comment">// 移除前后空白</span><br>    <span class="hljs-comment">// 允许数字和一个小数点</span><br>    <span class="hljs-keyword">if</span>(v === <span class="hljs-number">1</span>) &#123;<br>      value = value.<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/[^0-9.]/g</span>, <span class="hljs-string">&#x27;&#x27;</span>);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      value = value.<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/[^0-9]/g</span>, <span class="hljs-string">&#x27;&#x27;</span>);<br>    &#125;<br>    <span class="hljs-comment">// 确保只有一个小数点</span><br>    <span class="hljs-keyword">const</span> parts = value.<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27;.&#x27;</span>);<br>    <span class="hljs-keyword">if</span> (parts.<span class="hljs-property">length</span> &gt; <span class="hljs-number">2</span>) &#123;<br>      value = parts[<span class="hljs-number">0</span>] + <span class="hljs-string">&#x27;.&#x27;</span> + parts.<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>).<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;&#x27;</span>);<br>    &#125;<br>    <span class="hljs-comment">// 移除前导零，但允许单个前导零的情况（例如0.5）</span><br>    <span class="hljs-keyword">if</span> (value.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&#x27;.&#x27;</span>) === -<span class="hljs-number">1</span>) &#123;<br>      value = value.<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/^0+(?=\d)/</span>, <span class="hljs-string">&#x27;&#x27;</span>);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      value = value.<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/^0+(?=\d)/</span>, <span class="hljs-string">&#x27;0&#x27;</span>);<br>    &#125;<br>    <span class="hljs-comment">// 最大值校验</span><br>    <span class="hljs-keyword">if</span> (maxValue !== <span class="hljs-literal">undefined</span> &amp;&amp; value !== <span class="hljs-string">&#x27;&#x27;</span> &amp;&amp; <span class="hljs-built_in">parseFloat</span>(value) &gt; <span class="hljs-title class_">Number</span>(maxValue)) &#123;<br>      value = <span class="hljs-title class_">Number</span>(maxValue);<br>    &#125;<br><br>    event.<span class="hljs-property">target</span>.<span class="hljs-property">value</span> = value;<br>    <span class="hljs-comment">// 更新动态获取的对象的属性</span><br>    <span class="hljs-keyword">if</span> (obj &amp;&amp; propertyName) &#123;<br>      obj[propertyName] = value;<br>    &#125;<br>  &#125;<br></code></pre></div></td></tr></table></figure>
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
                 
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/gist/">gist</a>
+                    
+                  </div>
+                
               </div>
 
                <p class="note note-warning">
               <strong>本文作者: </strong><a href="/blog/">孟 虎</a> <br>
-              <strong>本文链接: </strong><a href="https://menghu1994.github.io/blog/uncategorized/FrontEnd/Style/style/">https://menghu1994.github.io/blog/uncategorized/FrontEnd/Style/style/</a> <br>
+              <strong>本文链接: </strong><a href="https://menghu1994.github.io/blog/uncategorized/FrontEnd/Gists/numberValid/">https://menghu1994.github.io/blog/uncategorized/FrontEnd/Gists/numberValid/</a> <br>
               <strong>版权声明: </strong>本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
                  </p>
                  
@@ -238,9 +233,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/uncategorized/Tools/RegularExpression/">
+                      <a href="/blog/FrontEnd/Nginx/FrontEnd/Gists/frontEndDeploy/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">常用正则表达式</span>
+                        <span class="hidden-mobile">前端项目部署修改请求地址</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -248,8 +243,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/uncategorized/FrontEnd/RxJS/concept/">
-                        <span class="hidden-mobile">Rxjs</span>
+                      <a href="/blog/FrontEnd/Network/Ubuntu/projectServe/">
+                        <span class="hidden-mobile">零基础 Ubuntu远程服务器纯前端项目搭建</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -275,7 +270,7 @@
           repo: 'blog',
           owner: 'menghu1994',
           admin: ["name"],
-          id: 'b1428fd0beccdc8063bdd03508f626a9',
+          id: '50ef7f1532e2aaf50349ec9e35778d02',
           language: 'zh-CN',
           labels: ["Gitalk"],
           perPage: 10,
