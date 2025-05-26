@@ -1,5 +1,6 @@
 ---
 title: npm
+tags: ['Nodejs']
 ---
 
 ### Mac

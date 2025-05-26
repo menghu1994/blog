@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Excel.js
-tags: ['Exceljs']
+tags: ['Library']
 ---
 
 # Exceljs

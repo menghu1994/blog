@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Mac M1
-date: 2023-10-16 21:41:38
-tags: System
+tags: ['System']
 ---
 
 # Mac M1

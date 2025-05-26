@@ -1,7 +1,6 @@
 ---
 layout: post
 title: .gitignore
-date: 2023-10-16 21:41:38
 tags: ['Git']
 ---
 

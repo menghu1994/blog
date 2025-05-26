@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Angular ViewChild
-date: 2024-08-14
 index_img: https://opensource.google/images/projects/os-projects-angular_thumbnail.png
 tags: ['Angular']
 categories:

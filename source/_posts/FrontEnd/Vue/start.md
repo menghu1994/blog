@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Run Vue3 Project
-tags: vue3
+tags: ['Vue3']
 ---
 
 # Vue3 project init

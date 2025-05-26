@@ -1,7 +1,6 @@
 ---
 layout: post
 title: git
-date: 2025-03-28
 tags: ['Git']
 ---
 

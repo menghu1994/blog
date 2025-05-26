@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Sublime Text
-tags: software
+tags: ['Software']
 ---
 
 # Hot key

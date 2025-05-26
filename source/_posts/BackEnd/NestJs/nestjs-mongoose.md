@@ -1,7 +1,7 @@
 ---
 layout: post
 title: @nestjs/mongoose
-tags: ['nestjs', 'mongodb']
+tags: ['Nestjs', 'Mongodb']
 ---
 
 ### 安装

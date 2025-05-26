@@ -1,9 +1,8 @@
 ---
 layout: post
 title: 常用正则表达
-date: 2024-08-13
 index_img: https://pica.zhimg.com/v2-4981a827baa6cf4346ec5304ccbec502_720w.jpg?source=172ae18b
-tags: ['tool']
+tags: ['Gist']
 ---
 ## [在线验证](https://www.jyshare.com/front-end/854/)
 ## 常用正则表达

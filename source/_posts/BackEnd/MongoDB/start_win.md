@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Mongodb
-tags: mongodb
+tags: ['Mongodb']
 ---
 
 ## Window Mongodb Install 6.0.6

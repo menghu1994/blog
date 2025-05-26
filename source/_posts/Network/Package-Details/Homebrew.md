@@ -1,7 +1,7 @@
 ---
 layout: post
 title: HomeBrew
-tags: System
+tags: ['System']
 ---
 
 # Homebrew

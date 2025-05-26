@@ -2,7 +2,7 @@
 layout: post
 title: Material Angular 使用技巧
 index_img: https://www.w3cplus.com/sites/default/files/blogs/2020/2007/greensock-beginner-1.png
-tags: ['Angular','material']
+tags: ['Angular','Material']
 ---
 
 # Material Angular 使用技巧

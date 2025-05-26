@@ -1,7 +1,7 @@
 ---
 layout: post
 title: webpack
-tags: webpack
+tags: ['Webpack']
 ---
 
 # web 项目搭建

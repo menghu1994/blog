@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Observable
-tags: rxjs
+tags: ['Rxjs']
 ---
 
 # Observable

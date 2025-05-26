@@ -1,8 +1,7 @@
 ---
 layout: post
 title: if代码优化
-date: 2023-10-16 21:41:38
-tags: ['gist']
+tags: ['Gist']
 ---
 
 # 优化代码中多个`if...else...`

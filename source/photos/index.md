@@ -1,7 +1,6 @@
 ---
 layout: photos
 title: photos
-date: 2021-02-01 13:55:53
 ---
 <p class="note note-primary">primary</p>
 <p class="note note-secondary">secondary</p>

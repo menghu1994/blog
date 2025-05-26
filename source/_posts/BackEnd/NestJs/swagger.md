@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Nestjs 接口文档
-tags: ['nestjs', 'swagger']
+tags: ['Nestjs']
 ---
 
 ## [添加 swagger](https://docs.nestjs.com/openapi/introduction)

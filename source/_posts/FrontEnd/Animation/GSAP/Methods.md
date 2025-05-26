@@ -2,7 +2,7 @@
 layout: post
 title: Methods in gsap
 index_img: https://www.w3cplus.com/sites/default/files/blogs/2020/2007/greensock-beginner-1.png
-tags: ['animation', 'gsap']
+tags: ['Animation', 'Library']
 ---
 
 - `gsap.quickSetter()`
@@ -27,7 +27,7 @@ window.addEventListener("mousemove", e => {
   yTo(e.clientY);
 });
 ```
-如果需要同时设置多个属性值,可以设置第二个参数为`'css'`和`'attr'`
+如果需要同时设置多个属性值,可以设置第二个参数为`'CSS'`和`'attr'`
 ```js
 var boxSet = gsap.quickSetter("#box", "css");
 boxSet({ x: "+=100", y: "random(-100, 100)" })

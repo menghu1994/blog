@@ -11,12 +11,12 @@ sticky: 101
 
 # 目录
 
-1. [项目搭建(Angular Cli)](/blog/FrontEnd/Angular/AngularCli/)
-2. [组件(Component)](/blog/FrontEnd/Angular/Component/)
-3. [路由(Router)](/blog/FrontEnd/Angular/Router/)
-4. [服务(Service)](/blog/FrontEnd/Angular/Service/)
-5. [表单(Form)](/blog/FrontEnd/Angular/Form/)
-6. [依赖注入(DI)](/blog/FrontEnd/Angular/DI/)
-7. [HTTP请求(HTTP)](/blog/FrontEnd/Angular/HTTP/)
-8. [Pipe & Directive](/blog/FrontEnd/Angular/pipe&directive/)
-9. [动画(Animation)](/blog/FrontEnd/Angular/Animation/)
+1. [项目搭建(Angular Cli)](/blog/FrontEnd/FrontEnd/Angular/AngularCli/)
+2. [组件(Component)](/blog/FrontEnd/FrontEnd/Angular/Component/)
+3. [路由(Router)](/blog/FrontEnd/FrontEnd/Angular/Router/)
+4. [服务(Service)](/blog/FrontEnd/FrontEnd/Angular/Service/)
+5. [表单(Form)](/blog/FrontEnd/FrontEnd/Angular/Form/)
+6. [依赖注入(DI)](/blog/FrontEnd/FrontEnd/Angular/DI/)
+7. [HTTP请求(HTTP)](/blog/FrontEnd/FrontEnd/Angular/HTTP/)
+8. [Pipe & Directive](/blog/FrontEnd/FrontEnd/Angular/pipe&directive/)
+9. [动画(Animation)](/blog/FrontEnd/FrontEnd/Angular/Animation/)

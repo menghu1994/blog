@@ -1,5 +1,6 @@
 ---
 title: Public Method in Vue3
+tags: ['Vue3']
 ---
 
 1. `app.config.globalProperties` Global Property

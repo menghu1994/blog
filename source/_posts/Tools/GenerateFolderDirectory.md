@@ -1,7 +1,7 @@
 ---
 layout: post
 title: windows 下快速生成目录树结构
-tags: system
+tags: ['System']
 ---
 
 # windows 下快速生成目录树结构

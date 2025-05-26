@@ -2,7 +2,7 @@
 layout: post
 title: Transform in gsap
 index_img: https://www.w3cplus.com/sites/default/files/blogs/2020/2007/greensock-beginner-1.png
-tags: ['animation', 'gsap']
+tags: ['Animation', 'Library']
 ---
 
 ## [Transform Property](https://gsap.com/resources/get-started)

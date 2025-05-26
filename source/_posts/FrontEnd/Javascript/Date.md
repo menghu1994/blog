@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Date
-date: 2023-10-16 21:41:38
 index_img: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-DrMvfXRpwdDe84ycvLVF5GVuRgdkk2DUfQ&usqp=CAU
 tags: ['Javascript']
 ---

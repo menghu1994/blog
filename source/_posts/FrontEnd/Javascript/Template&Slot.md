@@ -1,7 +1,6 @@
 ---
 layout: post
 title: 原生模板与插槽
-date: 2025-02-02
 tags: ['Javascript']
 ---
 

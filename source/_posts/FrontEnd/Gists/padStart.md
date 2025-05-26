@@ -1,8 +1,7 @@
 ---
 layout: post
 title: 个位数转十位数
-date: 2025-3-12
-tags: ['gist']
+tags: ['Gist']
 ---
 
 # padStart

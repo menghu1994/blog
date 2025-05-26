@@ -1,5 +1,6 @@
 ---
 title: Pinia in Vue3
+tags: ['Vue3']
 ---
 
 # [Pinia](https://pinia.vuejs.org/zh)

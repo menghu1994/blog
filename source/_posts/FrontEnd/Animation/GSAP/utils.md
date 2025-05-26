@@ -2,7 +2,7 @@
 layout: post
 title: Utils in gsap
 index_img: https://www.w3cplus.com/sites/default/files/blogs/2020/2007/greensock-beginner-1.png
-tags: ['animation', 'gsap']
+tags: ['Animation', 'Library']
 ---
 
 ## gsap提供的函数

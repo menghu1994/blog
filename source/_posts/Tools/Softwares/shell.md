@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Shell Command
-tags: ['windows']
+tags: ['System']
 ---
 # 命令行指令
 1. 产看本机已启动的服务列表

@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Docker 目录
-date: 2025-03-28
-index_img: https://i-blog.csdnimg.cn/blog_migrate/afa8ff6e370df63afbfd4bcf80814ea7.jpeg
+index_img: https://img2.baidu.com/it/u=2441496253,736212485&fm=253&fmt=auto&app=138&f=JPEG?w=602&h=352
 categories:
  - FrontEnd
 tags: ['Docker']
@@ -11,4 +10,4 @@ sticky: 201
 
 # 目录
 
-1. [Ubuntu安装Docker](/network/docker/install/)
+1. [Ubuntu安装Docker](/blog/FrontEnd/Network/Docker/install/)

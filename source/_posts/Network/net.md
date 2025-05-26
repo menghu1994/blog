@@ -3,8 +3,8 @@ layout: post
 title: 固定局域网内设备IP地址
 index_img: https://i-blog.csdnimg.cn/blog_migrate/afa8ff6e370df63afbfd4bcf80814ea7.jpeg
 categories:
- - Net
-tags: ['Other']
+ - Network
+tags: ['Network']
 ---
 
 ## 固定局域网内设备IP地址

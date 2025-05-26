@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Nestjs
-tags: nestjs
+tags: ['Nestjs']
 ---
 
 # [NestJs](https://docs.nestjs.com/)

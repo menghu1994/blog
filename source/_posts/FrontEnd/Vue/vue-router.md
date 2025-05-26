@@ -1,5 +1,6 @@
 ---
 title: Vue-Router
+tags: ['Vue3']
 ---
 
 # Vue-Router in Vue3

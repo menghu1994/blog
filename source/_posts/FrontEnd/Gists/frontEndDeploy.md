@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 前端项目部署修改请求地址
-tags: ['nginx']
+tags: ['Nginx']
 categories:
  - FrontEnd
  - Nginx

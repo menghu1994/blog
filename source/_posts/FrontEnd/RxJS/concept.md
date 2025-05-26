@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Rxjs
-tags: rxjs
+tags: ['Rxjs']
 ---
 
 # Rxjs

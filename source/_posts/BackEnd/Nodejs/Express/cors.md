@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CORS
-tags: ['express']
+tags: ['Express']
 ---
 
 

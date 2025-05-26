@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Token和Cookie的区别
-tags: ['network']
+tags: ['Network']
 ---
 
 # Token和Cookie

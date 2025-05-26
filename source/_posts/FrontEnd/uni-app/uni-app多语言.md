@@ -1,7 +1,6 @@
 ---
 layout: post
 title: uniapp 多语言
-date: 2024-08-14
 tags: ['Uniapp']
 ---
 

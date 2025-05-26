@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Controller in nestjs
-tags: ['nestjs']
+tags: ['Nestjs']
 ---
 
 # Controller

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: typegoose
-tags: mongodb
+tags: ['Mongodb']
 ---
 # typegoose
 

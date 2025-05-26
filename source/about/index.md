@@ -1,6 +1,5 @@
 ---
 title: about
-date: 2021-01-28 14:06:01
 layout: about
 banner_img: https://cdn.jsdelivr.net/gh/bynotes/bynotes.github.io@master/img/bg/20201204194816.webp
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 输入框数字验证
-tags: ['gist']
+tags: ['Gist']
 ---
 
 输入框只能输入数字类型
