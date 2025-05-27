@@ -2,6 +2,8 @@
 layout: post
 title: uniapp 多语言
 tags: ['Uniapp']
+categories:
+ - FrontEnd
 ---
 
 ## uni-app 多语言

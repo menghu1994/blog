@@ -2,6 +2,8 @@
 layout: post
 title: Uniapp 网络请求封装
 tags: ['Uniapp']
+categories:
+ - FrontEnd
 ---
 
 # Uniapp 网络请求封装

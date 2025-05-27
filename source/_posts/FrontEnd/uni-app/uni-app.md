@@ -2,6 +2,8 @@
 layout: post
 title: Uniapp
 tags: ['Uniapp']
+categories:
+ - FrontEnd
 ---
 
 # uni-app
