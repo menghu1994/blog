@@ -1,6 +1,7 @@
 search:
   title: 搜索
   keyword: 关键词
+  placeholder: 关键词查询
   status:
     success: v
     error: x

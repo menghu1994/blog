@@ -305,6 +305,10 @@ navbar:
         icon: "iconfont icon-user-fill",
         link: '/about/'
       }
+    - { key: "简历",
+        icon: "iconfont icon-user-fill",
+        link: '/Home/'
+      }
 #    - { key: "留言", link: "/comments/", icon: "iconfont icon-user-fill" }
 #    - { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
 
@@ -817,7 +821,6 @@ about:
     - { class: "iconfont icon-douban-fill", link: "https://www.douban.com/people/166467024/", tip: "豆瓣" }
     - { class: "iconfont icon-wechat-fill", qrcode: "/img/wechat.png" }
 
-
 #---------------------------
 # 自定义页
 # Custom Page
@@ -827,7 +830,7 @@ about:
 #---------------------------
 page:
   banner_img: /img/bg/tag.png
-  banner_img_height: 60
+  banner_img_height: 30
   banner_mask_alpha: 0.3
 
 #---------------------------

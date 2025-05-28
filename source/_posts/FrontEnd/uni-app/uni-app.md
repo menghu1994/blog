@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Uniapp
+title: Uniapp介绍
 tags: ['Uniapp']
 categories:
  - FrontEnd
@@ -53,48 +53,6 @@ categories:
 + 客户端适配
  - `globalStyle` 中配置是否自动横屏, 设备宽度等
 
-## form 表单验证
-
-[表单验证](https://www.uviewui.com/components/form.html)
-
-```js
-<u-form :model="formName" ref="uForm">
- <u-form-item label="批次码/产品码" prop="objectName" 
- 	ref="objectName" label-position="left" :label-width="194">
-  <u-input :clearable="false" height="40" v-model="inventoryForm.objectName" 
-	@blur="matchObjectName" :focus="true" maxlength=300 />
-  <u-icon class="scan-icon" name="scan" size="48" @click="onScanObjectName"></u-icon>
- </u-form-item>
-</u-form>
-
-rules: {
- objectName: [{
-  required: true,
-  message: '请输入产品码/批次码',
-  trigger: ['blur','change'],
- }],
- locationNumber: [{
-  required: true,
-  message: '请输入货位',
-  trigger: ['change', 'blur'],
- }],
- stockQuantity: [{
-  pattern: /^([1-9]([0-9]+)?)$/g,
-  message: '请输入正整数',
-  trigger: ['change','blur']
- },{
-  required: true,
-  message: '请输入数量',
-  trigger: 'blur'
- }],
-},
-
-onReady() {
- this.$refs.uForm.setRules(this.rules);
-},
-
-```
-
 ### 常用功能
 #### 动态设置页面标题
 ```js
@@ -111,9 +69,3 @@ onReady() {
       })
   }
 ```
-
-### Tips
-
-- 在onReady中给添加验证规则
-- 赋值之后单独验证（赋值必须为字符串格式） 需要在form-item中添加ref,并使用this.$refs['这里是ref名称'].onFieldChange() 单独验证,需单独验证的字段的验证规则的trigger必须添加'change'
-- 重置验证内容，resetFields

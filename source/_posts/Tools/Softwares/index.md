@@ -1,5 +1,6 @@
 ---
 title: Software in Windows
+tag: ['Software']
 ---
 # Normal
 1. Google Chrome(Brower)

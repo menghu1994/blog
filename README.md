@@ -46,6 +46,9 @@ $ hexo new [layout] <title>
 md头 sticky: 100
 配置文章置顶排序
 
+
+excerpt 配置文章描述
+
 #### 文章路径
 
 ```md

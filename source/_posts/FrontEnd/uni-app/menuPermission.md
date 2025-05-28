@@ -21,6 +21,14 @@ export default {
   }
 }
 ```
+### 在`main.js`中引入该指令
+```js
+import Vue from 'vue'
+// 目录/菜单/按钮权限
+import directives from './utils/directives'
+
+Vue.use(directives)
+```
 
 ### 创建权限文件`/utils/directives/auth.js`
 ```js

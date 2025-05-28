@@ -4,7 +4,6 @@ title: npm install 安装依赖
 index_img: https://oss-cn-hangzhou.aliyuncs.com/codingsky/cdn/img/2020-01-14/199f28ab01b68d6055185cb291412a98.png
 banner_img: https://oss-cn-hangzhou.aliyuncs.com/codingsky/cdn/img/2020-01-14/199f28ab01b68d6055185cb291412a98.png
 tags: ['Nodejs']
-sticky: 100
 ---
 
 ```npm

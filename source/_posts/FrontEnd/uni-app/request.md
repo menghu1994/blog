@@ -61,11 +61,6 @@ export default {
 				uni.hideLoading()
 				let statusCode = response.statusCode
 				response.config = _config
-				// if (process.env.NODE_ENV === 'development') {
-				// 	if (statusCode === 200) {
-				// 		// console.log("【" + _config.requestId + "】 结果：" + JSON.stringify(response.data))
-				// 	}
-				// }
 				if (this.interceptor.response) {
 					let newResponse = this.interceptor.response(response)
 					if (newResponse) {
@@ -99,15 +94,6 @@ export default {
 						},1e3)
 					}
 				}
-				
-				// let {
-				// 	code,
-				// 	msg
-				// } = response.data
-				// 请求返回400请求报文存在语法错误时reLaunch到登录页
-				// if (response.data.code>= 400||response.statusCode>=400||response.status>=400) {
-				// 	reject(response)
-				// }
 
 				if(response.statusCode>=400){
 					reject(response)
@@ -175,6 +161,8 @@ const login = {
 		})
 	}
 }
+
+export default login
 ```
 
 ### 使用`login.js`

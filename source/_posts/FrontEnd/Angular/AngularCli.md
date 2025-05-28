@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Angular项目搭建
-index_img: https://opensource.google/images/projects/os-projects-angular_thumbnail.png
+index_img: https://img0.baidu.com/it/u=1569655928,1360085629&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=375
 tags: ['Angular']
 categories:
  - FrontEnd
 ---
 
-# 安装Angular CLI
+## 安装Angular CLI
 `npm install -g @angular/cli`
 
 ## 更新cli
@@ -76,63 +76,6 @@ $ ng build --prod --project="first-app"
 ```
 
 ![Angular running track](https://www.runoob.com/wp-content/uploads/2016/09/overview2.png)
-
-## 语法
-
-- 判断 *ngIf*ngIf="can; else cannot"
-- 循环 *ngFor*ngFor="let item of items; index as i"
-- 绑定属性 [title] [style.color]
-- 绑定方法 (click)
-
-### 父子组件传值(单向)
-
-- 父 => 子
-    子组件添加输入属性 @Input()  導入Input符號，添加@Input()装饰器
-    父组件内组件中绑定属性和属性值
-- 子 => 父
-    EventEmitter
-
-### 数据双向绑定
-
-// 添加模块FromsModule才能使用
-[(ngModel)]
-
-### 属性绑定
-
-  class绑定 [class.selected]="hero == selectedHero"
-  [hero]="selectedHero"
-
-## Services
-
-- 导入Injectable符号,并添加@Injectable()装饰器
-
-## Observable
-
-#### 事件绑定
-
-> $event.target 的类型只是 EventTarget。在 getValue() 方法中，把此目标转为 HTMLInputElement 类型，以允许对其 value 属性进行类型安全的访问
-
-```ts
-<input type="text" (input)="getValue($event)" />
-
-getValue(event: Event): string {
-   return (event.target as HTMLInputElement).value;
-}
-```
-
-#### ngForm 与 模板变量
-
-> 如果 itemForm.form.valid 无效，那么 NgForm 的 form 属性就会让你禁用提交按钮
-
-```ts
-<form #itemForm="ngForm">
-   <label>Name:</label>
-   <button>Submit</button>
-</form>
-
-<div [hidden]="!itemForm.form.valid">sub
-</div>
-```
 
 
 tips:

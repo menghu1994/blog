@@ -1,5 +1,7 @@
 ---
+layout: post
 title: Pandoc
+tag: ['Software']
 ---
 
 

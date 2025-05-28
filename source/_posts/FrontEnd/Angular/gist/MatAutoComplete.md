@@ -1,14 +1,12 @@
 ---
 layout: post
 title: Angular Material MatInput Autocomplete
-index_img: https://opensource.google/images/projects/os-projects-angular_thumbnail.png
+excerpt: Angular Material输入组件自动完成
+index_img: https://img0.baidu.com/it/u=1569655928,1360085629&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=375
 tags: ['Angular', 'Gist', 'Material']
 categories:
  - FrontEnd
 ---
-<p></p>
-Angular Material输入组件自动完成
-<!-- more -->
 
 # Angular Material输入组件自动完成
 
