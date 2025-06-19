@@ -10,3 +10,5 @@ tags: ['System']
 # 目录
 
 1. [服务器搭建纯前端](/blog/FrontEnd/Network/Ubuntu/projectServe/)
+2. [Frp实现内网穿透](/blog/FrontEnd/Network/Ubuntu/frp/)
+3. [Ubuntu基础命令之文件移动](/blog/FrontEnd/Network/Ubuntu/fileMove/)

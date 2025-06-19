@@ -13,6 +13,19 @@ tags: ['Animation', 'Library']
 npm install --save gsap @types/gsap
 ```
 
+## 全局注册插件
+> 需要什么插件就注册什么，一次注册后，在单独的组件中不需要再注册，但是要重新导入
+```js
+import { gsap } from 'gsap';
+import { CustomEase } from 'gsap/CustomEase';
+import { SplitText } from 'gsap/SplitText';
+import { TextPlugin } from 'gsap/TextPlugin';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// ...
+
+gsap.registerPlugin(CustomEase, SplitText, TextPlugin, ScrollTrigger);
+```
+
 ## Usage
 ```js
 // to 动画的最终状态;ep: 当前元素位置是0,那么动画将从0开始抵达100的位置

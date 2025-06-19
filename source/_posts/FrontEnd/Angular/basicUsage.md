@@ -46,6 +46,11 @@ categories:
       <li>{{item}} - {{idx}}</li>
    }
 </ul>
+
+<!-- 在模板中定义变量 -->
+@let funResult = getResult();
+<div>{{ funResult.name }}</div>
+<div>{{ funResult.value }}</div>
 ```
 
 ### 父子组件传值(单向)
