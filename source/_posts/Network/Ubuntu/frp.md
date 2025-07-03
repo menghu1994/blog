@@ -62,6 +62,11 @@ local_port = 22
 remote_port = 6000        # 你访问 ssh 的远程端口（可自定义）
 
 ```
+如果报错.ini将被弃用,那么则将frpc.ini文件转为frpc.yml
+```yrml
+server
+  - 
+```
 
 ### 启动frpc
 ```bash
