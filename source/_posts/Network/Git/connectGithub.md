@@ -35,8 +35,12 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 2. 替换github的ssh地址
   - 如果时新clone的地址，那么直接使用`git clone git@github.com:username/repository.git`
   - 如果是已有仓库，那么需要修改远程仓库地址，使用`git remote set-url origin git@github.com:username/repository.git`
-3. 验证`ssh -T git@github.com` 查看是否能连上github
-4. 如果步骤3能不能成功连接, 那就需要在`~/.ssh`目录下的`config`文件(如果没有此文件，自行创建)中添加以下内容
+3. 将私钥添加到本地管理中,在`PowerShell`/`Git Bash`中运行
+ ```shell
+ ssh-add ~/.ssh/id_ed25519
+ ```
+4. 验证`ssh -T git@github.com` 查看是否能连上github的22端口
+5. 如果步骤3不能成功连接, 那就需要在`~/.ssh`目录下的`config`文件(如果没有此文件，自行创建)中添加以下内容
    ```txt
 	 Host github.com
     HostName ssh.github.com
