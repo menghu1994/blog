@@ -120,6 +120,18 @@
             </li>
           
         
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/Home/">
+                <i class="iconfont icon-user-fill"></i>
+                简历
+              </a>
+            </li>
+          
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
@@ -168,7 +180,7 @@
                 
 
 <div class="list-group">
-  <p class="h4">共计 120 篇文章</p>
+  <p class="h4">共计 137 篇文章</p>
   <hr>
   
   
@@ -176,25 +188,79 @@
       
       <p class="h5">2025</p>
     
-    <a href="/blog/FrontEnd/FrontEnd/Style/scrollBar/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">滚动条样式修改</span>
-      <time style="float: right;">05-22</time>
+    <a href="/blog/uncategorized/FrontEnd/Gists/decimalValid/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">input输入数字验证</span>
+      <time style="float: right;">05-29</time>
     </a>
   
     
-    <a href="/blog/Net/Network/net/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">固定局域网内设备IP地址</span>
-      <time style="float: right;">05-20</time>
+    <a href="/blog/FrontEnd/FrontEnd/Angular/basicUsage/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Angular Basic Usage</span>
+      <time style="float: right;">05-28</time>
     </a>
   
     
-    <a href="/blog/FrontEnd/Network/Docker/install/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Ubuntu安装Docker</span>
-      <time style="float: right;">05-14</time>
+    <a href="/blog/uncategorized/FrontEnd/RxJS/directory/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Rxjs目录</span>
+      <time style="float: right;">05-28</time>
+    </a>
+  
+    
+    <a href="/blog/FrontEnd/FrontEnd/uni-app/package/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Uniapp 打包指南</span>
+      <time style="float: right;">05-27</time>
+    </a>
+  
+    
+    <a href="/blog/FrontEnd/FrontEnd/uni-app/uniappCommonStyle/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Uniapp公共样式</span>
+      <time style="float: right;">05-27</time>
+    </a>
+  
+    
+    <a href="/blog/FrontEnd/FrontEnd/uni-app/uviewForm/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Uview表单验证</span>
+      <time style="float: right;">05-27</time>
+    </a>
+  
+    
+    <a href="/blog/FrontEnd/FrontEnd/uni-app/uniappLoadMore/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">uniapp 滚动加载(分页查询)封装</span>
+      <time style="float: right;">05-27</time>
+    </a>
+  
+    
+    <a href="/blog/FrontEnd/FrontEnd/uni-app/UHF/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Uniapp UHF射频识别</span>
+      <time style="float: right;">05-27</time>
+    </a>
+  
+    
+    <a href="/blog/FrontEnd/FrontEnd/Angular/gist/MatAutoComplete/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Angular Material MatInput Autocomplete</span>
+      <time style="float: right;">05-27</time>
+    </a>
+  
+    
+    <a href="/blog/FrontEnd/FrontEnd/Angular/gist/MatSelectAll/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Angular Material MatSelect Select All</span>
+      <time style="float: right;">05-27</time>
     </a>
   
 </div>
 
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/blog/archives/2025/05/page/2/">2</a><a class="extend next" rel="next" href="/blog/archives/2025/05/page/2/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 
@@ -217,17 +283,17 @@
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header text-center">
+      <!-- <div class="modal-header text-center">
         <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
+      </div> -->
       <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+        <div class="md-form">
+          <input type="text" id="local-search-input" class="form-control validate" placeholder="关键词查询">
+          <!-- <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label> -->
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

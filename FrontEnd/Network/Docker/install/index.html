@@ -136,6 +136,18 @@
             </li>
           
         
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/Home/">
+                <i class="iconfont icon-user-fill"></i>
+                简历
+              </a>
+            </li>
+          
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
@@ -202,7 +214,121 @@
             <h1 style="display: none">Ubuntu安装Docker</h1>
             
             <div class="markdown-body">
-              <h1 id="Ubuntu安装Docker"><a href="#Ubuntu安装Docker" class="headerlink" title="Ubuntu安装Docker"></a>Ubuntu安装Docker</h1>
+              <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a><a target="_blank" rel="noopener" href="https://pythondjango.cn/python/tools/2-docker-dockerfile/">安装</a></h2><h3 id="以Ubuntu为例"><a href="#以Ubuntu为例" class="headerlink" title="以Ubuntu为例"></a>以Ubuntu为例</h3><ul>
+<li><p>Step 1: 移除之前docker版本并更新更新 apt 包索引</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo apt-get remove docker docker-engine docker.io<br>sudo apt-get update<br></code></pre></div></td></tr></table></figure>
+</li>
+<li><p>Step 2: 安装 apt 依赖包，用于通过HTTPS来获取仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo apt-get install apt-transport-https ca-certificates curl software-properties-common<br></code></pre></div></td></tr></table></figure>
+</li>
+<li><p>Step 3: 添加 Docker 的官方 GPG 密钥</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -<br></code></pre></div></td></tr></table></figure>
+</li>
+<li><p>Step 4: 设置docker稳定版仓库，这里使用了阿里云仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo add-apt-repository &quot;deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable&quot;<br>sudo apt-get update<br></code></pre></div></td></tr></table></figure>
+</li>
+<li><p>Step 5: 安装免费的docker Community版本docker-ce</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo apt-get -y install docker-ce<br>sudo apt-get install -y docker-ce=&lt;VERSION&gt; #该命令可以选择docker-ce版本<br></code></pre></div></td></tr></table></figure>
+</li>
+<li><p>Step 6: 查看docker版本及运行状态</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo docker -v<br>sudo systemctl status docker<br></code></pre></div></td></tr></table></figure>
+</li>
+<li><p>Step 7：本步非必需。使用阿里云设置Docker镜像加速，注意下面链接请使用阿里云给自己的URL</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo mkdir -p /etc/docker<br>sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;<br>&#123;  &quot;registry-mirrors&quot;: [&quot;https://ua3456xxx.mirror.aliyuncs.com&quot;] &#125;<br>EOF<br>sudo systemctl daemon-reload<br>sudo systemctl restart docker<br></code></pre></div></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="镜像地址"><a href="#镜像地址" class="headerlink" title="镜像地址"></a><a target="_blank" rel="noopener" href="https://hub.docker.com/">镜像地址</a></h2><h2 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h2><ul>
+<li><p>搜索镜像：docker search + 镜像名字<br><code>$ docker search nginx</code></p>
+</li>
+<li><p>从registry拉取镜像：docker pull + 镜像名字:版本号<br><code>$ docker pull nginx:latest</code></p>
+</li>
+<li><p>从registry仓库提交镜像：docker push + 仓库名:标签<br><code>$ docker push repro1:v1.0</code></p>
+</li>
+<li><p>查看本地镜像: docker images<br><code>$ docker images</code></p>
+</li>
+<li><p>使用Dockerfile创建镜像: docker build + 目录，.代表当前目录，-t表示加标签<br><code>$ docker build -t mynginx:1.0 .</code></p>
+</li>
+<li><p>删除一个或多个镜像: docker rmi + 镜像1 + 镜像2<br><code>$ docker rmi mynginx:1.0 mynginx:2.0</code></p>
+</li>
+<li><p>删除未标记或未用过的镜像<br><code>$ docker image prune</code></p>
+</li>
+<li><p>删除未使用过的镜像<br><code>$ docker image prune -a</code></p>
+</li>
+<li><p>给镜像加标记： docker tag 镜像标签 新镜像标签名<br><code>$ docker tag mynginx:1.0 nginx1</code></p>
+</li>
+<li><p>把镜像保存为.tar文件: docker save 镜像 &gt; 文件<br><code>$ docker save mynginx:1.0 &gt; mynginx_v1.tar</code></p>
+</li>
+<li><p>从.tar文件载入镜像: docker load -i .tar文件<br><code>$ docker load -i mynginx_v1.tar</code></p>
+</li>
+<li><p>根据容器创建镜像：docker commit 容器名 镜像名<br><code>$ docker commit </code></p>
+</li>
+</ul>
+<h2 id="Docker容器操作"><a href="#Docker容器操作" class="headerlink" title="Docker容器操作"></a>Docker容器操作</h2><ul>
+<li><p>创建容器: docker create + 选项(-i, -t, -d, -p, -v, -e) + 镜像<br>$ docker create –name mynginx_1 -it -p 8080:80 mynginx:1.0</p>
+</li>
+<li><p>各选项含义</p>
+</li>
+<li><p>-i:以交互模式运行容器，通常与-t 同时使用；</p>
+</li>
+<li><p>-d:后台运行容器，并返回容器ID；</p>
+</li>
+<li><p>-p:端口隐射, 宿主机在前，容器在后</p>
+</li>
+<li><p>-P:随机映射宿主机端口</p>
+</li>
+<li><p>-t:为容器重新分配一个伪输入终端，通常与-i 同时使用；</p>
+</li>
+<li><p>-v:目录挂载</p>
+</li>
+<li><p>–entrypoint: 指定进入点</p>
+</li>
+<li><p>–restart=always: 服务重启</p>
+</li>
+<li><p>启动容器：docker start + 容器名<br><code>$ docker start mynginx_1</code></p>
+</li>
+<li><p>创建 + 运行容器: docker run + 选项 + 镜像 + 命令<br><code>$ docker run --name mynginx_1 -it -p 8080:80 mynginx:1.0</code><br><code>$ docker run -it ubuntu /bin/bash</code></p>
+</li>
+<li><p>查看正在运行中的容器：docker ps<br><code>$ docker ps</code></p>
+</li>
+<li><p>查看所有容器，包括停止运行的容器: docker ps -a<br><code>$ docker ps -a</code></p>
+</li>
+<li><p>停止一个正在运行的容器: docker stop 容器<br><code>$ docker stop mynginx_1</code></p>
+</li>
+<li><p>重启容器：docker restart + 容器名<br><code>$ docker restart mynginx_1</code></p>
+</li>
+<li><p>容器重命名：docker rename 老名字 新名字<br><code>$ docker rename mynginx_1 mynginx_2</code></p>
+</li>
+<li><p>删除一个容器：docker rm 容器名<br><code>$ docker rm mynginx_1</code></p>
+</li>
+<li><p>强制删除一个正在运行的容器：docker rm -f 容器名<br><code>$ docker rm -f mynginx_1</code></p>
+</li>
+<li><p>删除已停止运行的所有容器: docker container prune<br><code>$ docker container prune</code></p>
+</li>
+<li><p>拷贝文件，从容器到宿主机：docker cp 容器名:容器内路径 宿主机文件路径<br><code>$ docker cp myweb_1:/index.html index.html</code></p>
+</li>
+<li><p>拷贝文件，从宿主机到容器：docker cp 宿主机文件路径 容器名:容器内路径<br><code>$ docker cp index.html myweb_1:/index.html</code></p>
+</li>
+<li><p>进入运行的容器，执行命令: docker exec + 选项 + 容器名 + 命令 + 参数</p>
+</li>
+<li><p>推荐大家使用 docker exec命令，使用此命令即使exit容器终端，也不会导致容器的停止<br><code>$ docker exec -it mynginx_1 /bin/bash</code><br><code>$ docker exec -it mynginx_1 /bin/bash start.sh</code></p>
+</li>
+<li><p>查看容器端口映射：docker port 容器名<br><code>$ docker port mynginx_1</code></p>
+</li>
+<li><p>查看容器内已修改文件：docker diff 容器名<br><code>$ docker diff mynginx_1</code></p>
+</li>
+<li><p>查看容器日志：docker logs + 容器名<br><code>$ docker logs web</code></p>
+</li>
+<li><p>查看容器内运行进程：docker top + 容器名<br><code>$ docker top web</code></p>
+</li>
+<li><p>查看容器的底层信息：docker inspect + 容器名<br><code>$ docker inspect web</code></p>
+</li>
+<li><p>利用inspect命令查看容器的IP地址<br><code>$ docker inspect web | grep &quot;IPAddress&quot;</code></p>
+</li>
+<li><p>查看运行容器的统计数据：docker stats<br><code>$ docker stats</code></p>
+</li>
+</ul>
+
             </div>
             <hr>
             <div>
@@ -237,7 +363,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/Net/Network/net/">
+                      <a href="/blog/Network/Network/net/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">固定局域网内设备IP地址</span>
                         <span class="visible-mobile">上一篇</span>
@@ -247,8 +373,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/FrontEnd/FrontEnd/Gists/environment/">
-                        <span class="hidden-mobile">前端项目环境变量</span>
+                      <a href="/blog/FrontEnd/Network/Docker/index/">
+                        <span class="hidden-mobile">Docker 目录</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -323,17 +449,17 @@
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header text-center">
+      <!-- <div class="modal-header text-center">
         <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
+      </div> -->
       <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+        <div class="md-form">
+          <input type="text" id="local-search-input" class="form-control validate" placeholder="关键词查询">
+          <!-- <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label> -->
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

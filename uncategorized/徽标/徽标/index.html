@@ -136,6 +136,18 @@
             </li>
           
         
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/Home/">
+                <i class="iconfont icon-user-fill"></i>
+                简历
+              </a>
+            </li>
+          
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
@@ -202,9 +214,7 @@
             <h1 style="display: none">Github项目添加徽章小牌子</h1>
             
             <div class="markdown-body">
-              <p>为了突出github的项目版本、技术栈版本列表、协议、平台、进度等等,所以为项目添加一些标记信息</p>
-<span id="more"></span>
-<meta name="keyword" content="Github,shields,徽标,logo,旗帜,图标">
+              <meta name="keyword" content="Github,shields,徽标,logo,旗帜,图标">
 
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h4 id="shields徽标制作网站"><a href="#shields徽标制作网站" class="headerlink" title="shields徽标制作网站"></a><a target="_blank" rel="noopener" href="https://shields.io/">shields徽标制作网站</a></h4><p>网站地址<a target="_blank" rel="noopener" href="https://shields.io/">https://shields.io/</a></p>
 <h4 id="煮个栗子"><a href="#煮个栗子" class="headerlink" title="煮个栗子"></a>煮个栗子</h4><div>
@@ -231,6 +241,13 @@
               <div class="post-metas mb-3">
                 
                 
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/Others/">Others</a>
+                    
+                  </div>
+                
               </div>
 
                <p class="note note-warning">
@@ -245,15 +262,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/uncategorized/FrontEnd/Javascript/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/">
+                      <a href="/blog/FrontEnd/FrontEnd/Angular/pipe/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">图片懒加载</span>
+                        <span class="hidden-mobile">Angular Pipes(管道)</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/blog/uncategorized/FrontEnd/Javascript/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/">
+                        <span class="hidden-mobile">图片懒加载</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
@@ -325,17 +348,17 @@
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header text-center">
+      <!-- <div class="modal-header text-center">
         <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
+      </div> -->
       <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+        <div class="md-form">
+          <input type="text" id="local-search-input" class="form-control validate" placeholder="关键词查询">
+          <!-- <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label> -->
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>

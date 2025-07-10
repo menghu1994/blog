@@ -136,6 +136,18 @@
             </li>
           
         
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/Home/">
+                <i class="iconfont icon-user-fill"></i>
+                简历
+              </a>
+            </li>
+          
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
@@ -204,6 +216,8 @@
             <div class="markdown-body">
               <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ol>
 <li><a href="/blog/FrontEnd/Network/Docker/install/">Ubuntu安装Docker</a></li>
+<li><a href="/blog/FrontEnd/Network/Docker/bypass/">绕过登录</a></li>
+<li><a href="/blog/FrontEnd/Network/Docker/application/index">Docker应用</a></li>
 </ol>
 
             </div>
@@ -240,9 +254,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/uncategorized/BackEnd/MongoDB/MongodbInDocker/">
+                      <a href="/blog/FrontEnd/Network/Docker/install/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">Ubuntu安装Docker</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -250,8 +264,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/uncategorized/Network/Git/gitError/">
-                        <span class="hidden-mobile">git</span>
+                      <a href="/blog/FrontEnd/FrontEnd/Gists/environment/">
+                        <span class="hidden-mobile">前端项目环境变量</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -326,17 +340,17 @@
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header text-center">
+      <!-- <div class="modal-header text-center">
         <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
+      </div> -->
       <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+        <div class="md-form">
+          <input type="text" id="local-search-input" class="form-control validate" placeholder="关键词查询">
+          <!-- <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label> -->
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
