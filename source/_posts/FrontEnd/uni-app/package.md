@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Uniapp 打包指南
+index_img: https://www.blogxj.cn/upload/2024/04/5c2c8a01cd9df41b9ea05b699002fb18-a57cb64527874d639a80971389bdc405.jpg
 excerpt: h5, Android开发环境运行, 生产环境打包
 tags: ['Uniapp']
 categories:

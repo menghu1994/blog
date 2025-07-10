@@ -3,6 +3,8 @@ layout: post
 title: gsap
 index_img: https://img-blog.csdnimg.cn/img_convert/88b44779a5d414e97d2db98e54d83c1e.png
 tags: ['Animation', 'Library']
+categories:
+ - Animation
 ---
 
 # GSAP in Angular

@@ -1,8 +1,10 @@
 ---
 layout: post
 title: Staggers in gsap
-index_img: https://www.w3cplus.com/sites/default/files/blogs/2020/2007/greensock-beginner-1.png
+index_img: https://picx.zhimg.com/v2-77201d3c5d48d816f11135915017aa81_720w.jpg?source=172ae18b
 tags: ['Animation', 'Library']
+categories:
+ - Animation
 ---
 
 # 交错动画

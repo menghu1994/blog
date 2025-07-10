@@ -1,6 +1,7 @@
 ---
 layout: post
 title: uniapp 滚动加载(分页查询)封装
+index_img: https://www.blogxj.cn/upload/2024/04/5c2c8a01cd9df41b9ea05b699002fb18-a57cb64527874d639a80971389bdc405.jpg
 tags: ['Uniapp']
 categories:
  - FrontEnd

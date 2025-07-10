@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ssh
-index_img: https://i-blog.csdnimg.cn/blog_migrate/afa8ff6e370df63afbfd4bcf80814ea7.jpeg
+index_img: https://tuku.vimsky.com/images/2018/09/ssh656x300.png
 categories:
  - Network
 tags: ['Network']
@@ -34,3 +34,9 @@ ssh -D <本地端口> <用户名>@<SSH服务器>
 
 ### -C
 > 压缩传输
+
+## autossh
+> 自动重连
+```bash
+autossh -M 0 -f -N -L 8080:localhost:80 <用户名>@<SSH服务器>
+```

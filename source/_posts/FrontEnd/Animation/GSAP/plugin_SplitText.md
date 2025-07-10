@@ -1,8 +1,10 @@
 ---
 layout: post
-title: gsap
-index_img: https://img-blog.csdnimg.cn/img_convert/88b44779a5d414e97d2db98e54d83c1e.png
+title: SplitText Plugin in gsap
+index_img: https://picx.zhimg.com/v2-77201d3c5d48d816f11135915017aa81_720w.jpg?source=172ae18b
 tags: ['Animation']
+categories:
+ - Animation
 ---
 
 ## SplitText Plugin
