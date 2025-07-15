@@ -104,7 +104,7 @@ theme: fluid
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repository: https://github.com/menghu1994/blog.git
+  repository: git@github.com:menghu1994/blog.git
   branch: master
 
 #豆瓣

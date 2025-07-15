@@ -32,7 +32,6 @@ pages/about.md 文件内容对应网站的「关于」页面，里面的内容�
 $ hexo new [layout] <title>
 ```
 `layout` 可选项有 `post`/`page`/`draft`
-`title` 为文章或页面标题
 
 ### 部署项目
 `hexo clean`清除缓存 </br>
@@ -44,11 +43,20 @@ $ hexo new [layout] <title>
 
 ### 部分配置
 
-md头 sticky: 100
-配置文章置顶排序
-
-
-excerpt 配置文章描述
+```txt
+---
+layout: post #post为文章，page为页面， draft为草稿
+title: 标题 #文章或页面标题
+index_txt: #没有图片的标题
+index_img: #图片地址
+banner_img: #文章图片banner地址
+excerpt: 文章摘要  #文章描述，可自动生成
+categories:
+ - FrontEnd
+tags: ['Vue'] #可在tag中快捷分类
+sticky: 100  #置顶排序，数字越大越靠前
+---
+```
 
 #### 文章路径
 
@@ -59,5 +67,4 @@ excerpt 配置文章描述
 
 
 ### 联系我
-
-如果对本博客模板或者内容有任何建议，可以通过 Issues 或者微信公众号「饥荒老菜鸟」与我取得联系。
+如果对本博客内容有任何建议，可以通过 Issues 或者微信公众号「饥荒老菜鸟」与我取得联系。

@@ -44,7 +44,7 @@ done
 
 # 如果 rsync 失败，尝试 tar
 echo "⚠️ Rsync failed, trying tar over SSH..."
-tar czf - -C ./public . | ssh "${REMOTE_USER}@${REMOTE_HOST}" "tar xzf - -C ${REMOTE_WEB_DIR}" && {
+tar czf - -C ./public . | ssh -p 22 "${REMOTE_USER}@${REMOTE_HOST}" "tar xzf - -C ${REMOTE_WEB_DIR}" && {
     echo "✅ Tar sync succeeded!"
     exit 0
 } || {

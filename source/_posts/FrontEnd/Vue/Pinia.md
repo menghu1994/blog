@@ -1,5 +1,8 @@
 ---
 title: Pinia in Vue3
+index_img: https://pic.rmb.bdstatic.com/bjh/46b2c52a986df78b3c2da0439ca0b3ce7349.png
+categories:
+ - FrontEnd
 tags: ['Vue3']
 ---
 
