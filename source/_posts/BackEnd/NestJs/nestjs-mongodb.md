@@ -1,6 +1,9 @@
 ---
 layout: post
-title: @nestjs/mongoose
+title: nestjs/mongoose
+index_txt: Nestjs
+categories:
+ - BackEnd
 tags: ['Nestjs', 'Mongodb']
 ---
 

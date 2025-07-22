@@ -1,7 +1,10 @@
 ---
 layout: post
 title: Mongodb
+index_txt: MongoDB
 tags: ['Mongodb']
+categories:
+ - BackEnd
 ---
 
 ## Window Mongodb Install 6.0.6
@@ -23,9 +26,9 @@ tags: ['Mongodb']
 
 `mongod --version`  查看mongod是否安装成功
 
-## Command
-命令行工具： `mongosh.exe`
-
+## Command 命令行工具`mongosh.exe`
+ - `mongosh "mongodb://localhost:27017"`  默认连接本地数据库
+ - `mongosh "mongodb://username:password@localhost:27017"`  如果有用户名和密码，连接指定数据库
  - `show dbs` 查看已连接的数据库
  - `use <database>` 切换数据库(如果没有则创建)
  - `show collections` 查看所有的表名
@@ -34,30 +37,30 @@ tags: ['Mongodb']
  - `db.<collection>.deleteOne({ name: "Luffy" })` 删除数据
  - `db.<collection>.insertOne({ name: "Luffy", age: 30 })` 添加数据
 
-## Operators
+## Operators 操作数据库
 ### 增
 `db.<表名称>.insert(<json数据>)` 数据库表插入数据
 `db.<表名称>.insertMany(<数组数据>)` 数据库表插入多个数据
 
 ### 删
 `db.<表名称>.remove(<json查询要删除的数据>)` 删除表中的某条数据
-- db.test.update({'name': 'xiaoming'}, {$set:{'job': 'student'}}) 
 `db.<表名称>.drop()` 删除表
 
 ### 改
+`db.test.update({'name': 'xiaoming'}, {$set:{'job': 'student'}}) `
 `db.<表名称>.update(<json查找要更新的数据>, <更新的数据>)` 数据库表的所有数据
 
-## 查询
+### 查
 + `db.<表名称>.find()` 数据库表的所有数据
-    - db.<表名称>.find({'name': 'luffy'}) 查询表中所有 name: luffy的数据
-    - db.<表名称>.find({'name': 'luffy'}).pretty() 转化为易读json格式 
-    - db.<表名称>.find({}, {'name': 1 }) 查询所有数据,但只显示每条数据的name
-    - db.<表名称>.find({'price': {$gt: 10}}) 查询价格大于10的所有数据
-+ $or, $and, $all, $in
-    - db.<表名称>.find({$or: [{'price': {$gt: 10}}, {'rating: {$lt: 8}'}]}) 查询价格大于10或rate小于8的所有数据
-    - db.<表名称>.find({'type': {$all: ['a', 'b']}}) 查询价格type数组里同时有a,b的所有数据
+    - `db.<表名称>.find({'name': 'luffy'})` 查询表中所有 name: luffy的数据
+    - `db.<表名称>.find({'name': 'luffy'}).pretty()` 转化为易读json格式 
+    - `db.<表名称>.find({}, {'name': 1 })` 查询所有数据,但只显示每条数据的name
+    - `db.<表名称>.find({'price': {$gt: 10}})` 查询价格大于10的所有数据
++ `$or`, `$and`, `$all`, `$in`
+    - `db.<表名称>.find({$or: [{'price': {$gt: 10}}, {'rating: {$lt: 8}'}]})` 查询价格大于10或rate小于8的所有数据
+    - `db.<表名称>.find({'type': {$all: ['a', 'b']}})` 查询价格type数组里同时有a,b的所有数据
 + other
-    - ...count() 显示总数
-    - ...limit(10) 限制查询10条数据
-  - ...sort({'name': 1}) 名称按正序排序
-  - ...skip(2) 跳过2个元素
+    - `...count()` 显示总数
+    - `...limit(10)` 限制查询10条数据
+    - `...sort({'name': 1})` 名称按正序排序
+    - `...skip(2)` 跳过2个元素

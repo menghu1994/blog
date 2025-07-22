@@ -1,6 +1,9 @@
 ---
 layout: draft
 title: typegoose
+index_txt: MongoDB
+categories:
+ - BackEnd
 tags: ['Mongodb']
 ---
 # typegoose

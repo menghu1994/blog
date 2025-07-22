@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Controller in nestjs
+index_txt: Nestjs
+categories:
+ - BackEnd
 tags: ['Nestjs']
 ---
 
