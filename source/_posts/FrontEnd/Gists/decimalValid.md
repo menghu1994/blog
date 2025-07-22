@@ -1,6 +1,7 @@
 ---
 layout: post
 title: input输入数字验证
+index_txt: Gist
 tags: ['Gist']
 ---
 

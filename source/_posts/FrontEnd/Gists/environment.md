@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 前端项目环境变量
+index_txt: Gist
 categories:
  - FrontEnd
 ---

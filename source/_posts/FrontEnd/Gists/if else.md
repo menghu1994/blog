@@ -2,6 +2,7 @@
 layout: post
 title: if代码优化
 tags: ['Gist']
+index_txt: Gist
 ---
 
 # 优化代码中多个`if...else...`
