@@ -177,3 +177,20 @@ server {
     # }
 }
 ```
+
+移动目录
+
+`sudo cp -r /luffy/home /var/www/my-frontend/`
+
+
+### docker-compose 安装
+1. 下载文件到本地
+2. 移动本地文件到服务器
+`scp -r D:\file\docker-compose-linux-x86_64 <user>@<server>:home/luffy`
+3. 移动文件到指定位置
+`cd /home/luffy`
+`sudo cp docker-compose-linux-x86_64 /usr/local/bin/docker-compose`
+4. 添加可执行权限
+`chmod +x /usr/local/bin/docker-compose`
+5. 验证是否可用
+`docker-compose --version`

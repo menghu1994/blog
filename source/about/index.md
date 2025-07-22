@@ -12,20 +12,20 @@ banner_img: https://cdn.jsdelivr.net/gh/bynotes/bynotes.github.io@master/img/bg/
 		padding-right: 100px;
 	}
 </style>
+
 ## 🔨 技术栈
 <p align="center" class="skills">
 	<img src="https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white" alt="HTML5">
 	<img src="https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3&logoColor=white" alt="CSS3">
-	<img src="https://img.shields.io/badge/-Stylus-333333?style=flat&logo=Stylus&logoColor=white%22%20alt=%22VUE%22" alt="Stylus">
 	<img src="https://img.shields.io/badge/-JavaScript-eed718?style=flat&logo=javascript&logoColor=ffffff" alt="Javascript">
+	<img src="https://img.shields.io/badge/-TypeScript-1572B6?style=flat&logo=typescript&logoColor=ffffff" alt="TypeScript">
+	<img alt="Static Badge" src="https://img.shields.io/badge/Angular-fff?logo=Angular&color=%23E80E38">
+	<img src="https://img.shields.io/badge/-Uniapp-1b9f35?style=flat%22%20alt=%22Uniapp%22">
 	<img src="https://img.shields.io/badge/-VUE-4FC08D?style=flat&logo=vue.js&logoColor=white%22%20alt=%22VUE%22" alt="VUE">
-	<img src="https://img.shields.io/badge/-vuecli-blue" alt="vue-cli">
-	<img src="https://img.shields.io/badge/-axios-yellow" alt="axios">
-	<img src="https://img.shields.io/badge/-betterScroll-ff69b4" alt="better-scroll">
-	<img src="https://img.shields.io/badge/-vueRouter-lightgrey" alt="vue-router">
-	<img src="https://img.shields.io/badge/-elementUI-critical" alt="elementUI">
-	<img src="https://img.shields.io/badge/-SVN-9cf" alt="SVN">
-	<img src="https://img.shields.io/badge/-Github-181717?style=flat&logo=Github&logoColor=white%22%20alt=%22VUE%22" alt="Github">
+	<img src="https://img.shields.io/badge/-React-087ea4?style=flat&logo=React&logoColor=white%22%20alt=%22React%22" alt="React">
+	<img src="https://img.shields.io/badge/-Nestjs-E0234E?style=flat&logo=Nestjs&logoColor=white%22%20alt=%22Nestjs%22">
+	<img src="https://img.shields.io/badge/-Stylus-333333?style=flat&logo=Stylus&logoColor=white%22%20alt=%22Stylus%22" alt="Stylus">
+	<img src="https://img.shields.io/badge/-Git-78af63?style=flat&logo=git&logoColor=white%22%20alt=%22Git%22" alt="git">
 </p>
 
 ## 🤝 联系我
