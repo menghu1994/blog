@@ -6,7 +6,6 @@ tags: ['CSS']
 categories:
  - FrontEnd
 ---
-
 # 文字渐变
 ```css
 p {
@@ -16,6 +15,7 @@ p {
   -webkit-text-fill-color: transparent;
 }
 ```
+
 <div class="code-preview">
   <div class="text-gradient">文字渐变效果 文字渐变效果 文字渐变效果 文字渐变效果 </div>
 </div>

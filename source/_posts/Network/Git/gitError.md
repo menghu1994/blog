@@ -1,6 +1,6 @@
 ---
 layout: post
-title: git error: 403
+title: git error403
 tags: ['Git']
 ---
 

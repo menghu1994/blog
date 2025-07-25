@@ -64,7 +64,22 @@ sticky: 100  #置顶排序，数字越大越靠前
 [Title](/blog/:category[0]/:category[n]/:folder/:fileName/)
 ```
 
+<p class="note note-primary">标签</p>
+<p class="note note-secondary">标签</p>
+<p class="note note-success">标签</p>
+<p class="note note-danger">标签</p>
+<p class="note note-warning">标签</p>
+<p class="note note-info">标签</p>
+<p class="note note-light">标签</p>
 
+#### 参考
+参考资料[^1]
+
+[^1]: 参考资料1
+[^2]: 参考资料2
+
+#### checkbox
+{% cb 内容, false %}
 
 ### 联系我
 如果对本博客内容有任何建议，可以通过 Issues 或者微信公众号「饥荒老菜鸟」与我取得联系。
