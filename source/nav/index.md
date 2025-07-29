@@ -6,14 +6,16 @@ title: 精选网站
 
 
 <!-- {% vue %} -->
-<div id="app">{{ name }}</div>
-<script>
-	Vue.createApp({
-		  setup() {
-		    return {
-		    	name: 'test Name'
-		    }
-		  }
-		}).mount('#app')
+<div id="apple"><span v-text="name"></span></div>
+<script >
+	const app = Vue.createApp({
+	  setup() {
+	    return {
+	    	name: 'test Name'
+	    }
+	  }
+	})
+	app.mount('#apple');
+	console.log(app);
 </script>
 <!-- {% endvue %} -->
