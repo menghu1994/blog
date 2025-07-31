@@ -10,47 +10,63 @@ title: 精选网站
 			<li v-for="(item,index) in webSites" :key="index" :class="{ active: activeCategory === item.category }" @click="setCategory(item, index)">${item.category}</li>
 		</ul>
 	</div>
-	<ul class="content" v-if="navList.length">
-		<li v-for="(item,index) in navList" :key="index">
-			<div class="header">
-			 <img v-if="item.icon" :src="item.icon" :alt="item.tag" loading="lazy" width="30" height="30">
-			 <h4>${item.title}</h4>
+	<div class="nav-slider"></div>
+	<div class="tag-container">
+	  <div v-for="(tagValue, tagKey) in tagMenu" :key="tagKey">
+			<div class="tag-header" @click="extendTag(tagKey)">
+				<i class="iconfont icon-arrowdown" aria-hidden="true" :class="{ 'rotate-icon': !tagExpand.get(tagKey) }"></i>
+				<span>${tagKey}</span>
 			</div>
-			<div class="desc" :title="item.desc">${item.desc}</div>
-		</li>
-	</ul>
-	<div v-else>暂无收录内容</div>
+			<ul class="content" v-if="tagValue.length" v-show="tagExpand.get(tagKey)">
+				<li v-for="(item,index) in tagValue" :key="index">
+					<a :href="item.url" target="_blank" rel="noopener noreferrer">
+						<div class="header">
+						<img v-if="item.icon" :src="item.icon" :alt="item.tag" loading="lazy" width="30" height="30" data-src="/blog/img/favicon.png">
+						<span class="nav-card-title">${item.title}</span>
+						</div>
+						<div class="desc" :title="item.desc">${item.desc}</div>
+					</a>
+				</li>
+			</ul>
+			<div v-else>暂无收录内容</div>
+		</div>
+	</div>
+
 </div>
 
 <script type="module">
 
 	const webSites = [
-		{ category: '前端UI框架', children: [
+		{ category: '前端框架', children: [
 			{tag: '框架',title: 'Angular', icon: '', url: 'https://angular.dev/', desc: ''},
-			{tag: '框架',title: 'vue', icon: 'https://cn.vuejs.org/logo.svg', url: 'https://cn.vuejs.org', desc: '渐进式JavaScript 框架'},
-			{tag: '框架',title: 'React', icon: '', url: '', desc: ''},
+			{tag: '框架',title: 'Vue', icon: 'https://cn.vuejs.org/logo.svg', url: 'https://cn.vuejs.org', desc: '渐进式JavaScript 框架'},
+			{tag: '框架',title: 'React', icon: 'https://zh-hans.react.dev/favicon-32x32.png', url: 'https://zh-hans.react.dev/', desc: ''},
+			{tag: 'UI组件库', title: 'Uview', icon: '', url: 'https://uviewui.com/', desc: 'uniapp 前端UI组件库'},
+			{tag: 'UI组件库', title: 'Ant Design Angular', icon: '', url: 'https://ng.ant.design/docs/introduce/zh', desc: 'ng-zorro-antd 是遵循 Ant Design 设计规范的 Angular UI 组件库，主要用于研发企业级中后台产品'},,
+			{tag: 'UI组件库', title: 'Material Angular', icon: '', url: 'https://material.angular.dev/', desc: 'High quality, Versatile, Frictionless'},
 		]},
 		{ category: '笔记文档', children: [
-    	{ tag: '框架',title: 'Notion', url: '', desc: 'Window mac手机秒同步,功能强大',},
+    	{ tag: '框架',title: 'Notion', url: 'https://www.notion.so', desc: 'Window mac手机秒同步,功能强大',},
     	{ tag: '框架',title: '腾讯文档', url: 'https://docs.qq.com', desc: '文档在线共享',},
 		]},
 		{ category: 'NAS', children: [
-			{ title: 'Sonarr', url: '', desc: '自动追剧',},
-			{ title: 'Jellyfin', url: '', desc: '媒体库管理',},
-			{ title: 'Bazarr', url: '', desc: '字幕下载',},
-			{ title: 'Jackett', url: '', desc: 'BT种子聚合',},
+			{ tag: 'Dokcer', title: 'Sonarr', url: '', desc: '自动追剧',},
+			{ tag: 'Dokcer', title: 'Jellyfin', url: '', desc: '媒体库管理',},
+			{ tag: 'Dokcer', title: 'Bazarr', url: '', desc: '字幕下载',},
+			{ tag: 'Dokcer', title: 'Jackett', url: '', desc: 'BT种子聚合',},
 		]},
 		{ category: '图片音频处理', children: [
-			{ title: 'TinyPNG', url: 'https://tinyjpg.com/', desc: '图片压缩',},
-			{ title: 'iLoveImg', url: 'https://www.iloveimg.com/zh-cn', desc: '图片各种处理',},
-			{ title: 'You Compress', url: 'https://www.youcompress.com/videos/', desc: '视频压缩',},
+			{ tag: '图片', title: 'TinyPNG', url: 'https://tinyjpg.com/', desc: '图片压缩',},
+			{ tag: '图片', title: 'iLoveImg', url: 'https://www.iloveimg.com/zh-cn', desc: '图片各种处理',},
+			{ tag: '视频', title: 'You Compress', url: 'https://www.youcompress.com/videos/', desc: '视频压缩',},
+			{ tag: '图片', title: 'BASE64', url: 'https://www.base64-image.de/', desc: '图片转base64',},
 		]},
 		{ category: 'UI设计', children: [
-			  { title: 'Pinterest', url: 'https://www.pinterest.com/', desc: '关于图片的都可以在这里找到！',},
-				{ title: 'Emoji', url: 'https://emojipedia.org/zh', desc: '复制粘贴就能用的图标！',},
-				{ title: 'Behance', url: 'https://www.behance.com', desc: '',},
-				{ title: 'Dribble', url: 'https://www.dribble.com', desc: '',},
-				{ title: '365PSD', url: 'https://www.freeimages.com/cn/psd?ref=365psd', desc: '免费psd素材'}
+			  { tag: '设计', title: 'Pinterest', url: 'https://www.pinterest.com/', desc: '关于图片的都可以在这里找到！',},
+				{ tag: '源文件', title: 'Emoji', url: 'https://emojipedia.org/zh', desc: '复制粘贴就能用的图标！',},
+				{ tag: '设计', title: 'Behance', url: 'https://www.behance.com', desc: '',},
+				{ tag: '设计', title: 'Dribble', url: 'https://www.dribble.com', desc: '',},
+				{ tag: '源文件', title: '365PSD', url: 'https://www.freeimages.com/cn/psd?ref=365psd', desc: '免费psd素材'}
 		]},
 		{ category: '3D设计', children: [
 				{ title: 'Zbrush Central', url: 'https://www.zbrushcentral.com/', desc: 'Zbrush 雕刻论坛',},
@@ -58,7 +74,7 @@ title: 精选网站
 		]},
 		{ category: '视频网站', children: [
 				{ title: 'bilibili', url: 'https://bilibili.com', desc: '',},
-				{ title: '低端影视', url: '', desc: '',},
+				{ title: '低端影视', url: '#', desc: '',},
 		]},
 		{ category: 'Windows实用工具', children: [
 				{ title: 'Listary', url: '', desc: '快捷检索,推荐💚',},
@@ -87,16 +103,36 @@ title: 精选网站
 			const navList = Vue.ref([])
 			const navIndex = Vue.ref(0)
 			const navScroll = Vue.ref({ isLeft: true, isRight: false})
+			const tagExpand = Vue.ref(new Map());
 
 			const navRef = Vue.useTemplateRef('nav')
 
 			async function setCategory(web, index) {
 		  		activeCategory.value = web.category;
+					tagExpand.value.clear();
 					navList.value = web.children;
 					navIndex.value = index;
 					scrollToCenter(index)
 		  		await Vue.nextTick();
 		  }
+
+			const tagMenu = Vue.computed(() => {
+				const newMenu = new Map();
+				navList.value.forEach(menu => {
+					const tag = menu.tag || '无标签'
+					if (newMenu.has(tag)) {
+						newMenu.get(tag).push(menu)
+					} else {
+						newMenu.set(tag, [menu])
+						tagExpand.value.set(tag, true)
+					}
+				})
+				return Object.fromEntries(newMenu.entries())
+			})
+
+			function extendTag(tagName) {
+				tagExpand.value.set(tagName, !tagExpand.value.get(tagName))
+			}
 
 			Vue.onMounted(() => {
 				setCategory(webSites[0], 0);
@@ -156,6 +192,9 @@ title: 精选网站
 	    return {
 				navList,
 				webSites: webSites,
+				tagMenu,
+				tagExpand,
+				extendTag,
 				activeCategory,
 				setCategory,
 				go,
@@ -169,15 +208,25 @@ title: 精选网站
 <style>
 #nav-container {
 	overflow-x: hidden;
+	min-height: 100%;
 	ul,li {
 		margin: 0;
 		padding:
 		list-style: none;
 		padding-inline-start: 0;
 	}
+	.nav-slider {
+		width: 100%;
+		height: 1px;
+		border-bottom: 1px solid #e5e7eb;
+		margin: 1rem -0.5rem
+	}
 	.nav-wrapper {
 		position: relative;
 		margin-bottom: 1.5rem;
+		.iconfont:active:not(.disable-icon) {
+			transform: translateY(-50%) scale(0.8);
+		}
 		.before-icon {
 			position: absolute;
 			left: 0;
@@ -228,12 +277,40 @@ title: 精选网站
 			background-color: #eaf2ff;
 		}
 	} 
+	.tag-container {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		.iconfont {
+			transform: rotate(0deg);
+  		transition: transform 0.3s ease;
+		}
+		.rotate-icon {
+			transform: rotate(-90deg);
+		}
+		.tag-header {
+			display: flex;
+			align-items: center;
+			font-size: 1.2rem;
+			gap: 0.5rem;
+			cursor: pointer;
+			user-select: none;
+			i {
+				font-size: 1.5rem;
+			}
+		}
+	}
+
 	.content {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(200px, 1fr));
 		gap: 1.5rem;
+		margin-bottom: 0.5rem;
+		.nav-card-title {
+			font-size: 1.5rem;
+			font-weight: bold;
+		}
 		li {
-			padding: 1.5rem;
 			display: flex;
 			flex-direction: column;
 			gap: 0.5rem;
@@ -247,6 +324,12 @@ title: 精选网站
 				align-items: center;
 				gap: 1rem;
 				color: #111827;
+			}
+			a {
+				padding: 1.5rem;
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
 			}
 			.desc {
 				color: #00000080;
