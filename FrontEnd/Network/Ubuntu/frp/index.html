@@ -64,6 +64,7 @@
   </script>
   <script  src="/blog/js/utils.js" ></script>
   <script  src="/blog/js/color-schema.js" ></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
 <!--  <script src="https://cdn.tailwindcss.com"></script>-->
 <meta name="generator" content="Hexo 5.4.2"></head>
 
@@ -148,6 +149,18 @@
             </li>
           
         
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/nav/">
+                <i class="iconfont icon-web"></i>
+                精选网站
+              </a>
+            </li>
+          
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
@@ -225,9 +238,16 @@
 <li>web dashboard 面板端口为 7500</li>
 <li>可通过 <a target="_blank" rel="noopener" href="http://x.x.x.x:7500/">http://x.x.x.x:7500</a> 登录面板查看连接状态</li>
 </ul>
-<h2 id="启动frps服务"><a href="#启动frps服务" class="headerlink" title="启动frps服务"></a>启动frps服务</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">./frps -c ./frps.ini<br></code></pre></div></td></tr></table></figure>
+<h3 id="启动frps服务"><a href="#启动frps服务" class="headerlink" title="启动frps服务"></a>启动frps服务</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">./frps -c ./frps.ini<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="开机自启frps"><a href="#开机自启frps" class="headerlink" title="开机自启frps"></a>开机自启frps</h3><ol>
+<li>[systemd]创建编辑系统服务文件<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo vim /etc/systemd/system/frps.service<br></code></pre></div></td></tr></table></figure>
+修改内容<figure class="highlight ini"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ini"><span class="hljs-section">[Unit]</span><br><span class="hljs-attr">Description</span>=Frp Server Service<br><span class="hljs-attr">After</span>=network.target<br><br><span class="hljs-section">[Service]</span><br><span class="hljs-attr">Type</span>=simple<br><span class="hljs-attr">User</span>=nobody<br><span class="hljs-attr">Restart</span>=<span class="hljs-literal">on</span>-failure<br><span class="hljs-attr">RestartSec</span>=<span class="hljs-number">5</span>s<br><span class="hljs-comment"># 此处地址是将./frps -c ./frps.ini 改为绝对地址</span><br><span class="hljs-attr">ExecStart</span>=/path/to/frps -c /path/to/frps.ini<br><span class="hljs-attr">WorkingDirectory</span>=/path/to/frps_dir<br><br><span class="hljs-section">[Install]</span><br><span class="hljs-attr">WantedBy</span>=multi-user.target<br></code></pre></div></td></tr></table></figure></li>
+<li>启动frps 并设置开机自启<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">重载 systemd 配置</span><br>sudo systemctl daemon-reload<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">启动 frps</span><br>sudo systemctl start frps<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">结束 frps</span><br>sudo systemctl kill frps<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">检查运行状态</span><br>sudo systemctl status frps<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">设置开机自启</span><br>sudo systemctl enable frps<br></code></pre></div></td></tr></table></figure>
 
 
+</li>
+</ol>
 <h2 id="Mac-安装frpc并部署"><a href="#Mac-安装frpc并部署" class="headerlink" title="Mac 安装frpc并部署"></a>Mac 安装frpc并部署</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">brew install frpc<br></code></pre></div></td></tr></table></figure>
 
 <h3 id="配置frpc-ini"><a href="#配置frpc-ini" class="headerlink" title="配置frpc.ini"></a>配置frpc.ini</h3><figure class="highlight txt"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs txt">[common]<br>server_addr = x.x.x.x     # VPS 公网 IP<br>server_port = 7000        # 与 frps 的 bind_port 对应<br>login_fail_exit = false   # 重连VPS<br>heartbeat_interval = 20<br>heartbeat_timeout = 90<br><br>[web]<br>type = http<br>local_port = 3000         # 本地 Web 服务端口（如 localhost:3000）<br>custom_domains = yoursub.domain.com  # 你用于访问的域名<br><br>[ssh]<br>type = tcp<br>local_port = 22<br>remote_port = 6000        # 你访问 ssh 的远程端口（可自定义）<br><br></code></pre></div></td></tr></table></figure>
@@ -297,30 +317,49 @@
               <article class="comments" id="comments">
                 
                 
-  <div id="gitalk-container"></div>
+  <div id="vcomments"></div>
+  <style>
+.v[data-class=v] .veditor {
+    background-image: url(https://blog.justlovesmile.top/img/comment_bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+</style>
   <script type="text/javascript">
-    Fluid.utils.waitElementVisible('gitalk-container', function() {
-      Fluid.utils.createCssLink('/blog/css/gitalk.css')
-      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
-        var gitalk = new Gitalk({
-          clientID: 'e58406233489ad6a5d56',
-          clientSecret: 'f2ff5891bbed6d6fc1d7689435cfec67e8d59244',
-          repo: 'blog',
-          owner: 'menghu1994',
-          admin: ["name"],
-          id: '778874f097a98b583046ac4d3cd90905',
-          language: 'zh-CN',
-          labels: ["Gitalk"],
-          perPage: 10,
-          pagerDirection: 'last',
-          createIssueManually: true,
-          distractionFreeMode: false
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "K5t0hzq1aPNDTQPiOHKBjo2A-gzGzoHsz",
+          app_key: "iL3edhps0y1W2SNJdJLw67NF",
+          placeholder: "",
+          path: window.location.pathname,
+          avatar: "monsterid",
+          meta: ["nick","mail"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+          visitor: '' === 'true',
+          enableQQ: 'true', 
+          requiredFields: ['nick'], 
         });
-        gitalk.render('gitalk-container');
       });
     });
   </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
+  <script type="text/javascript">
+   fetch('https://v1.hitokoto.cn/?c=b&c=c')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("veditor").setAttribute("placeholder",data.hitokoto+"__"+data.from);
+    })
+    .catch(console.error)
+</script>
+  <noscript>Please enable JavaScript to view the
+    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
 
 
               </article>
@@ -342,6 +381,12 @@
 </div>
 
 <!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="/blog/img/cash.png" srcset="/blog/img/loading.gif" class="rounded mx-auto d-block mt-2" style="width:160px; height:200px;">
+    </div>
+  </div>
 
 
     
@@ -379,13 +424,23 @@
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
+  <footer class="text-center mt-2 py-3">
   <div class="footer-content">
-     # 有些事情只有爬上去了才知道 # 
+    <span> # 有些事情只有爬上去了才知道 # </span>
   </div>
   
 
   
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        苏ICP备2024150994号-2
+      </a>
+    </span>
+    
+  </div>
+
 
   
 </footer>
@@ -492,11 +547,11 @@
 
 
 
-<div class="text-center py-1">   
+<div class="text-center py-1">
   <div>
-    <span>Copyright © 2021</span>
+    <span>Copyright © 2025</span>
     <a href="https://menghu1994.github.io" target="_blank" rel="nofollow noopener">
-     <span>Luffy💕Miss Wu</span></a><br>
+     <span>Luffy💕Miss Wu💕Peanut</span></a><br>
  </div>
 
 

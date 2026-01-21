@@ -1,0 +1,724 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.png">
+  <link rel="icon" type="image/png" href="/blog/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#9DC3C1">
+  <meta name="description" content="博客 前端 nodejs typescript rxjs">
+  <meta name="author" content="Luffy">
+  <meta name="keywords" content="博客 前端 nodejs typescript rxjs">
+  <title>精选网站 - Luffy</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/rainbow.min.css" />
+    
+  
+
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap.css">
+<link rel="stylesheet" href="/blog/css/self.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"menghu1994.github.io","root":"/blog/","version":"1.8.7","typing":{"enable":true,"typeSpeed":130,"cursorChar":"💙","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"💯 "},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false,"loading_img":"/img/loading.gif"},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<!--  <script src="https://cdn.tailwindcss.com"></script>-->
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header style="height: 30vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/blog/">
+        <img src="/blog/img/logo.png" srcset="/blog/img/loading.gif" height="46">
+        <strong>Luffy</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                文章
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                书签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于我
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/Home/">
+                <i class="iconfont icon-user-fill"></i>
+                简历
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/nav/">
+                <i class="iconfont icon-web"></i>
+                精选网站
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/blog/img/bg/tag.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="精选网站">
+              
+            </span>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<div class="page-content">
+  <div id="nav-container">
+    <div class="nav-wrapper">
+        <i class="before-icon iconfont icon-arrowleft" :class="{ 'disable-icon': navScroll.isLeft }" aria-hidden="true" @click="go(true)"></i>
+        <i class="last-icon iconfont icon-arrowright" :class="{ 'disable-icon': navScroll.isRight }" aria-hidden="true" @click="go(false)"></i>
+        <ul class="nav" ref="nav">
+            <li v-for="(item,index) in webSites" :key="index" :class="{ active: activeCategory === item.category }" @click="setCategory(item, index)">${item.category}</li>
+        </ul>
+    </div>
+    <div class="nav-slider"></div>
+    <div class="tag-container">
+      <div v-for="(tagValue, tagKey) in tagMenu" :key="tagKey">
+            <div class="tag-header" @click="extendTag(tagKey)">
+                <i class="iconfont icon-arrowdown" aria-hidden="true" :class="{ 'rotate-icon': !tagExpand.get(tagKey) }"></i>
+                <span>${tagKey}</span>
+            </div>
+            <ul class="content" v-if="tagValue.length" v-show="tagExpand.get(tagKey)">
+                <li v-for="(item,index) in tagValue" :key="index">
+                    <a :href="item.url" target="_blank" rel="noopener noreferrer">
+                        <div class="header">
+                        <img v-if="item.icon" srcset="/blog/img/loading.gif" :src="item.icon" :alt="item.tag" loading="lazy" width="30" height="30" data-src="/blog/img/favicon.png">
+                        <span class="nav-card-title">${item.title}</span>
+                        </div>
+                        <div class="desc" :title="item.desc">${item.desc}</div>
+                    </a>
+                </li>
+            </ul>
+            <div v-else>暂无收录内容</div>
+        </div>
+    </div>
+
+</div>
+
+<script type="module">
+
+    const webSites = [
+        { category: '前端', children: [
+            {tag: 'Angular',title: 'Angular', icon: '', url: 'https://angular.dev/', desc: ''},
+            {tag: 'Angular', title: 'Ant Design Angular', icon: '', url: 'https://ng.ant.design/docs/introduce/zh', desc: 'ng-zorro-antd 是遵循 Ant Design 设计规范的 Angular UI 组件库，主要用于研发企业级中后台产品'},,
+            {tag: 'Angular', title: 'Material Angular', icon: '', url: 'https://material.angular.dev/', desc: 'High quality, Versatile, Frictionless'},
+            {tag: 'Vue',title: 'Vue', icon: 'https://cn.vuejs.org/logo.svg', url: 'https://cn.vuejs.org', desc: '渐进式JavaScript 框架'},
+            {tag: 'React',title: 'React', icon: 'https://zh-hans.react.dev/favicon-32x32.png', url: 'https://zh-hans.react.dev/', desc: ''},
+            {tag: 'Uniapp', title: 'Uniapp', icon: 'https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/icon.png?v=1556263038788', url: 'https://uniapp.dcloud.net.cn/', desc: '使用 Vue.js 开发所有前端应用的框架,一套代码，可发布到多个平台'},
+            {tag: 'Uniapp', title: 'Uview', icon: '', url: 'https://uviewui.com/', desc: 'uniapp 前端UI组件库'},
+        ]},
+        { category: '后端', children: [
+            { tag: 'Nodejs', title: 'Nestjs', icon: '', url: 'https://docs.nestjs.cn', desc: '' }
+        ] },
+        { category: '笔记文档', children: [
+        { tag: '笔记',title: 'Notion', url: 'https://www.notion.so', desc: 'Window mac手机秒同步,功能强大',},
+        { tag: '笔记',title: '腾讯文档', url: 'https://docs.qq.com', desc: '文档在线共享',},
+        ]},
+        { category: 'NAS', children: [
+            { tag: 'Dokcer', title: 'Sonarr', url: '', desc: '自动追剧',},
+            { tag: 'Dokcer', title: 'Jellyfin', url: '', desc: '媒体库管理',},
+            { tag: 'Dokcer', title: 'Bazarr', url: '', desc: '字幕下载',},
+            { tag: 'Dokcer', title: 'Jackett', url: '', desc: 'BT种子聚合',},
+        ]},
+        { category: '图片音频处理', children: [
+            { tag: '图片', title: 'TinyPNG', url: 'https://tinyjpg.com/', desc: '图片压缩',},
+            { tag: '图片', title: 'iLoveImg', url: 'https://www.iloveimg.com/zh-cn', desc: '图片各种处理',},
+            { tag: '视频', title: 'You Compress', url: 'https://www.youcompress.com/videos/', desc: '视频压缩',},
+            { tag: '图片', title: 'BASE64', url: 'https://www.base64-image.de/', desc: '图片转base64',},
+        ]},
+        { category: 'UI设计', children: [
+              { tag: '设计', title: 'Pinterest', url: 'https://www.pinterest.com/', desc: '关于图片的都可以在这里找到！',},
+                { tag: '源文件', title: 'Emoji', url: 'https://emojipedia.org/zh', desc: '复制粘贴就能用的图标！',},
+                { tag: '设计', title: 'Behance', url: 'https://www.behance.com', desc: '',},
+                { tag: '设计', title: 'Dribble', url: 'https://www.dribble.com', desc: '',},
+                { tag: '源文件', title: '365PSD', url: 'https://www.freeimages.com/cn/psd?ref=365psd', desc: '免费psd素材'}
+        ]},
+        { category: '3D设计', children: [
+                { title: 'Zbrush Central', url: 'https://www.zbrushcentral.com/', desc: 'Zbrush 雕刻论坛',},
+                { title: 'ArtStation', url: 'http://artstation.com/', desc: 'A站',},
+        ]},
+        { category: '视频网站', children: [
+                { title: 'bilibili', url: 'https://bilibili.com', desc: '',},
+                { title: '低端影视', url: '#', desc: '',},
+        ]},
+        { category: 'Windows实用工具', children: [
+                { title: 'Listary', url: '', desc: '快捷检索,推荐💚',},
+                { title: 'SETUNA2', url: '', desc: '小巧截图置顶工具,推荐💚',},
+                { title: 'Sublime Text', url: '', desc: '文本编辑器,替代本地记事本,推荐💚',},
+        ]},
+        { category: 'Chrome实用插件', children: [
+                { title: 'Tampermonkey', url: '', desc: '',},
+                { title: 'AdBlock', url: '', desc: '广告屏蔽',},
+                { title: '猫抓', url: '', desc: '网页视频下载',},
+        ]},
+        { category: '壁纸', children: []},
+        { category: '图书馆', children: [
+                { title: 'ZLibary', url: 'https://z-lib.id/', desc: '图书下载,知识是无价的!',},
+        ]},
+        { category: '教学工具', children: [
+                { title: '图形方格纸', url: 'https://www.mygraphpaper.com/index.php?lang=zh-hans', desc: '在线方格纸输出pdf供打印使用',},
+        ]},
+        { category: '配色网站', children: [
+                { title: 'Color Space', url: 'https://mycolor.space/', desc: 'Never waste Hours on finding the perfect Color Palette again!',},
+        ]},
+    ]
+    Vue.createApp({
+      setup() {
+            const activeCategory = Vue.ref('');
+            const navList = Vue.ref([])
+            const navIndex = Vue.ref(0)
+            const navScroll = Vue.ref({ isLeft: true, isRight: false})
+            const tagExpand = Vue.ref(new Map());
+
+            const navRef = Vue.useTemplateRef('nav')
+
+            async function setCategory(web, index) {
+                  activeCategory.value = web.category;
+                    tagExpand.value.clear();
+                    navList.value = web.children;
+                    navIndex.value = index;
+                    scrollToCenter(index)
+                  await Vue.nextTick();
+          }
+
+            const tagMenu = Vue.computed(() => {
+                const newMenu = new Map();
+                navList.value.forEach(menu => {
+                    const tag = menu.tag || '无标签'
+                    if (newMenu.has(tag)) {
+                        newMenu.get(tag).push(menu)
+                    } else {
+                        newMenu.set(tag, [menu])
+                        tagExpand.value.set(tag, true)
+                    }
+                })
+                return Object.fromEntries(newMenu.entries())
+            })
+
+            function extendTag(tagName) {
+                tagExpand.value.set(tagName, !tagExpand.value.get(tagName))
+            }
+
+            Vue.onMounted(() => {
+                setCategory(webSites[0], 0);
+            })
+
+            function scrollToCenter(index) {
+                const element = navRef.value.children[index];
+                const containerWidth = navRef.value.offsetWidth;
+                const elementLeft = element.offsetLeft;
+                const elementWidth = element.offsetWidth;
+                
+                const scrollTo = elementLeft - (containerWidth / 2) + (elementWidth / 2);
+                
+                navRef.value.scrollTo({
+                    left: scrollTo,
+                    behavior: 'smooth'
+                });
+                setTimeout(() => checkScrollPosition(), 300)
+            }
+
+            function checkScrollPosition() {
+                // 获取滚动条位置和最大滚动距离
+                const scrollLeft = navRef.value.scrollLeft;
+                const maxScroll = navRef.value.scrollWidth - navRef.value.clientWidth;
+                let isLeft = false;
+                let isRight = false;
+                
+                // 检查是否在最左侧
+                if (scrollLeft <= 0) {
+                    isLeft = true;
+                } else {
+                    isLeft = false;
+                }
+                
+                // 检查是否在最右侧（考虑浮点数误差）
+                if (scrollLeft >= maxScroll - 1) { // 减去1是为了处理某些浏览器的浮点数精度问题
+                    isRight = true
+                } else {
+                    isRight = false
+                }
+                navScroll.value = {
+                    isLeft, isRight
+                }
+            }
+
+            Vue.nextTick(() => window.addEventListener('resize', () => scrollToCenter(navIndex.value)));
+
+            function go(front) {
+                const scrollLeft = navRef.value.scrollLeft;
+                navRef.value.scrollTo({
+                    left: scrollLeft + (front ? -250 : 250),
+                    behavior: 'smooth'
+                });
+                setTimeout(() => checkScrollPosition(), 300)
+            }
+
+        return {
+                navList,
+                webSites: webSites,
+                tagMenu,
+                tagExpand,
+                extendTag,
+                activeCategory,
+                setCategory,
+                go,
+                navScroll
+        }
+      },
+        delimiters: ['${', '}']
+    }).mount('#nav-container');
+</script>
+
+<style>
+#nav-container {
+    overflow-x: hidden;
+    min-height: 100%;
+    ul,li {
+        margin: 0;
+        padding:
+        list-style: none;
+        padding-inline-start: 0;
+    }
+    .nav-slider {
+        width: 100%;
+        height: 1px;
+        border-bottom: 1px solid #e5e7eb;
+        margin: 1rem -0.5rem
+    }
+    .nav-wrapper {
+        position: relative;
+        margin-bottom: 1.5rem;
+        .iconfont:active:not(.disable-icon) {
+            transform: translateY(-50%) scale(0.8);
+        }
+        .before-icon {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #111827;
+            cursor: pointer;
+        }
+        .last-icon {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #111827;
+            cursor: pointer;
+        }
+        .disable-icon {
+            cursor: default;
+            color: #d1d5db;
+        }
+    }
+    .nav {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        align-items: center;
+        margin: 0 30px 1rem;
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox, Safari 18.2+, Chromium 121+ */
+        &::-webkit-scrollbar { 
+                display: none;  /* Older Safari and Chromium */
+        }
+        li {
+            padding: 0.5rem 1rem;
+            color: #111827;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            min-width: fit-content;
+            &:hover {
+                color: #2563eb;
+            }
+        }
+        .active {
+            color: #2563eb;
+            background-color: #eaf2ff;
+        }
+    } 
+    .tag-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        .iconfont {
+            transform: rotate(0deg);
+          transition: transform 0.3s ease;
+        }
+        .rotate-icon {
+            transform: rotate(-90deg);
+        }
+        .tag-header {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            gap: 0.5rem;
+            cursor: pointer;
+            user-select: none;
+            i {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 0.5rem;
+        .nav-card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        li {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px #0000001a,0 2px 4px -2px #0000001a;
+            background: #fff;
+            cursor: pointer;
+            .header {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                color: #111827;
+            }
+            a {
+                padding: 1.5rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .desc {
+                color: #00000080;
+                font-size: 14px;
+            }
+            &:hover {
+                background-color: #f3f4f6;
+            }
+        }
+    }
+}
+</style>
+</div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <!-- <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+      <div class="modal-body mx-3">
+        <div class="md-form">
+          <input type="text" id="local-search-input" class="form-control validate" placeholder="关键词查询">
+          <!-- <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label> -->
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-2 py-3">
+  <div class="footer-content">
+    <span> # 有些事情只有爬上去了才知道 # </span>
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        苏ICP备2024150994号-2
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/debouncer.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/blog/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/blog/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/blog/js/self.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/yinghua.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+
+<div class="text-center py-1">
+  <div>
+    <span>Copyright © 2025</span>
+    <a href="https://menghu1994.github.io" target="_blank" rel="nofollow noopener">
+     <span>Luffy💕Miss Wu💕Peanut</span></a><br>
+ </div>
+
+
+</body>
+</html>

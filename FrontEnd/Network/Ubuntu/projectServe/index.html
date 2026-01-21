@@ -64,6 +64,7 @@
   </script>
   <script  src="/blog/js/utils.js" ></script>
   <script  src="/blog/js/color-schema.js" ></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
 <!--  <script src="https://cdn.tailwindcss.com"></script>-->
 <meta name="generator" content="Hexo 5.4.2"></head>
 
@@ -144,6 +145,18 @@
               <a class="nav-link" href="/blog/Home/">
                 <i class="iconfont icon-user-fill"></i>
                 简历
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/nav/">
+                <i class="iconfont icon-web"></i>
+                精选网站
               </a>
             </li>
           
@@ -234,7 +247,7 @@
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo nano /etc/nginx/sites-available/default <br><br><br>server &#123;<br>    listen 80;<br>    server_name your_domain.com;<br><br>    location / &#123;<br>        proxy_pass http://localhost:3000;  <span class="hljs-comment"># 假设 Node.js 运行在 3000 端口</span><br>        proxy_set_header Host <span class="hljs-variable">$host</span>;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
-<h3 id="测试配置并重新加载"><a href="#测试配置并重新加载" class="headerlink" title="测试配置并重新加载"></a>测试配置并重新加载</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo nginx -t   <span class="hljs-comment"># 检查语法</span><br>sudo systemctl reload nginx<br></code></pre></div></td></tr></table></figure>
+<h3 id="测试配置并重新加载"><a href="#测试配置并重新加载" class="headerlink" title="测试配置并重新加载"></a>测试配置并重新加载</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo nginx -t   <span class="hljs-comment"># 检查语法</span><br>sudo systemctl reload nginx <span class="hljs-comment">#或 nginx -s reload</span><br></code></pre></div></td></tr></table></figure>
 
 <h3 id="检查nginx状态并设置开机启动"><a href="#检查nginx状态并设置开机启动" class="headerlink" title="检查nginx状态并设置开机启动"></a>检查nginx状态并设置开机启动</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo systemctl status nginx  <span class="hljs-comment"># 确认状态为 &quot;active (running)&quot;</span><br><br><span class="hljs-comment"># 未启动时启动 Nginx</span><br>sudo systemctl start nginx<br>sudo systemctl <span class="hljs-built_in">enable</span> nginx  <span class="hljs-comment"># 设置开机自启</span><br></code></pre></div></td></tr></table></figure>
 
@@ -252,7 +265,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo <span class="hljs-built_in">chown</span> -R www-data:www-data /var/www/siteA<br></code></pre></div></td></tr></table></figure>
 </li>
 <li><p>启用配置</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo <span class="hljs-built_in">ln</span> -s /etc/nginx/sites-available/SiteA /etc/nginx/sites-enabled/<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo <span class="hljs-built_in">ln</span> -s /etc/nginx/sites-available/SiteA /etc/nginx/sites-enabled/<br><br><span class="hljs-comment"># 扩展</span><br><span class="hljs-comment"># 查看已启用的链接</span><br><span class="hljs-built_in">ls</span> -l /etc/nginx/sites-enabled/<br><span class="hljs-comment"># 禁用站点(删除软链接)</span><br>sudo <span class="hljs-built_in">unlink</span> /etc/nginx/sites-enabled/SiteA<br></code></pre></div></td></tr></table></figure>
 </li>
 <li><p>检查配置语法并重启</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo nginx -t<br>sudo systemctl reload nginx<br></code></pre></div></td></tr></table></figure>
@@ -263,6 +276,16 @@
 </li>
 </ol>
 <h2 id="配置代理并启动"><a href="#配置代理并启动" class="headerlink" title="配置代理并启动"></a>配置代理并启动</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">server &#123;<br>    listen 80;<br>    server_name your-domain.com;  <span class="hljs-comment"># 替换为域名或服务器IP</span><br><br>    <span class="hljs-comment"># 前端静态文件（如 Vue/React 打包后的 dist 目录）</span><br>    location / &#123;<br>        root /path/to/your-project/dist;<br>        index index.html;<br>        try_files <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ /index.html;  <span class="hljs-comment"># 支持前端路由</span><br>    &#125;<br><br>    <span class="hljs-comment"># 后端 API 反向代理（如 Node.js 运行在 3000 端口）</span><br>    <span class="hljs-comment"># location /api &#123;</span><br>    <span class="hljs-comment">#     proxy_pass http://localhost:3000;</span><br>    <span class="hljs-comment">#     proxy_set_header Host $host;</span><br>    <span class="hljs-comment"># &#125;</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>移动目录</p>
+<p><code>sudo cp -r /luffy/home /var/www/my-frontend/</code></p>
+<h3 id="docker-compose-安装"><a href="#docker-compose-安装" class="headerlink" title="docker-compose 安装"></a>docker-compose 安装</h3><ol>
+<li>下载文件到本地</li>
+<li>移动本地文件到服务器<br><code>scp -r D:\file\docker-compose-linux-x86_64 &lt;user&gt;@&lt;server&gt;:home/luffy</code></li>
+<li>移动文件到指定位置<br><code>cd /home/luffy</code><br><code>sudo cp docker-compose-linux-x86_64 /usr/local/bin/docker-compose</code></li>
+<li>添加可执行权限<br><code>chmod +x /usr/local/bin/docker-compose</code></li>
+<li>验证是否可用<br><code>docker-compose --version</code></li>
+</ol>
 
             </div>
             <hr>
@@ -324,30 +347,49 @@
               <article class="comments" id="comments">
                 
                 
-  <div id="gitalk-container"></div>
+  <div id="vcomments"></div>
+  <style>
+.v[data-class=v] .veditor {
+    background-image: url(https://blog.justlovesmile.top/img/comment_bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+</style>
   <script type="text/javascript">
-    Fluid.utils.waitElementVisible('gitalk-container', function() {
-      Fluid.utils.createCssLink('/blog/css/gitalk.css')
-      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
-        var gitalk = new Gitalk({
-          clientID: 'e58406233489ad6a5d56',
-          clientSecret: 'f2ff5891bbed6d6fc1d7689435cfec67e8d59244',
-          repo: 'blog',
-          owner: 'menghu1994',
-          admin: ["name"],
-          id: '192f76b1d787e9e5fcb638f937e56b99',
-          language: 'zh-CN',
-          labels: ["Gitalk"],
-          perPage: 10,
-          pagerDirection: 'last',
-          createIssueManually: true,
-          distractionFreeMode: false
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "K5t0hzq1aPNDTQPiOHKBjo2A-gzGzoHsz",
+          app_key: "iL3edhps0y1W2SNJdJLw67NF",
+          placeholder: "",
+          path: window.location.pathname,
+          avatar: "monsterid",
+          meta: ["nick","mail"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+          visitor: '' === 'true',
+          enableQQ: 'true', 
+          requiredFields: ['nick'], 
         });
-        gitalk.render('gitalk-container');
       });
     });
   </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
+  <script type="text/javascript">
+   fetch('https://v1.hitokoto.cn/?c=b&c=c')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("veditor").setAttribute("placeholder",data.hitokoto+"__"+data.from);
+    })
+    .catch(console.error)
+</script>
+  <noscript>Please enable JavaScript to view the
+    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
 
 
               </article>
@@ -369,6 +411,12 @@
 </div>
 
 <!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="/blog/img/cash.png" srcset="/blog/img/loading.gif" class="rounded mx-auto d-block mt-2" style="width:160px; height:200px;">
+    </div>
+  </div>
 
 
     
@@ -406,13 +454,23 @@
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
+  <footer class="text-center mt-2 py-3">
   <div class="footer-content">
-     # 有些事情只有爬上去了才知道 # 
+    <span> # 有些事情只有爬上去了才知道 # </span>
   </div>
   
 
   
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        苏ICP备2024150994号-2
+      </a>
+    </span>
+    
+  </div>
+
 
   
 </footer>
@@ -519,11 +577,11 @@
 
 
 
-<div class="text-center py-1">   
+<div class="text-center py-1">
   <div>
-    <span>Copyright © 2021</span>
+    <span>Copyright © 2025</span>
     <a href="https://menghu1994.github.io" target="_blank" rel="nofollow noopener">
-     <span>Luffy💕Miss Wu</span></a><br>
+     <span>Luffy💕Miss Wu💕Peanut</span></a><br>
  </div>
 
 
