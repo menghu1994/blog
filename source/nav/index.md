@@ -37,17 +37,21 @@ title: 精选网站
 <script type="module">
 
 	const webSites = [
-		{ category: '前端框架', children: [
-			{tag: '框架',title: 'Angular', icon: '', url: 'https://angular.dev/', desc: ''},
-			{tag: '框架',title: 'Vue', icon: 'https://cn.vuejs.org/logo.svg', url: 'https://cn.vuejs.org', desc: '渐进式JavaScript 框架'},
-			{tag: '框架',title: 'React', icon: 'https://zh-hans.react.dev/favicon-32x32.png', url: 'https://zh-hans.react.dev/', desc: ''},
-			{tag: 'UI组件库', title: 'Uview', icon: '', url: 'https://uviewui.com/', desc: 'uniapp 前端UI组件库'},
-			{tag: 'UI组件库', title: 'Ant Design Angular', icon: '', url: 'https://ng.ant.design/docs/introduce/zh', desc: 'ng-zorro-antd 是遵循 Ant Design 设计规范的 Angular UI 组件库，主要用于研发企业级中后台产品'},,
-			{tag: 'UI组件库', title: 'Material Angular', icon: '', url: 'https://material.angular.dev/', desc: 'High quality, Versatile, Frictionless'},
+		{ category: '前端', children: [
+			{tag: 'Angular',title: 'Angular', icon: '', url: 'https://angular.dev/', desc: ''},
+			{tag: 'Angular', title: 'Ant Design Angular', icon: '', url: 'https://ng.ant.design/docs/introduce/zh', desc: 'ng-zorro-antd 是遵循 Ant Design 设计规范的 Angular UI 组件库，主要用于研发企业级中后台产品'},,
+			{tag: 'Angular', title: 'Material Angular', icon: '', url: 'https://material.angular.dev/', desc: 'High quality, Versatile, Frictionless'},
+			{tag: 'Vue',title: 'Vue', icon: 'https://cn.vuejs.org/logo.svg', url: 'https://cn.vuejs.org', desc: '渐进式JavaScript 框架'},
+			{tag: 'React',title: 'React', icon: 'https://zh-hans.react.dev/favicon-32x32.png', url: 'https://zh-hans.react.dev/', desc: ''},
+			{tag: 'Uniapp', title: 'Uniapp', icon: 'https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/icon.png?v=1556263038788', url: 'https://uniapp.dcloud.net.cn/', desc: '使用 Vue.js 开发所有前端应用的框架,一套代码，可发布到多个平台'},
+			{tag: 'Uniapp', title: 'Uview', icon: '', url: 'https://uviewui.com/', desc: 'uniapp 前端UI组件库'},
 		]},
+		{ category: '后端', children: [
+			{ tag: 'Nodejs', title: 'Nestjs', icon: '', url: 'https://docs.nestjs.cn', desc: '' }
+		] },
 		{ category: '笔记文档', children: [
-    	{ tag: '框架',title: 'Notion', url: 'https://www.notion.so', desc: 'Window mac手机秒同步,功能强大',},
-    	{ tag: '框架',title: '腾讯文档', url: 'https://docs.qq.com', desc: '文档在线共享',},
+    	{ tag: '笔记',title: 'Notion', url: 'https://www.notion.so', desc: 'Window mac手机秒同步,功能强大',},
+    	{ tag: '笔记',title: '腾讯文档', url: 'https://docs.qq.com', desc: '文档在线共享',},
 		]},
 		{ category: 'NAS', children: [
 			{ tag: 'Dokcer', title: 'Sonarr', url: '', desc: '自动追剧',},

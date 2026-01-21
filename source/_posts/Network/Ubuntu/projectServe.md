@@ -89,7 +89,7 @@ server {
 
 ```bash
 sudo nginx -t   # 检查语法
-sudo systemctl reload nginx
+sudo systemctl reload nginx #或 nginx -s reload
 ```
 
 ### 检查nginx状态并设置开机启动
@@ -142,6 +142,12 @@ sudo chown -R www-data:www-data /var/www/siteA
 4. 启用配置
 ```bash
 sudo ln -s /etc/nginx/sites-available/SiteA /etc/nginx/sites-enabled/
+
+# 扩展
+# 查看已启用的链接
+ls -l /etc/nginx/sites-enabled/
+# 禁用站点(删除软链接)
+sudo unlink /etc/nginx/sites-enabled/SiteA
 ```
 
 5. 检查配置语法并重启

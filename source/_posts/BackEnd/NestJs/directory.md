@@ -14,3 +14,4 @@ tags: ['Nestjs']
 3. [登录验证](/blog/BackEnd/BackEnd/NestJs/auth/)
 4. [Controller控制器](/blog/BackEnd/BackEnd/NestJs/Controller/)
 5. [Mongodb数据库](/blog/BackEnd/BackEnd/NestJs/nestjs-mongodb/)
+6. [请求流程](/blog/BackEnd/BackEnd/NestJs/request-life/)

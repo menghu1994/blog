@@ -29,9 +29,50 @@ vhost_https_port = 8443
  - web dashboard 面板端口为 7500
  - 可通过 http://x.x.x.x:7500 登录面板查看连接状态
 
-## 启动frps服务
+### 启动frps服务
 ```bash
 ./frps -c ./frps.ini
+```
+
+### 开机自启frps
+1. [systemd]创建编辑系统服务文件
+```bash
+sudo vim /etc/systemd/system/frps.service
+```
+修改内容
+```ini
+[Unit]
+Description=Frp Server Service
+After=network.target
+
+[Service]
+Type=simple
+User=nobody
+Restart=on-failure
+RestartSec=5s
+# 此处地址是将./frps -c ./frps.ini 改为绝对地址
+ExecStart=/path/to/frps -c /path/to/frps.ini
+WorkingDirectory=/path/to/frps_dir
+
+[Install]
+WantedBy=multi-user.target
+```
+2. 启动frps 并设置开机自启
+```shell
+# 重载 systemd 配置
+sudo systemctl daemon-reload
+
+# 启动 frps
+sudo systemctl start frps
+
+# 结束 frps
+sudo systemctl kill frps
+
+# 检查运行状态
+sudo systemctl status frps
+
+# 设置开机自启
+sudo systemctl enable frps
 ```
 
 

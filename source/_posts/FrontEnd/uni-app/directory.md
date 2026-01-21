@@ -23,3 +23,4 @@ sticky: 110
 9. [Uniapp Uview表单验证](/blog/FrontEnd/FrontEnd/uni-app/uviewForm/)
 10. [Uniapp 真机调试](/blog/FrontEnd/FrontEnd/uni-app/安卓真机调试/)
 11. [Uniapp UHF射频识别封装](/blog/FrontEnd/FrontEnd/uni-app/UHF/)
+12. [Uniapp 离线APK打包](/blog/FrontEnd/FrontEnd/uni-app/apkPackaging/)

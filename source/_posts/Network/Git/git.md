@@ -55,3 +55,11 @@ git commit -m ":tada: 礼花emoji"
 
 ## 分支关联
 > git branch --set-upstream-to=origin/develop develop
+
+
+
+## 打包并压缩项目
+打包并压缩
+`git archive --format=tar --output=<包名>.tar <分支名称>`
+解压
+`tar -xvf ./<包名>.tar`
