@@ -1,0 +1,599 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.png">
+  <link rel="icon" type="image/png" href="/blog/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#9DC3C1">
+  <meta name="description" content="博客 前端 nodejs typescript rxjs">
+  <meta name="author" content="Luffy">
+  <meta name="keywords" content="博客 前端 nodejs typescript rxjs">
+  <title>Uniapp Android 离线打包 - Luffy</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/rainbow.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap.css">
+<link rel="stylesheet" href="/blog/css/self.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"menghu1994.github.io","root":"/blog/","version":"1.8.7","typing":{"enable":true,"typeSpeed":130,"cursorChar":"💙","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"💯 "},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false,"loading_img":"/img/loading.gif"},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<!--  <script src="https://cdn.tailwindcss.com"></script>-->
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header style="height: 30vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/blog/">
+        <img src="/blog/img/logo.png" srcset="/blog/img/loading.gif" height="46">
+        <strong>Luffy</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                文章
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                书签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于我
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/Home/">
+                <i class="iconfont icon-user-fill"></i>
+                简历
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/nav/">
+                <i class="iconfont icon-web"></i>
+                精选网站
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/blog/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Uniapp Android 离线打包">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+</div>
+
+<div class="mt-1">
+  
+
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Uniapp Android 离线打包</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Uniapp-Android-离线打包"><a href="#Uniapp-Android-离线打包" class="headerlink" title="Uniapp Android 离线打包"></a>Uniapp Android 离线打包</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.android.google.cn/studio?hl=zh-cn">Android Studio</a><br>Java环境<br><a target="_blank" rel="noopener" href="https://pan.baidu.com/share/init?surl=AFjLggD7g6ue0iKgZ8yVyA&pwd=jrrb">App离线SDK</a></p>
+</blockquote>
+<h2 id="Android-Studio-导入Demo项目"><a href="#Android-Studio-导入Demo项目" class="headerlink" title="Android Studio 导入Demo项目"></a>Android Studio 导入Demo项目</h2><p>Android Studio 导入App离线SDK项目<code>Android-SDK@4.87.82540_20251128\HBuilder-Integrate-AS</code></p>
+<h2 id="Android-签名证书-keystore"><a href="#Android-签名证书-keystore" class="headerlink" title="Android 签名证书(.keystore)"></a>Android 签名证书(.keystore)</h2><ol>
+<li><p>命令行生成证书</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">keytool -genkey -<span class="hljs-built_in">alias</span> &lt;别名&gt; -keyalg RSA -keysize 2048 -validity 36500 -keystore &lt;文件名&gt;.keystore<br></code></pre></div></td></tr></table></figure>
+</li>
+<li><p>查看证书信息(别名, SHA1, SHA256)</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">keytool -list -v -keystore &lt;文件名&gt;.keystore<br></code></pre></div></td></tr></table></figure>
+</li>
+<li><p>复制<code>&lt;文件名&gt;.keystore</code>到<code>Android-SDK@4.87.82540_20251128\HBuilder-Integrate-AS\simpleDemo</code>下</p>
+</li>
+</ol>
+<h2 id="申请离线AppKey"><a href="#申请离线AppKey" class="headerlink" title="申请离线AppKey"></a><a target="_blank" rel="noopener" href="https://dev.dcloud.net.cn/">申请离线AppKey</a></h2><ol>
+<li>在<code>应用管理</code> -&gt; <code>我的应用</code>中找到对应项目,点击应用名称</li>
+<li>在<code>各平台信息</code>中<code>新增</code>填写必填信息 -&gt; Android App,正式版,</li>
+</ol>
+<ul>
+<li>所属平台: Android App</li>
+<li>版本: 正式版</li>
+<li>包名: (需要与<code>simpleDemo/build.gradle</code>内的<code>applicationId</code>相同)</li>
+<li>Android 应用签名SHA1值: (对应证书信息中的SHA1)</li>
+<li>Android 应用签名SHA256: (对应证书信息中的SHA256)</li>
+</ul>
+<ol start="3">
+<li>提交后可以查看到<code>离线AppKey</code>和<code>Appid</code></li>
+</ol>
+<h2 id="Uniapp打包App资源"><a href="#Uniapp打包App资源" class="headerlink" title="Uniapp打包App资源"></a>Uniapp打包App资源</h2><ol>
+<li>修改<code>manifest.json</code>配置</li>
+</ol>
+<ul>
+<li><code>appid</code>需要与<code>Appid</code>相同</li>
+<li><code>minSdkVersion</code>最低版本21</li>
+</ul>
+<ol start="2">
+<li><code>Hbuilder</code>中, <code>发行</code> -&gt; <code>App-Android/IOS-本地打包</code> -&gt; <code>生成本地打包App资源</code></li>
+<li>将生成的文件复制到<code>simpleDemo\src\main\assets\apps</code>下顶替之前的文件</li>
+</ol>
+<h2 id="Android-Studio-Apk打包配置"><a href="#Android-Studio-Apk打包配置" class="headerlink" title="Android Studio Apk打包配置"></a>Android Studio Apk打包配置</h2><ol>
+<li><code>simpleDemo\src\main</code> =&gt; <code>AndroidManifest.xml</code> </li>
+</ol>
+<ul>
+<li>将<code>&lt;meta-data .... /&gt;</code> 中的 <code>android:value</code> 的值改为<code>离线AppKey</code></li>
+</ul>
+<ol start="2">
+<li><code>simpleDemo</code> =&gt; <code>build.gradle</code></li>
+</ol>
+<ul>
+<li><code>applicationId</code> 对应dcloud中的包名,不修改</li>
+<li><code>versionCode</code> 对应 <code>manifest.json</code>中的<code>versionCode</code></li>
+<li><code>versionName</code> 对应 <code>manifest.json</code>中的<code>versionName</code></li>
+<li><code>minSdkVersion</code> 对应 <code>manifest.json</code>中的<code>minSdkVersion</code></li>
+<li><code>targetSdkVersion</code> 值为 33</li>
+<li><code>keyAlias</code> 对应 <code>&lt;文件名&gt;.keystore</code> 中的 <code>别名</code></li>
+<li><code>keyPassword</code> 对应 生成keystore时的密码</li>
+<li><code>storeFile file(&#39;&lt;文件名&gt;.keystore&#39;)</code></li>
+<li><code>storePassword</code> 对应 生成keystore时的存储密码</li>
+</ul>
+<ol start="3">
+<li>修改应用配置</li>
+</ol>
+<ul>
+<li><code>simpleDemo\src\main\res\values\strings.xml</code> 改成<code>&lt;string name=&quot;app_name&quot;&gt;最终显示在手机上的应用名称&lt;/string&gt;</code></li>
+<li><code>simpleDemo\src\main\res\drawable</code> =&gt; <code>icon.png</code> 为应用图标,<code>splash.png</code> 为 app启动页</li>
+</ul>
+<ol start="4">
+<li>修改<code>simpleDemo\src\main\assets\data</code> =&gt; <code>dcloud_control.xml</code> 中的 <code>appid</code> 值为  <code>manifest.json</code>中的<code>appid</code></li>
+<li>Android Studio打包</li>
+</ol>
+<ul>
+<li><code>Build</code> =&gt; <code>Select Build Variant...</code> 选择 <code>Active Build Variant</code> 为 <code>release</code>正式版</li>
+<li><code>Build</code> =&gt; <code>Generate App Bundles or APKs</code> =&gt; <code>Generate APKs</code></li>
+</ul>
+<p>apk文件生成目录<code>simpleDemo\build\outputs\apk\release</code></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/categories/FrontEnd/">FrontEnd</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/Uniapp/">Uniapp</a>
+                    
+                  </div>
+                
+              </div>
+
+               <p class="note note-warning">
+              <strong>本文作者: </strong><a href="/blog/">孟 虎</a> <br>
+              <strong>本文链接: </strong><a href="https://menghu1994.github.io/blog/FrontEnd/FrontEnd/uni-app/apkPackaging/">https://menghu1994.github.io/blog/FrontEnd/FrontEnd/uni-app/apkPackaging/</a> <br>
+              <strong>版权声明: </strong>本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                 </p>
+                 
+
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/BackEnd/BackEnd/NestJs/request-life/">
+                        <span class="hidden-mobile">nestjs request life</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <style>
+.v[data-class=v] .veditor {
+    background-image: url(https://blog.justlovesmile.top/img/comment_bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+</style>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "K5t0hzq1aPNDTQPiOHKBjo2A-gzGzoHsz",
+          app_key: "iL3edhps0y1W2SNJdJLw67NF",
+          placeholder: "",
+          path: window.location.pathname,
+          avatar: "monsterid",
+          meta: ["nick","mail"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+          visitor: '' === 'true',
+          enableQQ: 'true', 
+          requiredFields: ['nick'], 
+        });
+      });
+    });
+  </script>
+  <script type="text/javascript">
+   fetch('https://v1.hitokoto.cn/?c=b&c=c')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("veditor").setAttribute("placeholder",data.hitokoto+"__"+data.from);
+    })
+    .catch(console.error)
+</script>
+  <noscript>Please enable JavaScript to view the
+    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="/blog/img/cash.png" srcset="/blog/img/loading.gif" class="rounded mx-auto d-block mt-2" style="width:160px; height:200px;">
+    </div>
+  </div>
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <!-- <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+      <div class="modal-body mx-3">
+        <div class="md-form">
+          <input type="text" id="local-search-input" class="form-control validate" placeholder="关键词查询">
+          <!-- <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label> -->
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-2 py-3">
+  <div class="footer-content">
+    <span> # 有些事情只有爬上去了才知道 # </span>
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        苏ICP备2024150994号-2
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/debouncer.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/blog/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/blog/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/blog/js/self.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/yinghua.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+
+<div class="text-center py-1">
+  <div>
+    <span>Copyright © 2025</span>
+    <a href="https://menghu1994.github.io" target="_blank" rel="nofollow noopener">
+     <span>Luffy💕Miss Wu💕Peanut</span></a><br>
+ </div>
+
+
+</body>
+</html>
