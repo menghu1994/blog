@@ -14,6 +14,20 @@ FormGroup
 FormArray
 ControlValueAccessor
 
+## 样式
+### 更改formField高度
+```css
+@use '@angular/material' as mat;
+
+html {
+  @include mat.form-field-density(-2);
+}
+```
+### 全局formField subscript高度
+```js
+{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { subscriptSizing: 'dynamic' } }
+```
+
 ## 响应式表单
 
 
