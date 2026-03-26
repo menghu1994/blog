@@ -25,3 +25,4 @@ sticky: 110
 11. [Uniapp UHF射频识别封装](/blog/FrontEnd/FrontEnd/uni-app/UHF/)
 12. [Uniapp 离线APK打包](/blog/FrontEnd/FrontEnd/uni-app/apkPackaging/)
 13. [Uniapp 安装更新包](/blog/FrontEnd/FrontEnd/uni-app/apkUpdate/)
+14. [Uniapp 安装更新包升级版](/blog/FrontEnd/FrontEnd/uni-app/apkUpdateUpgrade/)
