@@ -11,6 +11,42 @@ apple_touch_icon: /img/favicon.png
 # Title separator in browser tab, eg: article - site
 title_join_string: " - "
 
+# PWA 配置
+# Progressive Web App
+pwa:
+  enable: false
+
+  # 清单文件
+  # Manifest
+  manifest:
+    path: /manifest.json
+    name:
+    short_name:
+    description:
+    theme_color:
+    background_color:
+    display: standalone
+    scope:
+    start_url:
+    icons:
+      - src:
+        sizes: 192x192
+        type: image/png
+      - src:
+        sizes: 512x512
+        type: image/png
+
+  # Service Worker
+  service_worker:
+    path: /sw.js
+    cache_name: fluid-pwa-v1
+    strategy: network-first
+    preload_urls:
+      - /
+      - /archives/
+      - /tags/
+      - /categories/
+
 # 强制所有链接升级为 HTTPS（适用于图片等资源出现 HTTP 混入报错）
 # Force all links to be HTTPS (applicable to HTTP mixed error)
 force_https: false
@@ -309,6 +345,10 @@ navbar:
         icon: "iconfont icon-user-fill",
         link: '/Home/'
       }
+    # - { key: "photo",
+    #     icon: "iconfont icon-user-fill",
+    #     link: '/photos/'
+    #   }
     - { key: "精选网站",
         icon: "iconfont icon-web",
         link: '/nav/'

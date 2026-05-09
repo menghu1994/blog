@@ -67,5 +67,15 @@
   <%- js(theme.custom_js) %>
 <% } %>
 
+<% if (theme.pwa && theme.pwa.enable) { %>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('<%- url_for((theme.pwa.service_worker && theme.pwa.service_worker.path) || '/sw.js') %>');
+      });
+    }
+  </script>
+<% } %>
+
 <!-- 主题的启动项 保持在最底部 -->
 <%- js_ex(theme.static_prefix.internal_js, 'boot.js') %>

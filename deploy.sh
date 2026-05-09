@@ -9,10 +9,10 @@
 # --------------------------
 # 配置区域（根据实际情况修改）
 # --------------------------
-REMOTE_USER="root"          # 服务器用户名
-REMOTE_HOST="129.204.224.75"        # 服务器IP
+REMOTE_USER="luffy"          # 服务器用户名
+REMOTE_HOST="ssh.mengyunyi.top"        # 服务器IP
 LOCAL_HEXO_DIR=""  # 本地Hexo项目目录
-REMOTE_WEB_DIR="/var/www/blog"       # 服务器目标目录
+REMOTE_WEB_DIR="/vol1/1003/server/www/blog"       # 服务器目标目录
 
 # --------------------------
 # 脚本开始

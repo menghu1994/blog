@@ -12,3 +12,4 @@ tags: ['Mongodb']
 1. [Mongodb安装和使用](/blog/BackEnd/BackEnd/MongoDB/installAndUsage/)
 2. [Mongodb in Express](/blog/BackEnd/BackEnd/MongoDB/mongodb/)
 3. [typegoose](/blog/BackEnd/BackEnd/MongoDB/typegoose/)
+4. [数据库迁移](/blog/BackEnd/BackEnd/MongoDB/mongoMovement/)

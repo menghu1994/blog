@@ -38,26 +38,42 @@ title: 精选网站
 
 	const webSites = [
 		{ category: '前端', children: [
-			{tag: 'Angular',title: 'Angular', icon: '', url: 'https://angular.dev/', desc: ''},
-			{tag: 'Angular', title: 'Ant Design Angular', icon: '', url: 'https://ng.ant.design/docs/introduce/zh', desc: 'ng-zorro-antd 是遵循 Ant Design 设计规范的 Angular UI 组件库，主要用于研发企业级中后台产品'},,
-			{tag: 'Angular', title: 'Material Angular', icon: '', url: 'https://material.angular.dev/', desc: 'High quality, Versatile, Frictionless'},
+			{tag: 'Angular',title: 'Angular', icon: '', url: 'https://angular.dev/', desc: 'Google 维护的现代 Web 应用开发框架'},
+			{tag: 'Angular', title: 'Ant Design Angular', icon: '', url: 'https://ng.ant.design/docs/introduce/zh', desc: '遵循 Ant Design 设计规范的 Angular UI 组件库，适合企业级中后台产品'},
+			{tag: 'Angular', title: 'Material Angular', icon: '', url: 'https://material.angular.dev/', desc: 'Angular 官方 Material Design 组件库'},
 			{tag: 'Vue',title: 'Vue', icon: 'https://cn.vuejs.org/logo.svg', url: 'https://cn.vuejs.org', desc: '渐进式JavaScript 框架'},
-			{tag: 'React',title: 'React', icon: 'https://zh-hans.react.dev/favicon-32x32.png', url: 'https://zh-hans.react.dev/', desc: ''},
+			{tag: 'React',title: 'React', icon: 'https://zh-hans.react.dev/favicon-32x32.png', url: 'https://zh-hans.react.dev/', desc: '用于构建 Web 和原生交互界面的 JavaScript 库'},
 			{tag: 'Uniapp', title: 'Uniapp', icon: 'https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/icon.png?v=1556263038788', url: 'https://uniapp.dcloud.net.cn/', desc: '使用 Vue.js 开发所有前端应用的框架,一套代码，可发布到多个平台'},
 			{tag: 'Uniapp', title: 'Uview', icon: '', url: 'https://uviewui.com/', desc: 'uniapp 前端UI组件库'},
 		]},
+		{ category: 'AI', children: [
+			{ tag: '通用对话', title: 'ChatGPT', icon: '', url: 'https://chatgpt.com/', desc: 'OpenAI 的通用 AI 助手，适合问答、写作、代码、图片和数据分析'},
+			{ tag: '通用对话', title: 'Claude', icon: '', url: 'https://claude.ai/', desc: 'Anthropic 的 AI 助手，适合长文、文档分析、代码理解和复杂任务拆解'},
+			{ tag: '通用对话', title: 'Gemini', icon: '', url: 'https://gemini.google.com/', desc: 'Google 的 AI 助手，适合 Google 生态、长上下文和多模态任务'},
+			{ tag: '通用对话', title: 'DeepSeek', icon: '', url: 'https://chat.deepseek.com/', desc: '国产大模型产品，适合中文问答、推理和代码辅助'},
+			{ tag: '搜索调研', title: 'Perplexity', icon: '', url: 'https://www.perplexity.ai/', desc: '搜索型 AI，适合查资料、看来源、做信息汇总'},
+			{ tag: '搜索调研', title: 'Kimi', icon: '', url: 'https://www.kimi.com/', desc: '月之暗面推出的中文 AI 助手，适合长文档阅读、搜索和资料整理'},
+			{ tag: '编程工具', title: 'Cursor', icon: '', url: 'https://cursor.com/', desc: 'AI 代码编辑器，适合项目级问答、代码补全和 Agent 改代码'},
+			{ tag: '编程工具', title: 'GitHub Copilot', icon: '', url: 'https://github.com/features/copilot', desc: 'GitHub 官方 AI 编程助手，支持代码补全、聊天和 IDE 集成'},
+			{ tag: '编程工具', title: 'Claude Code', icon: '', url: 'https://docs.anthropic.com/en/docs/claude-code/setup', desc: 'Anthropic 的命令行编程 Agent，适合读代码、改文件和跑测试'},
+			{ tag: '编程工具', title: 'Codex CLI', icon: '', url: 'https://github.com/openai/codex', desc: 'OpenAI 的命令行编程 Agent，适合在本地项目中执行代码任务'},
+			{ tag: '编程工具', title: 'Gemini CLI', icon: '', url: 'https://google-gemini.github.io/gemini-cli/docs/get-started/', desc: 'Google Gemini 命令行工具，适合在终端中处理代码和文本任务'},
+			{ tag: '自动化', title: 'OpenClaw', icon: '', url: 'https://www.openclawch.com/', desc: '本地优先的个人 AI Agent 平台，可接模型、插件和消息渠道'},
+			{ tag: '图像视频', title: 'Midjourney', icon: '', url: 'https://www.midjourney.com/', desc: 'AI 图片生成工具，适合概念图、插画、视觉风格探索'},
+			{ tag: '图像视频', title: 'Sora', icon: '', url: 'https://sora.com/', desc: 'OpenAI 的视频生成产品，适合从文本、图片生成视频内容'},
+		]},
 		{ category: '后端', children: [
-			{ tag: 'Nodejs', title: 'Nestjs', icon: '', url: 'https://docs.nestjs.cn', desc: '' }
+			{ tag: 'Nodejs', title: 'Nestjs', icon: '', url: 'https://docs.nestjs.cn', desc: '用于构建高效、可扩展 Node.js 服务端应用的框架' }
 		] },
 		{ category: '笔记文档', children: [
-    	{ tag: '笔记',title: 'Notion', url: 'https://www.notion.so', desc: 'Window mac手机秒同步,功能强大',},
-    	{ tag: '笔记',title: '腾讯文档', url: 'https://docs.qq.com', desc: '文档在线共享',},
+    	{ tag: '笔记',title: 'Notion', url: 'https://www.notion.so', desc: '跨平台笔记、知识库和项目管理工具',},
+    	{ tag: '文档协作',title: '腾讯文档', url: 'https://docs.qq.com', desc: '在线文档、表格和收集表，适合多人协作',},
 		]},
 		{ category: 'NAS', children: [
-			{ tag: 'Dokcer', title: 'Sonarr', url: '', desc: '自动追剧',},
-			{ tag: 'Dokcer', title: 'Jellyfin', url: '', desc: '媒体库管理',},
-			{ tag: 'Dokcer', title: 'Bazarr', url: '', desc: '字幕下载',},
-			{ tag: 'Dokcer', title: 'Jackett', url: '', desc: 'BT种子聚合',},
+			{ tag: 'Docker', title: 'Sonarr', url: 'https://sonarr.tv/', desc: '电视剧自动追踪、下载和媒体库整理工具',},
+			{ tag: 'Docker', title: 'Jellyfin', url: 'https://jellyfin.org/', desc: '开源媒体服务器，用于管理和串流本地影音库',},
+			{ tag: 'Docker', title: 'Bazarr', url: 'https://www.bazarr.media/', desc: '配合 Sonarr / Radarr 使用的字幕下载和管理工具',},
+			{ tag: 'Docker', title: 'Jackett', url: 'https://github.com/Jackett/Jackett', desc: 'BT 索引器聚合工具，可对接 Sonarr、Radarr 等服务',},
 		]},
 		{ category: '图片音频处理', children: [
 			{ tag: '图片', title: 'TinyPNG', url: 'https://tinyjpg.com/', desc: '图片压缩',},
@@ -68,27 +84,27 @@ title: 精选网站
 		{ category: 'UI设计', children: [
 			  { tag: '设计', title: 'Pinterest', url: 'https://www.pinterest.com/', desc: '关于图片的都可以在这里找到！',},
 				{ tag: '源文件', title: 'Emoji', url: 'https://emojipedia.org/zh', desc: '复制粘贴就能用的图标！',},
-				{ tag: '设计', title: 'Behance', url: 'https://www.behance.com', desc: '',},
-				{ tag: '设计', title: 'Dribble', url: 'https://www.dribble.com', desc: '',},
+				{ tag: '设计', title: 'Behance', url: 'https://www.behance.net/', desc: 'Adobe 旗下创意作品展示平台，适合查找设计灵感和作品集',},
+				{ tag: '设计', title: 'Dribbble', url: 'https://dribbble.com/', desc: '设计师作品展示社区，适合 UI、插画、品牌视觉参考',},
 				{ tag: '源文件', title: '365PSD', url: 'https://www.freeimages.com/cn/psd?ref=365psd', desc: '免费psd素材'}
 		]},
 		{ category: '3D设计', children: [
-				{ title: 'Zbrush Central', url: 'https://www.zbrushcentral.com/', desc: 'Zbrush 雕刻论坛',},
-				{ title: 'ArtStation', url: 'http://artstation.com/', desc: 'A站',},
+				{ tag: '论坛', title: 'Zbrush Central', url: 'https://www.zbrushcentral.com/', desc: 'ZBrush 官方社区，适合查看雕刻作品和教程讨论',},
+				{ tag: '作品集', title: 'ArtStation', url: 'https://www.artstation.com/', desc: '游戏、影视、概念设计和 3D 艺术作品集平台',},
 		]},
 		{ category: '视频网站', children: [
-				{ title: 'bilibili', url: 'https://bilibili.com', desc: '',},
-				{ title: '低端影视', url: '#', desc: '',},
+				{ tag: '视频', title: 'bilibili', url: 'https://www.bilibili.com/', desc: '国内综合视频社区，适合学习、娱乐和创作内容',},
+				{ tag: '影视', title: '低端影视', url: 'https://www.ddys.run/', desc: '影视资源站，域名可能变化，访问前注意辨别镜像站',},
 		]},
 		{ category: 'Windows实用工具', children: [
-				{ title: 'Listary', url: '', desc: '快捷检索,推荐💚',},
-				{ title: 'SETUNA2', url: '', desc: '小巧截图置顶工具,推荐💚',},
-				{ title: 'Sublime Text', url: '', desc: '文本编辑器,替代本地记事本,推荐💚',},
+				{ tag: '搜索', title: 'Listary', url: 'https://www.listary.com/', desc: 'Windows 快速文件搜索和启动器，适合替代系统搜索',},
+				{ tag: '截图', title: 'SETUNA2', url: 'https://www.vector.co.jp/soft/winnt/art/se486438.html', desc: '小巧截图置顶工具，适合临时固定参考图',},
+				{ tag: '编辑器', title: 'Sublime Text', url: 'https://www.sublimetext.com/', desc: '轻量文本编辑器，适合替代本地记事本和快速编辑代码',},
 		]},
 		{ category: 'Chrome实用插件', children: [
-				{ title: 'Tampermonkey', url: '', desc: '',},
-				{ title: 'AdBlock', url: '', desc: '广告屏蔽',},
-				{ title: '猫抓', url: '', desc: '网页视频下载',},
+				{ tag: '脚本', title: 'Tampermonkey', url: 'https://www.tampermonkey.net/', desc: '用户脚本管理器，可安装网页增强脚本',},
+				{ tag: '广告拦截', title: 'AdBlock', url: 'https://getadblock.com/', desc: '浏览器广告屏蔽插件',},
+				{ tag: '下载', title: '猫抓', url: 'https://chromewebstore.google.com/detail/%E7%8C%AB%E6%8A%93/jfedfbgedapdagkghmgibemcoggfppbb', desc: '网页媒体资源嗅探和下载辅助插件',},
 		]},
 		{ category: '壁纸', children: []},
 		{ category: '图书馆', children: [

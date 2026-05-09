@@ -99,6 +99,32 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: fluid
+theme_config:
+  pwa:
+    enable: true
+    manifest:
+      name: Luffy Blog
+      short_name: Blog
+      description: 博客 前端 nodejs typescript rxjs
+      theme_color: "#9DC3C1"
+      background_color: "#D8E6E7"
+      start_url: /blog/
+      scope: /blog/
+      icons:
+        - src: /blog/img/head.png
+          sizes: 192x192
+          type: image/png
+        - src: /blog/img/head.png
+          sizes: 512x512
+          type: image/png
+    service_worker:
+      cache_name: luffy-blog-pwa-v1
+      strategy: network-first
+      preload_urls:
+        - /blog/
+        - /blog/archives/
+        - /blog/tags/
+        - /blog/categories/
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
