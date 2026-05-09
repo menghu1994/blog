@@ -1,0 +1,537 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.png">
+  <link rel="icon" type="image/png" href="/blog/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#9DC3C1">
+  <meta name="description" content="博客 前端 nodejs typescript rxjs">
+  <meta name="author" content="Luffy">
+  <meta name="keywords" content="博客 前端 nodejs typescript rxjs">
+  <title>Uniapp 安装更新包 - Luffy</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/blog/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/rainbow.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap.css">
+<link rel="stylesheet" href="/blog/css/self.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"menghu1994.github.io","root":"/blog/","version":"1.8.7","typing":{"enable":true,"typeSpeed":130,"cursorChar":"💙","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"💯 "},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false,"loading_img":"/img/loading.gif"},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<!--  <script src="https://cdn.tailwindcss.com"></script>-->
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header style="height: 30vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/blog/">
+        <img src="/blog/img/logo.png" srcset="/blog/img/loading.gif" height="46">
+        <strong>Luffy</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                文章
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                书签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于我
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/Home/">
+                <i class="iconfont icon-user-fill"></i>
+                简历
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/nav/">
+                <i class="iconfont icon-web"></i>
+                精选网站
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/blog/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Uniapp 安装更新包">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+</div>
+
+<div class="mt-1">
+  
+
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Uniapp 安装更新包</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Uniapp-安装更新文件包"><a href="#Uniapp-安装更新文件包" class="headerlink" title="Uniapp 安装更新文件包"></a>Uniapp 安装更新文件包</h1><blockquote>
+<p>安卓apk版本更新后提示用户下载并更新到最新版<br>后台添加版本配置及安装包上传</p>
+</blockquote>
+<h2 id="打包APK"><a href="#打包APK" class="headerlink" title="打包APK"></a>打包APK</h2><figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json"><span class="hljs-comment">// manifest.json</span><br><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-comment">// 每次打包的appid应是同一个</span><br>  <span class="hljs-attr">&quot;appid&quot;</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;__UNI__C111111&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-comment">// 每次打包versionName，versionCode都需要增加版本号</span><br>  <span class="hljs-attr">&quot;versionName&quot;</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1.0.3&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;versionCode&quot;</span> <span class="hljs-punctuation">:</span> <span class="hljs-number">103</span><span class="hljs-punctuation">,</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></div></td></tr></table></figure>
+
+<h2 id="检测更新"><a href="#检测更新" class="headerlink" title="检测更新"></a>检测更新</h2><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">u-modal</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;版本提示&quot;</span> <span class="hljs-attr">:show-cancel-button</span>=<span class="hljs-string">&quot;true&quot;</span></span><br><span class="hljs-tag">         <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;showVersionTip&quot;</span> <span class="hljs-attr">:content</span>=<span class="hljs-string">&quot;versionTipContent&quot;</span></span><br><span class="hljs-tag">         @<span class="hljs-attr">confirm</span>=<span class="hljs-string">&quot;versionConfirm()&quot;</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-modal</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">u-modal</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;应用更新中&quot;</span> <span class="hljs-attr">:show-confirm-button</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">:show-cancel-button</span>=<span class="hljs-string">&quot;false&quot;</span></span><br><span class="hljs-tag">         <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;showDownloadProgress&quot;</span> @<span class="hljs-attr">cancel</span>=<span class="hljs-string">&quot;canelDownload&quot;</span> &gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text-center&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">u-circle-progress</span> <span class="hljs-attr">active-color</span>=<span class="hljs-string">&quot;#2979ff&quot;</span> <span class="hljs-attr">:percent</span>=<span class="hljs-string">&quot;progress&quot;</span> <span class="hljs-attr">bg-color</span>=<span class="hljs-string">&quot;transparent&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;u-progress-content&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&#x27;u-progress-info&#x27;</span>&gt;</span>&#123;&#123; progress &#125;&#125; %<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">u-circle-progress</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">u-modal</span>&gt;</span><br><br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-title function_">checkVersion</span>(<span class="hljs-params"></span>)&#123;<br>  <span class="hljs-keyword">if</span>(!uni.<span class="hljs-title function_">getStorageSync</span>(<span class="hljs-string">&#x27;versionCheck&#x27;</span>))&#123; <span class="hljs-keyword">return</span> &#125;<br>  <span class="hljs-keyword">const</span> systemVersion = uni.<span class="hljs-title function_">getSystemInfoSync</span>() ? <span class="hljs-string">&#x27;v&#x27;</span> + uni.<span class="hljs-title function_">getSystemInfoSync</span>().<span class="hljs-property">appVersion</span> : <span class="hljs-string">&#x27;v1.0.1&#x27;</span>;<br>  login.<span class="hljs-title function_">checkVersion</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">configObj</span> = res.<span class="hljs-property">data</span>;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">versionTipContent</span> =<span class="hljs-string">`新版本【<span class="hljs-subst">$&#123;<span class="hljs-variable language_">this</span>.configObj[<span class="hljs-string">&#x27;fileVersion&#x27;</span>]&#125;</span>】已发布。请点击“确认”完成更新！如有任何问题，请联系IT人员。`</span>;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">showVersionTip</span> = <span class="hljs-literal">true</span>;<br>  &#125;)<br>&#125;<br><br><span class="hljs-comment">// 自动下载更新版本</span><br><span class="hljs-keyword">async</span> <span class="hljs-title function_">versionConfirm</span>(<span class="hljs-params"></span>)&#123;<br>  uni.<span class="hljs-title function_">setStorageSync</span>(<span class="hljs-string">&#x27;versionCheck&#x27;</span>, <span class="hljs-literal">true</span>);<br>  <span class="hljs-comment">// #ifdef APP-PLUS ||MP</span><br>		<span class="hljs-keyword">const</span> uploadFileRes = <span class="hljs-keyword">await</span> <span class="hljs-title class_">UploadService</span>.<span class="hljs-title function_">getFileByObjectIdType</span>();<br><br>		<span class="hljs-keyword">if</span> (!uploadFileRes || !uploadFileRes.<span class="hljs-property">data</span>.<span class="hljs-property">length</span>) &#123;<br>		  <span class="hljs-variable language_">this</span>.$msg(<span class="hljs-string">&#x27;未找到更新文件&#x27;</span>);<br>		  <span class="hljs-keyword">return</span>;<br>		&#125;<br><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">showDownloadProgress</span> = <span class="hljs-literal">true</span>;<br>    <span class="hljs-comment">//configObj.filePath 可以是完整的nginx暴露的文件地址</span><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">dtask</span> = plus.<span class="hljs-property">downloader</span>.<span class="hljs-title function_">createDownload</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">configObj</span>.<span class="hljs-property">filePath</span>, &#123;&#125;, <span class="hljs-function">(<span class="hljs-params"> d, status </span>) =&gt;</span> &#123;<br>      <span class="hljs-comment">// 下载完成</span><br>      <span class="hljs-keyword">if</span> ( status == <span class="hljs-number">200</span> ) &#123;<br>				<span class="hljs-variable language_">this</span>.<span class="hljs-property">showDownloadProgress</span> = <span class="hljs-literal">false</span>;<br>        plus.<span class="hljs-property">runtime</span>.<span class="hljs-title function_">install</span>(plus.<span class="hljs-property">io</span>.<span class="hljs-title function_">convertLocalFileSystemURL</span>(d.<span class="hljs-property">filename</span>),&#123; <span class="hljs-attr">force</span>: <span class="hljs-literal">true</span> &#125;,<span class="hljs-function">() =&gt;</span> &#123;<br>					<span class="hljs-variable language_">this</span>.$msg(<span class="hljs-string">&#x27;安装成功，即将重启应用&#x27;</span>);<br>				&#125;, <span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> &#123;<br>          <span class="hljs-variable language_">this</span>.<span class="hljs-property">showDownloadProgress</span> = <span class="hljs-literal">false</span>;<br>          <span class="hljs-variable language_">this</span>.$msg(<span class="hljs-string">&#x27;安装失败&#x27;</span>);<br>        &#125;)<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">showDownloadProgress</span> = <span class="hljs-literal">false</span>;<br>        <span class="hljs-variable language_">this</span>.$msg(<span class="hljs-string">&#x27;更新失败&#x27;</span>);<br>      &#125;<br>    &#125;);<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">dtask</span>.<span class="hljs-title function_">start</span>();<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">dtask</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;statechanged&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">task, status</span>) =&gt;</span> &#123;<br>      <span class="hljs-keyword">switch</span> (task.<span class="hljs-property">state</span>) &#123;<br>        <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<br>          <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;正在下载&#x27;</span>)<br>          <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<br>          <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;已连接到服务器&#x27;</span>)<br>          <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:<br>          <span class="hljs-comment">// 下载中</span><br>          <span class="hljs-keyword">const</span> newProgress = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((task.<span class="hljs-property">downloadedSize</span>/task.<span class="hljs-property">totalSize</span>) * <span class="hljs-number">100</span>);<br>          <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">throttle</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>              <span class="hljs-variable language_">this</span>.<span class="hljs-property">progress</span> = newProgress;<br>          &#125;, <span class="hljs-number">500</span>);<br>          <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:<br>          <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;下载完成&#x27;</span>)<br>          <span class="hljs-keyword">break</span>;<br>      &#125;<br>    &#125;);<br>  &#125;<br>  <span class="hljs-comment">// #endif</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/categories/FrontEnd/">FrontEnd</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/blog/tags/Uniapp/">Uniapp</a>
+                    
+                  </div>
+                
+              </div>
+
+               <p class="note note-warning">
+              <strong>本文作者: </strong><a href="/blog/">孟 虎</a> <br>
+              <strong>本文链接: </strong><a href="https://menghu1994.github.io/blog/FrontEnd/FrontEnd/uni-app/apkUpdate/">https://menghu1994.github.io/blog/FrontEnd/FrontEnd/uni-app/apkUpdate/</a> <br>
+              <strong>版权声明: </strong>本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                 </p>
+                 
+
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/FrontEnd/FrontEnd/uni-app/apkUpdateUpgrade/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Uniapp 安装更新包升级版</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/uncategorized/Network/Git/Questions/mulitRemote/">
+                        <span class="hidden-mobile">一个项目多个远程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <style>
+.v[data-class=v] .veditor {
+    background-image: url(https://blog.justlovesmile.top/img/comment_bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+</style>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "K5t0hzq1aPNDTQPiOHKBjo2A-gzGzoHsz",
+          app_key: "iL3edhps0y1W2SNJdJLw67NF",
+          placeholder: "",
+          path: window.location.pathname,
+          avatar: "monsterid",
+          meta: ["nick","mail"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+          visitor: '' === 'true',
+          enableQQ: 'true', 
+          requiredFields: ['nick'], 
+        });
+      });
+    });
+  </script>
+  <script type="text/javascript">
+   fetch('https://v1.hitokoto.cn/?c=b&c=c')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("veditor").setAttribute("placeholder",data.hitokoto+"__"+data.from);
+    })
+    .catch(console.error)
+</script>
+  <noscript>Please enable JavaScript to view the
+    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="/blog/img/cash.png" srcset="/blog/img/loading.gif" class="rounded mx-auto d-block mt-2" style="width:160px; height:200px;">
+    </div>
+  </div>
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <!-- <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+      <div class="modal-body mx-3">
+        <div class="md-form">
+          <input type="text" id="local-search-input" class="form-control validate" placeholder="关键词查询">
+          <!-- <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label> -->
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-2 py-3">
+  <div class="footer-content">
+    <span> # 有些事情只有爬上去了才知道 # </span>
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        苏ICP备2024150994号-2
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/debouncer.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/blog/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/blog/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/blog/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/blog/js/self.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/yinghua.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+
+<div class="text-center py-1">
+  <div>
+    <span>Copyright © 2025</span>
+    <a href="https://menghu1994.github.io" target="_blank" rel="nofollow noopener">
+     <span>Luffy💕Miss Wu💕Peanut</span></a><br>
+ </div>
+
+
+</body>
+</html>
