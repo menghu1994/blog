@@ -2,6 +2,7 @@
 layout: post
 title: Nestjs 教程
 index_txt: Nestjs
+excerpt: Nestjs 笔记
 categories:
  - BackEnd
 tags: ['Nestjs']
@@ -9,6 +10,7 @@ tags: ['Nestjs']
 
 # 目录
 
+0. [学习路径](/blog/BackEnd/BackEnd/NestJs/learning/)
 1. [项目搭建](/blog/BackEnd/BackEnd/NestJs/installAndUsage/)
 2. [Swagger接口文档](/blog/BackEnd/BackEnd/NestJs/swagger/)
 3. [登录验证](/blog/BackEnd/BackEnd/NestJs/auth/)

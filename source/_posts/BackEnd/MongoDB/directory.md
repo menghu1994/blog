@@ -2,6 +2,7 @@
 layout: post
 title: MongoDB教程
 index_txt: MongoDB
+excerpt: MongoDB 笔记
 categories:
  - BackEnd
 tags: ['Mongodb']
