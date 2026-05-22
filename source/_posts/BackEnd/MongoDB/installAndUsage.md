@@ -41,10 +41,13 @@ categories:
 ### 增
 `db.<表名称>.insert(<json数据>)` 数据库表插入数据
 `db.<表名称>.insertMany(<数组数据>)` 数据库表插入多个数据
+`db.createCollection("<表名>")` 创建空数据集合
 
 ### 删
 `db.<表名称>.remove(<json查询要删除的数据>)` 删除表中的某条数据
 `db.<表名称>.drop()` 删除表
+`db.<表名称>.deleteMany()` 删除表
+
 
 ### 改
 `db.test.update({'name': 'xiaoming'}, {$set:{'job': 'student'}}) `
@@ -64,3 +67,4 @@ categories:
     - `...limit(10)` 限制查询10条数据
     - `...sort({'name': 1})` 名称按正序排序
     - `...skip(2)` 跳过2个元素
++ db.<表名>.countDocuments() //查询数量

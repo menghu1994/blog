@@ -14,3 +14,4 @@ tags: ['Mongodb']
 2. [Mongodb in Express](/blog/BackEnd/BackEnd/MongoDB/mongodb/)
 3. [typegoose](/blog/BackEnd/BackEnd/MongoDB/typegoose/)
 4. [数据库迁移](/blog/BackEnd/BackEnd/MongoDB/mongoMovement/)
+5. [异常关闭](/blog/BackEnd/BackEnd/MongoDB/errorClose/)
